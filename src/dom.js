@@ -1,13 +1,11 @@
 export function myTest (num) {
   return num;
-}
+}  
 
-export const dom = ( () => {
+const dom = ( () => {
   const allSquares = document.querySelectorAll('.square');
   const oddRowSquares = document.querySelectorAll('.odd-row')
   const evenRowSquares = document.querySelectorAll('.even-row')
-  
-  
 
   let colorOddRows = ( () => {
   oddRowSquares.forEach( (square) => {
@@ -31,4 +29,3 @@ export const dom = ( () => {
 
   }
 )();
-

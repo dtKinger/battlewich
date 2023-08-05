@@ -1,24 +1,24 @@
-export const makeWich = (description, length, anchorArr, axis, hitCount = 0, sunkStatus = false) => {
+export const makeWich = (description, length, anchorArr, axis, biteCount = 0, eatenStatus = false) => {
     
   return {
     description: description,
     length: length,
     anchorArr: anchorArr,
     axis: axis,
-    hitCount: hitCount,
-    sunkStatus: sunkStatus,
+    biteCount: biteCount,
+    eatenStatus: eatenStatus,
 
-    hit () { // The action of getting hit
-      if (this.hitCount < this.length){
-        this.hitCount += 1
+    bite () { // The action of getting hit
+      if (this.biteCount < this.length){
+        this.biteCount += 1
       }
-      return this.hitCount
+      return this.biteCount
     },
     
-    isSunk(message) { // Check if it's sunk (call me after hit())
+    isEaten(message) { // Check if it's sunk (call me after hit())
       message = "You ate the opponents entire submarine!"
-      if (hitCount === length){
-        sunkStatus = true;
+      if (this.biteCount === this.length){
+        this.eatenStatus = true;
       }
       console.log(message)
     },

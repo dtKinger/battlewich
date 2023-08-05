@@ -1,6 +1,6 @@
 export function myTest (num) {
   return num;
-}  
+}
 
 const dom = ( () => {
   const allSquares = document.querySelectorAll('.square');

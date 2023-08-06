@@ -8,7 +8,7 @@ import { makeWich } from './wichFactory.js'
 // import Notes from './data.csv';
 
 /* Memory allocation */
-const pageHeader = document.querySelector('.header')
+// const pageHeader = document.querySelector('.header')
 
 /* Application */
 console.log('Welcome to Battle Sandwich!')

@@ -43,3 +43,13 @@ test("Sandwich cannot continue to be eaten after it's fully eaten", () => {
   expect(reuben.biteCount).toBe(3)
   expect(reuben.isEaten).toBeTruthy()
 })
+
+test("Check on eatenStatus state", () => {
+  const hotDog = makeWich('hotdog', 2, [7,7], 'y')
+  hotDog.isEaten();
+  expect(hotDog.eatenStatus).toBeFalsy()
+  hotDog.bite()
+  hotDog.bite()
+  hotDog.isEaten();
+  expect(hotDog.eatenStatus).toBeTruthy()
+})

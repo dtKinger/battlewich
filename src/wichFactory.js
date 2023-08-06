@@ -18,10 +18,8 @@ export const makeWich = (description, length, anchorArr, axis, biteCount = 0, ea
     isEaten() { // Check if it's sunk (call me after hit())
       if (this.biteCount === this.length){
         this.eatenStatus = true;
-        return true;
-      } else if (this.biteCount < this.length){
-        return false;
-      }
+      } 
+      return this.eatenStatus;
     },
 
   }

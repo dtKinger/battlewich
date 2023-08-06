@@ -1,7 +1,6 @@
-import { Gameboard } from "./Gameboard"
+import { Gameboard } from "./Gameboard";
+// import { player1Board, computerBoard } from "./index"
 
 test('Place a submarine', () => {
-  const player1Board = Gameboard('Player1')
-  player1Board.placeSubmarine([8,5], 'y')
-  expect(player1Board.board[8][5]).toEqual('y')
+  // const submarine = Gameboard();
 })

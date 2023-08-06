@@ -58,6 +58,16 @@ a, a:visited, a:hover, a:active {
   flex-wrap: wrap;
 }
 
+.board-context {
+  color: black;
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.board-context > h3 {
+  padding: 6px;
+}
+
 .gameboard {
   flex: 1;
   display: grid;
@@ -104,5 +114,12 @@ a, a:visited, a:hover, a:active {
     max-width: 300px;
     min-height: 300px;
     max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 683px) {
+  
+  .gameboard-container {
+    flex-direction: column-reverse;
   }
 }

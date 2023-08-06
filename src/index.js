@@ -13,10 +13,16 @@ import { Gameboard } from './Gameboard'
 
 /* Application */
 console.log('Welcome to Battle Sandwich!')
-let submarine = makeWich('submarine', 5, [0,0], 'x')
-console.log(submarine)
-const player1Board = Gameboard('player1')
-let hotDog = player1Board.placeHotDog([0,0], 'x')
-hotDog.bite()
-console.log(hotDog.biteCount)
-console.log(hotDog.isEaten())
+const player1Board = Gameboard('Player1')
+const computerBoard = Gameboard('Computer')
+console.log(player1Board.player)
+console.log(computerBoard.player);
+
+player1Board.board[8][5] = 's'
+player1Board.board[7][5] = 's'
+player1Board.board[6][5] = 's'
+player1Board.board[5][5] = 's'
+player1Board.board[4][5] = 's'
+console.log(player1Board.board)
+
+

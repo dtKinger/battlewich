@@ -45,22 +45,44 @@ export const Gameboard = ( (player) => {
       this.placeIt(hotDog, anchorArr, axis);
     },
 
-    checkSpace (sandwich, anchorArr, axis) {
-      // submarine, [8,5], y
-      // let j = sandwich.lengt
+    checkYSpaces (sandwich, anchorArr, axis) {
+      
+        for (let i = 0; i < sandwich.length; i += 1){
+          // Check the spaces
+          if (this.board[anchorArr[0] - i][anchorArr[1]] !== ''){
+            console.log('Conflict detected')
+            return false; // Break out
+          }
+          return true;
+        }
+      
+    },
+
+    checkXSpaces (sandwich, anchorArr, axis) {
+      for (let i = 0; i < sandwich.length; i += 1){
+        // Check the spaces
+        if (this.board[anchorArr[0] + i][anchorArr[1]] !== ''){
+          console.log('Conflict detected')
+          return false; // Break out
+        }
+        return true;
+      }
     },
 
     placeIt (sandwich, anchorArr, axis) {
       if (axis === 'y'){
-        for (let i = 0; i < sandwich.length; i += 1){
-          this.board[anchorArr[0] - i][anchorArr[1]] = sandwich.description.charAt(0)
+        if (this.checkYSpaces(sandwich, anchorArr, 'y') != false){
+          for (let i = 0; i < sandwich.length; i += 1){
+            this.board[anchorArr[0] - i][anchorArr[1]] = sandwich.description.charAt(0)
+          }
         }
       } else if (axis === 'x'){
-        for (let i = 0; i < sandwich.length; i += 1){
-          this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.description.charAt(0)
+        if (this.checkXSpaces(sandwich, anchorArr, 'x') != false){
+          for (let i = 0; i < sandwich.length; i += 1){
+            this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.description.charAt(0)
+          }
         }
       }
     }
-
   }
 })

@@ -203,7 +203,7 @@
   },
   "scripts": {
     "test": "jest --watchAll --collectCoverage",
-    "build": "webpack --watchAll"
+    "build": "webpack --watch"
   },
   "repository": {
     "type": "git",

@@ -85,7 +85,6 @@
     "istanbul-reports": "^3.1.6",
     "jest-changed-files": "^29.5.0",
     "jest-circus": "^29.6.2",
-    "jest-cli": "^29.6.2",
     "jest-config": "^29.6.2",
     "jest-diff": "^29.6.2",
     "jest-docblock": "^29.4.3",
@@ -197,13 +196,14 @@
     "babel-jest": "^29.6.2",
     "css-loader": "^6.8.1",
     "jest": "^29.6.2",
+    "jest-cli": "^29.6.2",
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "test": "jest --watch",
-    "build": "webpack --watch"
+    "test": "jest --watchAll --collectCoverage",
+    "build": "webpack --watchAll"
   },
   "repository": {
     "type": "git",

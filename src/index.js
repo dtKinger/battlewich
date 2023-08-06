@@ -13,8 +13,3 @@ const pageHeader = document.querySelector('.header')
 /* Application */
 console.log('Welcome to Battle Sandwich!')
 let submarine = makeWich('submarine', 5, [0,0], 'x')
-console.log(submarine)
-submarine.bite()
-submarine.bite()
-submarine.bite()
-console.log(submarine)

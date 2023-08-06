@@ -3,7 +3,7 @@ import { makeWich } from "./wichFactory";
 // makeWhich (description, length, anchorArr, axis)
 
 test('Sandwich factory function', () => {
-  const submarine = makeWich('submarine', 5, [0,0], 'x', 0)
+  const submarine = makeWich('submarine', 5, [0,0], 'x')
   // Test properties
   expect(submarine.description).toMatch("submarine")
   expect(submarine.length).toBe(5)
@@ -17,7 +17,29 @@ test('Sandwich factory function', () => {
 })
 
 test('Sandwich gets bitten', () => {
-  const submarine = makeWich('submarine', 5, [0,0], 'x', 0)
+  const submarine = makeWich('submarine', 5, [0,0], 'x')
   submarine.bite()
-  expect(submarine.biteCount).toBe(1)
+  submarine.bite()
+  submarine.bite()
+  expect(submarine.biteCount).toBe(3)
+  expect(submarine.eatenStatus).toBeFalsy()
+})
+
+test('Sandwhich gets fully eaten', () => {
+  const reuben = makeWich('reuben', 3, [5,5], 'y')
+  reuben.bite()
+  reuben.bite()
+  expect(reuben.biteCount).toBe(2)
+  expect(reuben.isEaten).toBeTruthy()
+})
+
+test("Sandwich cannot continue to be eaten after it's fully eaten", () => {
+  const reuben = makeWich('reuben', 3, [5,5], 'x')
+  reuben.bite()
+  reuben.bite()
+  reuben.bite()
+  reuben.bite() // do nothing
+  reuben.bite() // do nothing
+  expect(reuben.biteCount).toBe(3)
+  expect(reuben.isEaten).toBeTruthy()
 })

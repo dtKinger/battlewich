@@ -1,5 +1,11 @@
+@font-face {
+  font-family: 'videophreak';
+  src: url('../font/videophreak/videophreak.ttf') format('truetype');
+}
+
 :root {
   font-size: 18px;
+  font-family: 'videophreak';
 }
 
 .body {

@@ -1,12 +1,12 @@
 export const makeWich = (description, length, anchorArr, axis, biteCount = 0, eatenStatus = false) => {
     
   return {
-    description: description,
-    length: length,
-    anchorArr: anchorArr,
-    axis: axis,
-    biteCount: biteCount,
-    eatenStatus: eatenStatus,
+    description,
+    length,
+    anchorArr,
+    axis,
+    biteCount,
+    eatenStatus,
 
     bite() { // The action of getting hit
       if (this.biteCount < this.length){

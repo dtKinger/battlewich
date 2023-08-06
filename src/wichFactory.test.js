@@ -1,7 +1,5 @@
 import { makeWich } from "./wichFactory";
 
-// makeWhich (description, length, anchorArr, axis)
-
 test('Sandwich factory function', () => {
   const submarine = makeWich('submarine', 5, [0,0], 'x')
   // Test properties
@@ -25,7 +23,7 @@ test('Sandwich gets bitten', () => {
   expect(submarine.eatenStatus).toBeFalsy()
 })
 
-test('Sandwhich gets fully eaten', () => {
+test('Sandwich gets fully eaten', () => {
   const reuben = makeWich('reuben', 3, [5,5], 'y')
   reuben.bite()
   reuben.bite()

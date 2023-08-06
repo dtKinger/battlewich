@@ -49,11 +49,11 @@ export const Gameboard = ( (player) => {
     placeIt (sandwich, anchorArr, axis) {
       if (axis === 'y'){
         for (let i = 0; i < sandwich.length; i += 1){
-          player1Board.board[anchorArr[0] - i][anchorArr[1]] = sandwich.description.charAt(0)
+          this.board[anchorArr[0] - i][anchorArr[1]] = sandwich.description.charAt(0)
         }
       } else if (axis === 'x'){
         for (let i = 0; i < sandwich.length; i += 1){
-          player1Board.board[anchorArr[0]][anchorArr[1] + i] = sandwich.description.charAt(0)
+          this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.description.charAt(0)
         }
       }
     }

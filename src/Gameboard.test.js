@@ -37,6 +37,5 @@ test("Don't allow new sandwich on existing sandwich", () => {
 
 test("Fail when placing a piece that would be out of bounds", () => {
   const aBoard = Gameboard('anyone')
-  aBoard.placeSubmarine([1,1], 'x')
-  // console.log(aBoard.board)
+  aBoard.placeSubmarine([1,1], 'x') // change x to y to fail it
 })

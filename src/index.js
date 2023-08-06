@@ -17,7 +17,13 @@ export const player1Board = Gameboard('Player1')
 export const computerBoard = Gameboard('Computer')
   player1Board.placeReuben([5,3], 'x')
   player1Board.placeClub([5,3], 'y')
-console.log(player1Board.board)
 
+  try {
+    player1Board.placeSubmarine([1,1], 'y') // change x to y to fail it
+  } catch {
+    console.log("Can't play out of bounds")
+  }
+
+console.info(player1Board.board)
 
 

@@ -59,8 +59,6 @@ export const Gameboard = ( (player) => {
           console.log("Can't play on top of existing wich")
           return false; // Break out if they're not all empty.
         }
-        
-        return true;
       }
     },
 

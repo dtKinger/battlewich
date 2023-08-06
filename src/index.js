@@ -19,6 +19,4 @@ player1Board.placeSubmarine([5,3], 'x')
 console.log(player1Board.board)
 
 
-// console.log(player1Board.board)
-
 

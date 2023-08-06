@@ -26,19 +26,23 @@ export const Gameboard = ( (player) => {
     
     placeFrench (anchorArr, axis) { // helper function to lock in name and length
       const french = makeWich('french', 4, anchorArr, axis)
+      this.placeIt(french, anchorArr, axis);
       return french;
     },
 
     placeClub (anchorArr, axis) { // helper function to lock in name and length
       const club = makeWich('club', 3, anchorArr, axis)
+      this.placeIt(club, anchorArr, axis);
     },
 
     placeReuben (anchorArr, axis) { // helper function to lock in name and length
       const reuben = makeWich('reuben', 3, anchorArr, axis)
+      this.placeIt(reuben, anchorArr, axis);
     },
 
     placeHotDog (anchorArr, axis) { // helper function to lock in name and length
       const hotDog = makeWich('hot dog', 2, anchorArr, axis)
+      this.placeIt(hotDog, anchorArr, axis);
     },
 
     checkSpace (sandwich, anchorArr, axis) {

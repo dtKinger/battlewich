@@ -45,25 +45,26 @@ export const Gameboard = ( (player) => {
       this.placeIt(hotDog, anchorArr, axis);
     },
 
-    checkYSpaces (sandwich, anchorArr, axis) {
-      
-        for (let i = 0; i < sandwich.length; i += 1){
-          // Check the spaces
-          if (this.board[anchorArr[0] - i][anchorArr[1]] !== ''){
-            console.log('Conflict detected')
-            return false; // Break out
-          }
-          return true;
+
+    // Two helpers for placeIt, but run it independentantly on mouseOver event
+    // during the set up stage. Red-light the affected squares
+    checkYSpaces (sandwich, anchorArr) {
+      for (let i = 0; i < sandwich.length; i += 1){
+        // Check the spaces
+        if (this.board[anchorArr[0] - i][anchorArr[1]] !== ''){
+          console.log('Conflict detected')
+          return false; // Break out if they're not all empty.
         }
-      
+        return true;
+      }
     },
 
-    checkXSpaces (sandwich, anchorArr, axis) {
+    checkXSpaces (sandwich, anchorArr) {
       for (let i = 0; i < sandwich.length; i += 1){
         // Check the spaces
         if (this.board[anchorArr[0] + i][anchorArr[1]] !== ''){
           console.log('Conflict detected')
-          return false; // Break out
+          return false; // Break out if they're not all empty.
         }
         return true;
       }
@@ -71,13 +72,13 @@ export const Gameboard = ( (player) => {
 
     placeIt (sandwich, anchorArr, axis) {
       if (axis === 'y'){
-        if (this.checkYSpaces(sandwich, anchorArr, 'y') != false){
+        if (this.checkYSpaces(sandwich, anchorArr) != false){
           for (let i = 0; i < sandwich.length; i += 1){
             this.board[anchorArr[0] - i][anchorArr[1]] = sandwich.description.charAt(0)
           }
         }
       } else if (axis === 'x'){
-        if (this.checkXSpaces(sandwich, anchorArr, 'x') != false){
+        if (this.checkXSpaces(sandwich, anchorArr) != false){
           for (let i = 0; i < sandwich.length; i += 1){
             this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.description.charAt(0)
           }

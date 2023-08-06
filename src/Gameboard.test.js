@@ -32,5 +32,11 @@ test("Don't allow new sandwich on existing sandwich", () => {
   const aBoard = Gameboard('anyone')
   aBoard.placeReuben([5,3], 'x')
   aBoard.placeClub([5,3], 'y')
-  expect(aBoard.board[5][3]).toBe('r')
+  expect(aBoard.board[5][3]).toBe('r') // r for Reuben should persist in the spot.
+})
+
+test("Fail when placing a piece that would be out of bounds", () => {
+  const aBoard = Gameboard('anyone')
+  aBoard.placeSubmarine([1,1], 'x')
+  // console.log(aBoard.board)
 })

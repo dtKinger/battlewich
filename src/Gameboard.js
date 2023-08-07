@@ -66,6 +66,7 @@ export const Gameboard = ( (player) => {
           // board illegally.
         }
       }
+      return { sandwich, anchorArr }
     },
 
     checkXSpaces (sandwich, anchorArr) {
@@ -79,6 +80,7 @@ export const Gameboard = ( (player) => {
           return false; // Break out if they're not all empty.
         }
       }
+      return { sandwich, anchorArr }
     },
 
     placeIt (sandwich, anchorArr, axis) {

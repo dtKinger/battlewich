@@ -41,6 +41,7 @@ test("Fail when placing a piece that would be out of bounds", () => {
   const submarine = makeWich('submarine', 5)
   // aBoard.placeSubmarine([1,1], 'x') // change x to y to fail it
   expect(aBoard.placeIt(submarine, [1,1])).toBeDefined();
+  expect(aBoard.checkXSpaces(submarine, [1,1])).toBeDefined();
   // aBoard.checkYSpaces(submarine, [1,1], 'x')
 })
 

@@ -31,8 +31,8 @@ test('Hot Dog is not too big or too small', () => {
 
 test("Don't allow new sandwich on existing sandwich", () => {
   const aBoard = Gameboard('anyone')
-  aBoard.placeReuben([5,3], 'x')
-  aBoard.placeClub([5,3], 'y')
+  aBoard.placeReuben([5,3])
+  aBoard.placeClub([5,3])
   expect(aBoard.board[5][3]).toBe('r') // r for Reuben should persist in the spot.
 })
 

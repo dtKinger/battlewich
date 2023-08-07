@@ -1,11 +1,10 @@
 import { makeWich } from "./wichFactory";
 
 test('Sandwich factory function', () => {
-  const submarine = makeWich('submarine', 5, [0,0], 'x')
+  const submarine = makeWich('submarine', 5, 'x')
   // Test properties
-  expect(submarine.description).toMatch("submarine")
+  expect(submarine.name).toMatch("submarine")
   expect(submarine.length).toBe(5)
-  expect(submarine.anchorArr).toEqual([0,0]) // .toBe not good for arrays
   expect(submarine.axis).toMatch("x")
   expect(submarine.biteCount).toBe(0)
   expect(submarine.eatenStatus).toBe(false)
@@ -15,7 +14,7 @@ test('Sandwich factory function', () => {
 })
 
 test('Sandwich gets bitten', () => {
-  const submarine = makeWich('submarine', 5, [0,0], 'x')
+  const submarine = makeWich('submarine', 5, 'x')
   submarine.bite()
   submarine.bite()
   submarine.bite()
@@ -24,7 +23,7 @@ test('Sandwich gets bitten', () => {
 })
 
 test('Sandwich gets fully eaten', () => {
-  const reuben = makeWich('reuben', 3, [5,5], 'y')
+  const reuben = makeWich('reuben', 3, 'y')
   reuben.bite()
   reuben.bite()
   expect(reuben.biteCount).toBe(2)
@@ -32,7 +31,7 @@ test('Sandwich gets fully eaten', () => {
 })
 
 test("Sandwich cannot continue to be eaten after it's fully eaten", () => {
-  const reuben = makeWich('reuben', 3, [5,5], 'x')
+  const reuben = makeWich('reuben', 3, 'x')
   reuben.bite()
   reuben.bite()
   reuben.bite()

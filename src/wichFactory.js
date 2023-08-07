@@ -1,10 +1,8 @@
-export const makeWich = (description, length, anchorArr, axis, biteCount = 0, eatenStatus = false) => {
+export const makeWich = (name, length, biteCount = 0, eatenStatus = false) => {
     
   return {
-    description,
+    name,
     length,
-    anchorArr,
-    axis,
     biteCount,
     eatenStatus,
 

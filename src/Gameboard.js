@@ -3,6 +3,7 @@ import { makeWich } from "./wichFactory"
 export const Gameboard = ( (player) => {
   return {
     player,
+    axis: 'x',
     board: 
       [
         ['','','','','','','','','',''],
@@ -17,30 +18,30 @@ export const Gameboard = ( (player) => {
         ['','','','','','','','','','']
       ],
 
-    placeSubmarine (anchorArr, axis) { // helper function to lock in name and length
+    placeSubmarine (anchorArr, axis = this.axis) { // helper function to lock in name and length
       const submarine = makeWich('submarine', 5) // create the boat in memory
       // if (this.checkSpace () == true) {}// compare to physical space
-      this.placeIt(submarine, anchorArr, axis);
+      this.placeIt(submarine, anchorArr);
       return submarine;
     },
     
-    placeFrench (anchorArr, axis) { // helper function to lock in name and length
+    placeFrench (anchorArr, axis = this.axis) { // helper function to lock in name and length
       const french = makeWich('french', 4)
       this.placeIt(french, anchorArr, axis);
       return french;
     },
 
-    placeClub (anchorArr, axis) { // helper function to lock in name and length
+    placeClub (anchorArr, axis = this.axis) { // helper function to lock in name and length
       const club = makeWich('club', 3)
       this.placeIt(club, anchorArr, axis);
     },
 
-    placeReuben (anchorArr, axis) { // helper function to lock in name and length
+    placeReuben (anchorArr, axis = this.axis) { // helper function to lock in name and length
       const reuben = makeWich('reuben', 3)
       this.placeIt(reuben, anchorArr, axis);
     },
 
-    placeHotDog (anchorArr, axis) { // helper function to lock in name and length
+    placeHotDog (anchorArr, axis = this.axis) { // helper function to lock in name and length
       const hotDog = makeWich('hot dog', 2)
       this.placeIt(hotDog, anchorArr, axis);
     },
@@ -48,7 +49,7 @@ export const Gameboard = ( (player) => {
 
     // Two helpers for placeIt, but run it independentantly on mouseOver event
     // during the set up stage. Red-light the affected squares
-    checkYSpaces (sandwich, anchorArr, axis) {
+    checkYSpaces (sandwich, anchorArr) {
       
       for (let i = 0; i < sandwich.length; i += 1){
         // Check the spaces
@@ -67,7 +68,7 @@ export const Gameboard = ( (player) => {
       }
     },
 
-    checkXSpaces (sandwich, anchorArr, axis) {
+    checkXSpaces (sandwich, anchorArr) {
       for (let i = 0; i < sandwich.length; i += 1){
         // Check the spaces
         if (this.board[anchorArr[0] + i][anchorArr[1]] === undefined){
@@ -81,16 +82,16 @@ export const Gameboard = ( (player) => {
     },
 
     placeIt (sandwich, anchorArr, axis) {
-      if (axis === 'y'){
-        if (this.checkYSpaces(sandwich, anchorArr, axis) != false){
+      if (this.axis === 'y'){
+        if (this.checkYSpaces(sandwich, anchorArr) != false){
           // place the ship
           console.log('Successful placement!')
           for (let i = 0; i < sandwich.length; i += 1){
             this.board[anchorArr[0] - i][anchorArr[1]] = sandwich.name.charAt(0)
           }
         }
-      } else if (axis === 'x'){
-        if (this.checkXSpaces(sandwich, anchorArr, axis) != false){
+      } else if (this.axis === 'x'){
+        if (this.checkXSpaces(sandwich, anchorArr) != false){
           for (let i = 0; i < sandwich.length; i += 1){
             this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.name.charAt(0)
           }

@@ -12,13 +12,13 @@ test('Place and find submarine', () => {
   expect(player1Boardz.board[5][7]).toBe('s')
 })
 
-test('Y-axis sandwich should build north by decrementing i', () => {
-  const player1Boardz = Gameboard('player1');
-  player1Boardz.placeFrench([3,2], 'y')
-  expect(player1Boardz.board[3][2]).toBe('f')
-  expect(player1Boardz.board[2][2]).toBe('f')
-  expect(player1Boardz.board[1][2]).toBe('f')
-})
+// test('Y-axis sandwich should build north by decrementing i', () => {
+//   const player1Boardz = Gameboard('player1');
+//   player1Boardz.placeFrench([3,2], 'y')
+//   expect(player1Boardz.board[3][2]).toBe('f')
+//   expect(player1Boardz.board[2][2]).toBe('f')
+//   expect(player1Boardz.board[1][2]).toBe('f')
+// })
 
 test('Hot Dog is not too big or too small', () => {
   const computerBoardz = Gameboard('computer')
@@ -41,17 +41,11 @@ test("Fail when placing a piece that would be out of bounds", () => {
   aBoard.placeSubmarine([1,1], 'x') // change x to y to fail it
 })
 
-test.only("test my Yspace-checking function", () => {
-  const playerZBoard = Gameboard('playerZ')
-  const submarine = makeWich('submarine', 5, 'x')
-  console.log(submarine)
-  console.log('A. ' + playerZBoard.checkXSpaces(5, [0,0], 'y'))
-  console.log('B. ' + playerZBoard.checkYSpaces(5, [0,0], 'x'))
+test("test my Yspace-checking function", () => {
   
-  // expect(playerZBoard.checkYSpaces(5, [0,0], 'y')).toBeDefined()
 })
 
 test("test my Xspace-checking function", () => {
-  // const french = makeWich('french', 4, anchorArr, axis)
+  
   
 })

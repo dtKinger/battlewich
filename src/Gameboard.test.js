@@ -45,10 +45,10 @@ test.only("test my Yspace-checking function", () => {
   const playerZBoard = Gameboard('playerZ')
   const submarine = makeWich('submarine', 5, 'x')
   console.log(submarine)
-  console.log('A. ' + playerZBoard.checkXSpaces('submarine', [0,0], 'x'))
-  console.log('B. ' + playerZBoard.checkYSpaces('submarine', [0,0], 'y'))
+  console.log('A. ' + playerZBoard.checkXSpaces(5, [0,0], 'y'))
+  console.log('B. ' + playerZBoard.checkYSpaces(5, [0,0], 'x'))
   
-  // expect(playerZBoard.checkYSpaces('submarine', [0,0], 'y')).toBeDefined()
+  // expect(playerZBoard.checkYSpaces(5, [0,0], 'y')).toBeDefined()
 })
 
 test("test my Xspace-checking function", () => {

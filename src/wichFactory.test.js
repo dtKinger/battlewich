@@ -1,11 +1,10 @@
 import { makeWich } from "./wichFactory";
 
 test('Sandwich factory function', () => {
-  const submarine = makeWich('submarine', 5, 'x')
+  const submarine = makeWich('submarine', 5)
   // Test properties
   expect(submarine.name).toMatch("submarine")
   expect(submarine.length).toBe(5)
-  expect(submarine.axis).toMatch("x")
   expect(submarine.biteCount).toBe(0)
   expect(submarine.eatenStatus).toBe(false)
   // Test methods
@@ -14,7 +13,7 @@ test('Sandwich factory function', () => {
 })
 
 test('Sandwich gets bitten', () => {
-  const submarine = makeWich('submarine', 5, 'x')
+  const submarine = makeWich('submarine', 5)
   submarine.bite()
   submarine.bite()
   submarine.bite()
@@ -23,7 +22,7 @@ test('Sandwich gets bitten', () => {
 })
 
 test('Sandwich gets fully eaten', () => {
-  const reuben = makeWich('reuben', 3, 'y')
+  const reuben = makeWich('reuben', 3)
   reuben.bite()
   reuben.bite()
   expect(reuben.biteCount).toBe(2)
@@ -31,7 +30,7 @@ test('Sandwich gets fully eaten', () => {
 })
 
 test("Sandwich cannot continue to be eaten after it's fully eaten", () => {
-  const reuben = makeWich('reuben', 3, 'x')
+  const reuben = makeWich('reuben', 3)
   reuben.bite()
   reuben.bite()
   reuben.bite()
@@ -42,7 +41,7 @@ test("Sandwich cannot continue to be eaten after it's fully eaten", () => {
 })
 
 test("Check on eatenStatus state", () => {
-  const hotDog = makeWich('hotdog', 2, [7,7], 'y')
+  const hotDog = makeWich('hotdog', 2)
   hotDog.isEaten();
   expect(hotDog.eatenStatus).toBeFalsy()
   hotDog.bite()

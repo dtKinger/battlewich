@@ -38,7 +38,10 @@ test("Don't allow new sandwich on existing sandwich", () => {
 
 test("Fail when placing a piece that would be out of bounds", () => {
   const aBoard = Gameboard('anyone')
-  aBoard.placeSubmarine([1,1], 'x') // change x to y to fail it
+  const submarine = makeWich('submarine', 5)
+  // aBoard.placeSubmarine([1,1], 'x') // change x to y to fail it
+  expect(aBoard.placeIt(submarine, [1,1])).toBeDefined();
+  // aBoard.checkYSpaces(submarine, [1,1], 'x')
 })
 
 test("test my Yspace-checking function", () => {

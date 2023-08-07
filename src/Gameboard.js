@@ -82,14 +82,14 @@ export const Gameboard = ( (player) => {
     },
 
     placeIt (sandwich, anchorArr, axis) {
-      if (this.axis === 'y'){
+      if (axis === 'y'){ // axis is inherited from 
         if (this.checkYSpaces(sandwich, anchorArr) != false){
           // place the ship
           for (let i = 0; i < sandwich.length; i += 1){
             this.board[anchorArr[0] - i][anchorArr[1]] = sandwich.name.charAt(0)
           }
         }
-      } else if (this.axis === 'x'){
+      } else if (axis === 'x'){
         if (this.checkXSpaces(sandwich, anchorArr) != false){
           // place the ship
           for (let i = 0; i < sandwich.length; i += 1){
@@ -97,6 +97,7 @@ export const Gameboard = ( (player) => {
           }
         }
       }
+      return { sandwich, anchorArr, axis }
     }
   }
 })

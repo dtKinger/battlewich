@@ -14,7 +14,12 @@ import { Gameboard } from "./Gameboard";
 /* Application */
 console.log("Welcome to Battle 'Wich!")
 const player1Board = Gameboard('player1')
-player1Board.placeSubmarine([1,0])
+try {
+// player1Board.placeSubmarine([1,0])
 player1Board.placeFrench([9,3]) // Can't place it in 7th row or higher number???
 player1Board.placeReuben([4, 2])
+player1Board.placeHotDog([4,7], 'y')
+} catch {
+  console.log('Something illegal happened')
+}
 console.log(player1Board.board)

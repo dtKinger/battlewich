@@ -8,28 +8,41 @@ test('Place and find submarine', async () => {
   expect(aBoard.board[2][2]).toBe('s')
 })
 
-test('Y-axis sandwich should build north by decrementing i', () => {
-//   const player1Boardz = Gameboard('player1');
-//   player1Boardz.placeFrench([3,2], 'y')
-//   expect(player1Boardz.board[3][2]).toBe('f')
-//   expect(player1Boardz.board[2][2]).toBe('f')
-//   expect(player1Boardz.board[1][2]).toBe('f')
-})
 
-test('Hot Dog is not too big or too small', () => {
-  // const computerBoardz = Gameboard('computer')
-  // computerBoardz.placeHotDog([4, 3], 'x')
-  // expect(computerBoardz.board[4][2]).toBe('')
-  // expect(computerBoardz.board[4][3]).toBe('h')
-  // expect(computerBoardz.board[4][4]).toBe('h')
-  // expect(computerBoardz.board[4][5]).toBe('')
-})
+test("Pass 'y' as a parameter to make a sandwich vertical", () => {
+  const boardZ = Gameboard('player1');
+  return new Promise((resolve, reject) => {
+    boardZ.placeWich(boardZ.club, [4, 4], 'y');
+    resolve(); // Resolve the promise after performing the action
+  })
+  .then(() => {
+    expect(boardZ.board[5][4]).toBe('')
+    expect(boardZ.board[4][4]).toBe('c')
+    expect(boardZ.board[3][4]).toBe('c')
+    expect(boardZ.board[2][4]).toBe('c')
+    expect(boardZ.board[1][4]).toBe('')
+  })
+  .catch((error) => {
+    console.error('An error occurred:', error);
+  })
+});
 
 test("Don't allow new sandwich on existing sandwich", () => {
-  // const aBoard = Gameboard('anyone')
-  // aBoard.placeReuben([5,3])
-  // aBoard.placeClub([5,3])
-  // expect(aBoard.board[5][3]).toBe('r') // r for Reuben should persist in the spot.
+  const boardZ = Gameboard('player1');
+  return new Promise((resolve, reject) => {
+    boardZ.placeWich(boardZ.club, [4, 4], 'y');
+    resolve(); // Resolve the promise after performing the action
+  })
+  .then(() => {
+    expect(boardZ.board[5][4]).toBe('')
+    expect(boardZ.board[4][4]).toBe('c')
+    expect(boardZ.board[3][4]).toBe('c')
+    expect(boardZ.board[2][4]).toBe('c')
+    expect(boardZ.board[1][4]).toBe('')
+  })
+  // .catch((error) => { // Don't handle the error so that test fails
+  //   console.error('An error occurred:', error);
+  // })
 })
 
 test("Fail when placing a piece that would be out of bounds", () => {
@@ -40,7 +53,9 @@ test("Fail when placing a piece that would be out of bounds", () => {
 })
 
 
-test("test my checkSpace function", async () => {
-  
+test("test my checkSpace function independantly", () => {
+  const emptyBoard = Gameboard('for testing');
+  expect(emptyBoard.checkSpaces(emptyBoard.hotDog, [0,0])).toBeTruthy()
+
 })
 

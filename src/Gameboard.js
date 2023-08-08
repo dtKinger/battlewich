@@ -23,9 +23,11 @@ export const Gameboard = ( (player) => {
     reuben: makeWich('reuben', 3),
     club: makeWich('club', 3),
     hotDog: makeWich('hot dog', 2),
+    
 
     placeWich (sandwich, anchorArr) {
-      if (this.checkSpaces(sandwich, anchorArr)){
+      this.checkSpaces(sandwich, anchorArr)
+      .then( () => {
         if (this.axis === 'y'){ 
           // place the ship
           for (let i = 0; i < sandwich.length; i += 1){
@@ -39,29 +41,56 @@ export const Gameboard = ( (player) => {
             this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.name.charAt(0)
           }
         }
-      }
+      })
+      .catch( (error) => {
+        console.error(`Your ${sandwich} won't fit here, please change axis or position.`)
+      })
     },
 
     // Condensed function to check available space
     // run it independentantly on mouseOver event
     // during the set up stage. Red-light the affected squares.
     checkSpaces(sandwich, anchorArr, axis = this.axis) {
-      let allClear = 0;
-      if (this.axis === 'x'){
-        for (let i = 0; i < sandwich.length; i += 1){
-          if (this.board[anchorArr[0]][anchorArr[1] + i] === ''){
-            allClear += 1;
+      return new Promise( (resolve, reject) => {
+        let allClear = 0;
+        if (this.axis === 'x'){
+          for (let i = 0; i < sandwich.length; i += 1){
+            // Check for out-of-bounds
+            if (anchorArr[1] + i >= this.board[0].length) {
+              reject(new Error('Sandwich placement is out of bounds'));
+              return;
+            }
+            // Check if the space is empty
+            if (this.board[anchorArr[0]][anchorArr[1] + i] === '') {
+              allClear += 1;
+            }
+          }
+          // If all spaces are both empty and in bounds
+          if (allClear === sandwich.length) {
+            resolve(); // Placement is valid, resolve the promise
+          } else {
+            reject(new Error('Invalid sandwich placement'));
+          }
+        } else if (this.axis === 'y'){
+          for (let i = 0; i < sandwich.length; i += 1){
+            // Check for out-of-bounds
+            if (anchorArr[0] - i < 0) {
+              reject(new Error('Sandwich placement is out of bounds'));
+              return;
+            }
+            // Check if the space is empty
+            if (this.board[anchorArr[0] - i][anchorArr[1]] === '') {
+              allClear += 1;
+            }
+          }
+          // If all spaces are both empty and in bounds
+          if (allClear === sandwich.length) {
+            resolve(); // Placement is valid, resolve the promise
+          } else {
+            reject(new Error('Invalid sandwich placement'));
           }
         }
-        if (allClear === sandwich.length) return true;
-      } else if (this.axis === 'y'){
-        for (let i = 0; i < sandwich.length; i += 1){
-          if (this.board[anchorArr[0] - i][anchorArr[1]] === ''){
-            allClear += 1;
-          }
-        }
-        if (allClear === sandwich.length) return true;
-      }
+      })
     },
 
   }

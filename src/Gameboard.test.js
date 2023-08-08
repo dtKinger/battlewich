@@ -1,15 +1,11 @@
+import { makeWich } from './wichFactory.js'
 import { Gameboard } from "./Gameboard";
-import { makeWich } from "./wichFactory";
-// import { player1Board, computerBoard } from "./index"
 
-test('Place and find submarine', () => {
-  // const player1Boardz = Gameboard('player1');
-  // player1Boardz.placeSubmarine([5,3], 'x')
-  // expect(player1Boardz.board[5][3]).toBe('s')
-  // expect(player1Boardz.board[5][4]).toBe('s')
-  // expect(player1Boardz.board[5][5]).toBe('s')
-  // expect(player1Boardz.board[5][6]).toBe('s')
-  // expect(player1Boardz.board[5][7]).toBe('s')
+test('Place and find submarine', async () => {
+  const aBoard = Gameboard('anyone')
+  await aBoard.placeWich(aBoard.submarine, [2,2])
+  expect(aBoard.board[1][2]).toBe('')
+  expect(aBoard.board[2][2]).toBe('s')
 })
 
 test('Y-axis sandwich should build north by decrementing i', () => {
@@ -44,9 +40,7 @@ test("Fail when placing a piece that would be out of bounds", () => {
 })
 
 
-test("test my checkSpace function", () => {
-  // const aBoard = Gameboard('anyone')
-  // const french = makeWich('french', 4)
-  // expect(aBoard.checkYSpaces(french, [1,1])) // Need to check if the whole thing will be in-bounds.
-  // THEN check for collision with other ships
+test("test my checkSpace function", async () => {
+  
 })
+

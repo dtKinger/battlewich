@@ -13,6 +13,10 @@ import { Gameboard } from "./Gameboard";
 
 /* Application */
 console.log("Welcome to Battle 'Wich!")
-const player1Board = Gameboard('player1')
-player1Board.placeWich(player1Board.submarine, [1,1], 'y')
-console.log(player1Board.board)
+const aBoard = Gameboard('anyone')
+aBoard.placeWich(aBoard.french, [3, 3])
+aBoard.placeWich(aBoard.submarine, [1, 1], 'y') // This throws error but doesn't break the app
+aBoard.placeWich(aBoard.reuben, [6,6]);
+
+  
+console.log(aBoard.board)

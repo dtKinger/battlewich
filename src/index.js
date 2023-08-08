@@ -14,7 +14,5 @@ import { Gameboard } from "./Gameboard";
 /* Application */
 console.log("Welcome to Battle 'Wich!")
 const player1Board = Gameboard('player1')
-player1Board.placeWich(player1Board.submarine, [1,1])
-
-
+player1Board.placeWich(player1Board.submarine, [1,1], 'y')
 console.log(player1Board.board)

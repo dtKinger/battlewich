@@ -25,26 +25,30 @@ export const Gameboard = ( (player) => {
     hotDog: makeWich('hot dog', 2),
     
 
-    placeWich (sandwich, anchorArr) {
-      this.checkSpaces(sandwich, anchorArr)
-      .then( () => {
-        if (this.axis === 'y'){ 
-          // place the ship
-          for (let i = 0; i < sandwich.length; i += 1){
-            // count down x (row) to build up y.
-            this.board[anchorArr[0] - i][anchorArr[1]] = sandwich.name.charAt(0)
-          }
-        } else if (this.axis === 'x'){
-          // place the ship
-          for (let i = 0; i < sandwich.length; i += 1){
-            // Increment Y column to build up x.
-            this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.name.charAt(0)
-          }
+    placeWich(sandwich, anchorArr, axis = this.axis) {
+      this.checkSpaces(sandwich, anchorArr, axis)
+      .then(() => {
+        if (axis === 'y') {
+          return this.placeSandwichVertically(sandwich, anchorArr);
+        } else if (axis === 'x') {
+          return this.placeSandwichHorizontally(sandwich, anchorArr);
         }
       })
-      .catch( (error) => {
-        console.error(`Your ${sandwich} won't fit here, please change axis or position.`)
-      })
+      .catch((error) => {
+        console.error(`Error placing ${sandwich.name}:`, error.message);
+      });
+    },
+
+    placeSandwichVertically(sandwich, anchorArr) {
+      for (let i = 0; i < sandwich.length; i += 1) {
+        this.board[anchorArr[0] - i][anchorArr[1]] = sandwich.name.charAt(0);
+      }
+    },
+
+    placeSandwichHorizontally(sandwich, anchorArr) {
+      for (let i = 0; i < sandwich.length; i += 1) {
+        this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.name.charAt(0);
+      }
     },
 
     // Condensed function to check available space
@@ -53,7 +57,7 @@ export const Gameboard = ( (player) => {
     checkSpaces(sandwich, anchorArr, axis = this.axis) {
       return new Promise( (resolve, reject) => {
         let allClear = 0;
-        if (this.axis === 'x'){
+        if (axis === 'x'){
           for (let i = 0; i < sandwich.length; i += 1){
             // Check for out-of-bounds
             if (anchorArr[1] + i >= this.board[0].length) {
@@ -71,7 +75,7 @@ export const Gameboard = ( (player) => {
           } else {
             reject(new Error('Invalid sandwich placement'));
           }
-        } else if (this.axis === 'y'){
+        } else if (axis === 'y'){
           for (let i = 0; i < sandwich.length; i += 1){
             // Check for out-of-bounds
             if (anchorArr[0] - i < 0) {

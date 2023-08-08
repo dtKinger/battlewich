@@ -37,20 +37,16 @@ test("Don't allow new sandwich on existing sandwich", () => {
 })
 
 test("Fail when placing a piece that would be out of bounds", () => {
-  // const aBoard = Gameboard('anyone')
-  // const submarine = makeWich('submarine', 5)
-  // aBoard.placeSubmarine([1,1], 'x') // change x to y to fail it
+  const player1Board = Gameboard('player1');
+  player1Board.placeWich(player1Board.submarine, [1, 1], 'y')
+  expect(player1Board.board[1][1]).toBe('');
+  expect(player1Board.board[0][1]).toBe('');
 })
 
-test("test my Yspace-checking function", () => {
+
+test("test my checkSpace function", () => {
   // const aBoard = Gameboard('anyone')
   // const french = makeWich('french', 4)
   // expect(aBoard.checkYSpaces(french, [1,1])) // Need to check if the whole thing will be in-bounds.
   // THEN check for collision with other ships
-})
-
-test("test my Xspace-checking function", () => {
-  // const aBoard = Gameboard('anyone')
-  // const club = makeWich('club', 3)
-  // expect(aBoard.checkXSpaces(club, [1,1])).toBeDefined();
 })

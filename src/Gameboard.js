@@ -44,49 +44,26 @@ export const Gameboard = ( (player) => {
     },
 
     // Condensed function to check available space
-    checkSpaces(sandwich, anchorArr) {
+    // run it independentantly on mouseOver event
+    // during the set up stage. Red-light the affected squares.
+    checkSpaces(sandwich, anchorArr, axis = this.axis) {
+      let allClear = 0;
       if (this.axis === 'x'){
-
+        for (let i = 0; i < sandwich.length; i += 1){
+          if (this.board[anchorArr[0]][anchorArr[1] + i] === ''){
+            allClear += 1;
+          }
+        }
+        if (allClear === sandwich.length) return true;
       } else if (this.axis === 'y'){
-
+        for (let i = 0; i < sandwich.length; i += 1){
+          if (this.board[anchorArr[0] - i][anchorArr[1]] === ''){
+            allClear += 1;
+          }
+        }
+        if (allClear === sandwich.length) return true;
       }
     },
-
-
-    // Two helpers for placeIt, but run it independentantly on mouseOver event
-    // during the set up stage. Red-light the affected squares
-    // checkYSpaces (sandwich, anchorArr, axis = this.axis) {
-      
-    //   for (let i = 0; i < sandwich.length; i += 1){
-    //     // Check the spaces
-    //     if (this.board[anchorArr[0] - i][anchorArr[1]] === undefined){
-    //       console.log("Can't play out of bounds")
-    //       // Add a pointer event here to make it red / unavailable
-    //       return false; // Break out if some are undefined.
-    //     } else if (this.board[anchorArr[0] - i][anchorArr[1]] !== ''){
-    //       console.log("Can't play on top of existing wich")
-    //       // Add a pointer event here to make it red / unavailable
-    //       return false; // Break out if they're not all empty.
-    //     } else {
-    //       // don't return true here. It will allow part of a ship to be played on the
-    //       // board illegally.
-    //     }
-    //   }
-    // },
-
-    // checkXSpaces (sandwich, anchorArr, axis = this.axis) {
-    //   for (let i = 0; i < sandwich.length; i += 1){
-    //     // Check the spaces
-    //     if (this.board[anchorArr[0]][anchorArr[1] + i] === undefined){
-    //       console.log("Can't play out of bounds")
-    //       return false; // Break out if some are undefined.
-    //     } else if (this.board[anchorArr[0]][anchorArr[1] + 1] !== ''){
-    //       console.log("Can't play on top of existing wich")
-    //       return false; // Break out if they're not all empty.
-    //     }
-    //   }
-    //   return { sandwich, anchorArr }
-    // },
 
   }
 })

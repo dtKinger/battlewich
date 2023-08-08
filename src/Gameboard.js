@@ -25,7 +25,7 @@ export const Gameboard = ( (player) => {
     hotDog: makeWich('hot dog', 2),
 
     placeWich (sandwich, anchorArr) {
-      if (this.checkSpaces()){
+      if (this.checkSpaces(sandwich, anchorArr)){
         if (this.axis === 'y'){ 
           // place the ship
           for (let i = 0; i < sandwich.length; i += 1){
@@ -39,7 +39,6 @@ export const Gameboard = ( (player) => {
             this.board[anchorArr[0]][anchorArr[1] + i] = sandwich.name.charAt(0)
           }
         }
-        return { board }
       }
     },
 

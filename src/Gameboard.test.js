@@ -56,6 +56,5 @@ test("Fail when placing a piece that would be out of bounds", () => {
 test("test my checkSpace function independantly", () => {
   const emptyBoard = Gameboard('for testing');
   expect(emptyBoard.checkSpaces(emptyBoard.hotDog, [0,0])).toBeTruthy()
-
 })
 

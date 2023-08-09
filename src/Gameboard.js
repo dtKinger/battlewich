@@ -23,10 +23,21 @@ export const Gameboard = ( (player) => {
     reuben: makeWich('reuben', 3),
     club: makeWich('club', 3),
     hotDog: makeWich('hot dog', 2),
-    
+
+    // EXAMPLES: Could refactor sandwiches into an array
+    // This would allow me to iterate through them which
+    // might help during the wich-placing turn.
+    swicArr: {
+      bulk: makeWich('bulk', 6),
+      long: makeWich('long', 7)
+    },
+
+    sandwichArr: ['submarine', 'french', 'reuben', 'club', 'hot dog'],
+    currentSandwich: 'submarine',
+    // End of Sandwich array examples
 
     placeWich(sandwich, anchorArr, axis = this.axis) {
-      this.checkSpaces(sandwich, anchorArr, axis)
+      return this.checkSpaces(sandwich, anchorArr, axis)
       .then(() => {
         if (axis === 'y') {
           return this.placeSandwichVertically(sandwich, anchorArr);
@@ -97,5 +108,52 @@ export const Gameboard = ( (player) => {
       })
     },
 
+    receiveAttack(coordinates, board = this.board) {
+      return Promise.resolve().then(async () => {
+        const sandwichRegex = /[sfrch]/i;
+        const row = coordinates[0];
+        const col = coordinates[1];
+        
+        const squareStatus = board[row][col];
+        console.log(`squareStatus is ${squareStatus}`);
+        if (squareStatus === '') {
+          // If it's a miss, mark the board with an x
+          board[row][col] = 'x';
+          console.log(`Your bite hits nothing but other teeth. Ouch!`);
+        } else if (squareStatus.match(sandwichRegex)) {
+          console.log(`Your teeth sink heavily into the flour, the flesh, the forbidden!`);
+          switch (squareStatus) {
+            case 's':
+              await this.submarine.bite();
+              await this.submarine.isEaten();
+              break;
+            case 'f':
+              await this.french.bite();
+              await this.french.isEaten();
+              console.log(this.french)
+              break;
+            case 'r':
+              await this.reuben.bite();
+              await this.reuben.isEaten();
+              break;
+            case 'c':
+              await this.club.bite();
+              await this.club.isEaten();
+              break;
+            case 'h':
+              await this.hotDog.makeWich.bite();
+              await this.hotDog.makeWich.isEaten();
+              break;
+          }
+        }
+        // Mark the board somehow
+        // e.target - Do this in the event listener actually.
+      });
+    }
+
+    // Helper function
+    // readAndReturnSquare (row, col) {
+    //   console.log(this.board[row][col].toString());
+    // }
   }
 })

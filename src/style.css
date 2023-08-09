@@ -17,6 +17,7 @@
 
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   min-height: 100px;
@@ -109,6 +110,16 @@ a, a:visited, a:hover, a:active {
 .dark-wood {
   background-color: rgba(83, 50, 0, 0.9);
   /* background-image: url(); */
+}
+
+.attack-form > *{
+  padding: 6px;
+}
+
+.attack-btn {
+  background-color: red;
+  border-radius: 10px;
+  padding: 6px 12px;
 }
 
 @media screen and (max-width: 900px) {

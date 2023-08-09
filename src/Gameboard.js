@@ -18,6 +18,8 @@ export const Gameboard = ( (player) => {
         ['','','','','','','','','','']
       ],
 
+    bittenCoordinates: new Set(),
+
     submarine: makeWich('submarine', 5),
     french: makeWich('french', 4),
     reuben: makeWich('reuben', 3),
@@ -111,8 +113,13 @@ export const Gameboard = ( (player) => {
     receiveAttack(coordinates, board = this.board) {
       return Promise.resolve().then(async () => {
 
-        // this.attackCoords.add(coordinates)
-        // console.log('Logging Set: ' + this.attackCoords)
+        const bittenCoordinates = this.bittenCoordinates;
+        if (bittenCoordinates.has(JSON.stringify(coordinates))) {
+          console.log("You've already attacked these coordinates.");
+          return; // Coordinates have been attacked before, return early
+        }
+    
+        bittenCoordinates.add(JSON.stringify(coordinates)); // Add coordinates to Set
 
         const sandwichRegex = /[sfrch]/i;
         const row = coordinates[0];

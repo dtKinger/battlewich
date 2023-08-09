@@ -1,6 +1,4 @@
-// import { Gameboard } from "./Gameboard";
-// import "./index"
-import { aBoard } from ".index";
+import { aBoard } from "./index";
 const attackBtn = document.querySelector('.attack-btn');
 const attackRow = document.querySelector('#row-coords');
 const attackCol = document.querySelector('#col-coords');

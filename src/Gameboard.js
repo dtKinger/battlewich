@@ -110,12 +110,15 @@ export const Gameboard = ( (player) => {
 
     receiveAttack(coordinates, board = this.board) {
       return Promise.resolve().then(async () => {
+
+        // this.attackCoords.add(coordinates)
+        // console.log('Logging Set: ' + this.attackCoords)
+
         const sandwichRegex = /[sfrch]/i;
         const row = coordinates[0];
         const col = coordinates[1];
         
         const squareStatus = board[row][col];
-        console.log(`squareStatus is ${squareStatus}`);
         if (squareStatus === '') {
           // If it's a miss, mark the board with an x
           board[row][col] = 'x';

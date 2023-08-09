@@ -4,7 +4,7 @@ import './style.css'
 import './dom.js'  
 import { makeWich } from './wichFactory.js'
 import { Gameboard } from "./Gameboard";
-// import { attackBtn, attackRow, attackCol } from './attack'
+import { attackBtn, attackRow, attackCol } from './attack'
 
 // const attackBtn = document.querySelector('.attack-btn');
 // const attackRow = document.querySelector('#row-coords');

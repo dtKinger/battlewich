@@ -18,7 +18,7 @@ export const Gameboard = ( (player) => {
         ['','','','','','','','','','']
       ],
 
-    bittenCoordinates: new Set(),
+    bittenCoordinates: new Set(), // Tracks all hits and misses
 
     submarine: makeWich('submarine', 5),
     french: makeWich('french', 4),
@@ -113,14 +113,14 @@ export const Gameboard = ( (player) => {
     receiveAttack(coordinates, board = this.board) {
       return Promise.resolve().then(async () => {
 
-        const bittenCoordinates = this.bittenCoordinates;
-        if (bittenCoordinates.has(JSON.stringify(coordinates))) {
-          console.log("You've already attacked these coordinates.");
+        this.bittenCoordinates;
+        if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
+          console.log("You've already bitten these coordinates.");
           return; // Coordinates have been attacked before, return early
         }
     
-        bittenCoordinates.add(JSON.stringify(coordinates)); // Add coordinates to Set
-
+        this.bittenCoordinates.add(JSON.stringify(coordinates)); // Add coordinates to Set
+        console.log(this.bittenCoordinates)
         const sandwichRegex = /[sfrch]/i;
         const row = coordinates[0];
         const col = coordinates[1];
@@ -156,7 +156,7 @@ export const Gameboard = ( (player) => {
               break;
           }
         }
-        // Mark the board somehow
+        // Mark the board somehow && disable that square.
         // e.target - Do this in the event listener actually.
       });
     }

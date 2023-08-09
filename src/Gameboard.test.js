@@ -92,6 +92,6 @@ test("test already hit coordinates", async () => {
   expect(zBoard.reuben.biteCount).toBe(1) // 1 bite is registered
   await zBoard.receiveAttack([4, 4]); // bite the same spot again
   expect(zBoard.reuben.biteCount).toBe(1) // biteCount stays the same after
-  // registerings biteCoordinates to a Set() object.
+  // register biteCoordinates to a Set() object.
 
 });

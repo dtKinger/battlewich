@@ -154,9 +154,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*!***********************!*\
   !*** ./src/attack.js ***!
   \***********************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ \"./src/index.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_index__WEBPACK_IMPORTED_MODULE_0__]);\n_index__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\nconst attackBtn = document.querySelector('.attack-btn');\nconst attackRow = document.querySelector('#row-coords');\nconst attackCol = document.querySelector('#col-coords');\n\n\nattackBtn.addEventListener('click', () => {\n  console.log(`Attacking: [${attackRow.value},${attackCol.value}]`)\n  _index__WEBPACK_IMPORTED_MODULE_0__.aBoard.receiveAttack([attackRow.value, attackCol.value]);\n})\n\n\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });\n\n//# sourceURL=webpack://battle-sandwich/./src/attack.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ \"./src/index.js\");\n\nconst attackBtn = document.querySelector('.attack-btn');\nconst attackRow = document.querySelector('#row-coords');\nconst attackCol = document.querySelector('#col-coords');\n\n\nattackBtn.addEventListener('click', () => {\n  console.log(`Attacking: [${attackRow.value},${attackCol.value}]`)\n  aBoard.receiveAttack([attackRow.value, attackCol.value]);\n})\n\n\n\n\n//# sourceURL=webpack://battle-sandwich/./src/attack.js?");
 
 /***/ }),
 
@@ -174,9 +174,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   aBoard: () => (/* binding */ aBoard)\n/* harmony export */ });\n/* harmony import */ var _meyer_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./meyer-reset.css */ \"./src/meyer-reset.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _dom_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dom.js */ \"./src/dom.js\");\n/* harmony import */ var _wichFactory_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wichFactory.js */ \"./src/wichFactory.js\");\n/* harmony import */ var _Gameboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Gameboard */ \"./src/Gameboard.js\");\n/* harmony import */ var _attack__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./attack */ \"./src/attack.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_attack__WEBPACK_IMPORTED_MODULE_5__]);\n_attack__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n/* Imports */\n\n\n  \n\n\n\n\n// const attackBtn = document.querySelector('.attack-btn');\n// const attackRow = document.querySelector('#row-coords');\n// const attackCol = document.querySelector('#col-coords');\n\n/* Memory allocation */\n\n\n/* Application */\nconsole.log(\"Welcome to Battle 'Wich!\")\nconst aBoard = (0,_Gameboard__WEBPACK_IMPORTED_MODULE_4__.Gameboard)('anyone')\n\nconst zBoard = (0,_Gameboard__WEBPACK_IMPORTED_MODULE_4__.Gameboard)('Computer')\n  await zBoard.placeWich(zBoard.submarine, [0,0])\n  await zBoard.placeWich(zBoard.french, [3,9], 'y')\n  await zBoard.placeWich(zBoard.reuben, [8,1])\n  await zBoard.placeWich(zBoard.club, [7,2], 'y')\n  await zBoard.placeWich(zBoard.hotDog, [2,2])\n  await console.log(zBoard.board)\n  // await zBoard.receiveAttack([0,0])\n  // await zBoard.receiveAttack([0,1])\n  // await zBoard.receiveAttack([0,2])\n  // await zBoard.receiveAttack([0,3])\n  // await zBoard.receiveAttack([0,4])\n  // await console.log(zBoard.submarine.eatenStatus)\n  // await zBoard.receiveAttack([3,9])\n  // await zBoard.receiveAttack([2,9])\n  // await zBoard.receiveAttack([1,9])\n  // await zBoard.receiveAttack([0,9])\n  // await console.log(zBoard.french.eatenStatus)\n  // await zBoard.receiveAttack([8,1])\n  // await zBoard.receiveAttack([8,2])\n  // await zBoard.receiveAttack([8,3])\n  // await console.log(zBoard.reuben.eatenStatus)\n  // await zBoard.receiveAttack([7,2])\n  // await zBoard.receiveAttack([6,2])\n  // await zBoard.receiveAttack([5,2])\n  // await console.log(zBoard.club.eatenStatus)\n  // await zBoard.receiveAttack([2,2])\n  // await console.log(zBoard.hotDog.eatenStatus)\n  await console.log('I bet if you attack [2,3] you can beat the computer!')\n\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://battle-sandwich/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   aBoard: () => (/* binding */ aBoard)\n/* harmony export */ });\n/* harmony import */ var _meyer_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./meyer-reset.css */ \"./src/meyer-reset.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _dom_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dom.js */ \"./src/dom.js\");\n/* harmony import */ var _wichFactory_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wichFactory.js */ \"./src/wichFactory.js\");\n/* harmony import */ var _Gameboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Gameboard */ \"./src/Gameboard.js\");\n/* harmony import */ var _attack__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./attack */ \"./src/attack.js\");\n/* Imports */\n\n\n  \n\n\n\n\n// const attackBtn = document.querySelector('.attack-btn');\n// const attackRow = document.querySelector('#row-coords');\n// const attackCol = document.querySelector('#col-coords');\n\n/* Memory allocation */\n\n\n/* Application */\nconsole.log(\"Welcome to Battle 'Wich!\")\nconst aBoard = (0,_Gameboard__WEBPACK_IMPORTED_MODULE_4__.Gameboard)('anyone')\n\naBoard.placeWich(aBoard.submarine, [1, 1]) // Add 'y' axis to throw error but doesn't break the app\naBoard.placeWich(aBoard.french, [3,3])\n// .then(aBoard.receiveAttack([3,3])) // This works, but I can initiate attacks\n// from the UI now.\naBoard.placeWich(aBoard.reuben, [6,6])\n\n\n\n// console.log(\"Welcome to Battle 'Wich!\")\n// export const zBoard = Gameboard('Computer')\n\n// zBoard.placeWich(zBoard.submarine, [0,0])\n// zBoard.placeWich(zBoard.french, [3,9], 'y')\n// zBoard.placeWich(zBoard.reuben, [8,1])\n// zBoard.placeWich(zBoard.club, [7,2], 'y')\n// zBoard.placeWich(zBoard.hotDog, [2,2])\n//   // .then(zBoard.receiveAttack([0,0]))\n\n// await console.log(zBoard.board)\n  \n// await zBoard.receiveAttack([0,0])\n// await zBoard.receiveAttack([0,1])\n// await zBoard.receiveAttack([0,2])\n// await zBoard.receiveAttack([0,3])\n// await zBoard.receiveAttack([0,4])\n// await console.log(zBoard.submarine.eatenStatus)\n// await zBoard.receiveAttack([3,9])\n// await zBoard.receiveAttack([2,9])\n// await zBoard.receiveAttack([1,9])\n// await zBoard.receiveAttack([0,9])\n// await console.log(zBoard.french.eatenStatus)\n// await zBoard.receiveAttack([8,1])\n// await zBoard.receiveAttack([8,2])\n// await zBoard.receiveAttack([8,3])\n// await console.log(zBoard.reuben.eatenStatus)\n// await zBoard.receiveAttack([7,2])\n// await zBoard.receiveAttack([6,2])\n// await zBoard.receiveAttack([5,2])\n// await console.log(zBoard.club.eatenStatus)\n// await zBoard.receiveAttack([2,2])\n// await console.log(zBoard.hotDog.eatenStatus)\n// await console.log('I bet if you attack [2,3] you can beat the computer!')\n\n\n\n//# sourceURL=webpack://battle-sandwich/./src/index.js?");
 
 /***/ }),
 
@@ -230,75 +230,6 @@ eval("module.exports = __webpack_require__.p + \"9a02de9e536394ee0026.ttf\";\n\n
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/async module */
-/******/ 	(() => {
-/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
-/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
-/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
-/******/ 		var resolveQueue = (queue) => {
-/******/ 			if(queue && queue.d < 1) {
-/******/ 				queue.d = 1;
-/******/ 				queue.forEach((fn) => (fn.r--));
-/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
-/******/ 			}
-/******/ 		}
-/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
-/******/ 			if(dep !== null && typeof dep === "object") {
-/******/ 				if(dep[webpackQueues]) return dep;
-/******/ 				if(dep.then) {
-/******/ 					var queue = [];
-/******/ 					queue.d = 0;
-/******/ 					dep.then((r) => {
-/******/ 						obj[webpackExports] = r;
-/******/ 						resolveQueue(queue);
-/******/ 					}, (e) => {
-/******/ 						obj[webpackError] = e;
-/******/ 						resolveQueue(queue);
-/******/ 					});
-/******/ 					var obj = {};
-/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
-/******/ 					return obj;
-/******/ 				}
-/******/ 			}
-/******/ 			var ret = {};
-/******/ 			ret[webpackQueues] = x => {};
-/******/ 			ret[webpackExports] = dep;
-/******/ 			return ret;
-/******/ 		}));
-/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
-/******/ 			var queue;
-/******/ 			hasAwait && ((queue = []).d = -1);
-/******/ 			var depQueues = new Set();
-/******/ 			var exports = module.exports;
-/******/ 			var currentDeps;
-/******/ 			var outerResolve;
-/******/ 			var reject;
-/******/ 			var promise = new Promise((resolve, rej) => {
-/******/ 				reject = rej;
-/******/ 				outerResolve = resolve;
-/******/ 			});
-/******/ 			promise[webpackExports] = exports;
-/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
-/******/ 			module.exports = promise;
-/******/ 			body((deps) => {
-/******/ 				currentDeps = wrapDeps(deps);
-/******/ 				var fn;
-/******/ 				var getResult = () => (currentDeps.map((d) => {
-/******/ 					if(d[webpackError]) throw d[webpackError];
-/******/ 					return d[webpackExports];
-/******/ 				}))
-/******/ 				var promise = new Promise((resolve) => {
-/******/ 					fn = () => (resolve(getResult));
-/******/ 					fn.r = 0;
-/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
-/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
-/******/ 				});
-/******/ 				return fn.r ? promise : getResult();
-/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
-/******/ 			queue && queue.d < 0 && (queue.d = 0);
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules

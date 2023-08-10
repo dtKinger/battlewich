@@ -148,8 +148,8 @@ export const Gameboard = ( (player) => {
               await this.club.isEaten();
               break;
             case 'h':
-              await this.hotDog.makeWich.bite();
-              await this.hotDog.makeWich.isEaten();
+              await this.hotDog.bite();
+              await this.hotDog.isEaten();
               break;
           }
           if (this.isEverythingConsumed()){

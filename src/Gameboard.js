@@ -38,7 +38,7 @@ export const Gameboard = ( (player) => {
     currentSandwich: 'submarine',
     // End of Sandwich array examples
 
-    placeWich(sandwich, anchorArr, axis = this.axis) {
+    async placeWich(sandwich, anchorArr, axis = this.axis) {
       return this.checkSpaces(sandwich, anchorArr, axis)
       .then(() => {
         if (axis === 'y') {
@@ -110,10 +110,15 @@ export const Gameboard = ( (player) => {
       })
     },
 
-    receiveAttack(coordinates, board = this.board) {
+    receiveAttack(coordinates) {
       return Promise.resolve().then(async () => {
-
-        this.bittenCoordinates;
+        if (coordinates[0] < 0
+          || coordinates[0] > 9
+          || coordinates[1] < 0
+          || coordinates[1] > 9){
+          console.log("Please attack in bounds! (0-9 for both row and col)")
+          return;
+        }
         if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
           console.log("You've already bitten these coordinates.");
           return; // Coordinates have been attacked before, return early
@@ -125,10 +130,10 @@ export const Gameboard = ( (player) => {
         const row = coordinates[0];
         const col = coordinates[1];
         
-        const squareStatus = board[row][col];
+        const squareStatus = this.board[row][col];
         if (squareStatus === '') {
           // If it's a miss, mark the board with an x
-          board[row][col] = 'x';
+          this.board[row][col] = 'x';
           console.log(`Your bite hits nothing but other teeth. Ouch!`);
         } else if (squareStatus.match(sandwichRegex)) {
           console.log(`Your teeth sink heavily into the flour, the flesh, the forbidden!`);
@@ -160,10 +165,5 @@ export const Gameboard = ( (player) => {
         // e.target - Do this in the event listener actually.
       });
     }
-
-    // Helper function
-    // readAndReturnSquare (row, col) {
-    //   console.log(this.board[row][col].toString());
-    // }
   }
 })

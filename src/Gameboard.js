@@ -25,6 +25,7 @@ export const Gameboard = ( (player) => {
     reuben: makeWich('reuben', 3),
     club: makeWich('club', 3),
     hotDog: makeWich('hot dog', 2),
+    everythingIsEaten: false,
 
     currentSandwich: 'submarine',
     // End of Sandwich array examples
@@ -164,16 +165,16 @@ export const Gameboard = ( (player) => {
     },
     // Check is all 5 sandwiches have been consumed
     isEverythingConsumed() {
-      const everythingIsEaten = false;
       if (
         this.submarine.eatenStatus === true &&
         this.french.eatenStatus === true && 
         this.reuben.eatenStatus === true &&
         this.club.eatenStatus === true &&
         this.hotDog.eatenStatus === true){
-          everythingIsEaten = true;
+          this.everythingIsEaten = true;
+          return true;
         }
-      return everythingIsEaten;
+      return false;  
     }
   }
 })

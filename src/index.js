@@ -17,16 +17,30 @@ import { attackBtn, attackRow, attackCol } from './attack'
 console.log("Welcome to Battle 'Wich!")
 export const aBoard = Gameboard('anyone')
 
-
-aBoard.placeWich(aBoard.submarine, [1, 1]) // Add 'y' axis to throw error but doesn't break the app
-aBoard.placeWich(aBoard.french, [3,3])
-// .then(aBoard.receiveAttack([3,3])) // This works, but I can initiate attacks
-// from the UI now.
-aBoard.placeWich(aBoard.reuben, [6,6])
-
-
-console.log(aBoard.board)
-console.log(aBoard.french)
-console.log(aBoard.submarine)
-console.log(aBoard.reuben)
+const zBoard = Gameboard('Computer')
+  await zBoard.placeWich(zBoard.submarine, [0,0])
+  await zBoard.placeWich(zBoard.french, [3,9], 'y')
+  await zBoard.placeWich(zBoard.reuben, [8,1])
+  await zBoard.placeWich(zBoard.club, [7,2], 'y')
+  await zBoard.placeWich(zBoard.hotDog, [2,2])
+  zBoard.receiveAttack([0,0])
+  zBoard.receiveAttack([0,1])
+  zBoard.receiveAttack([0,2])
+  zBoard.receiveAttack([0,3])
+  zBoard.receiveAttack([0,4])
+  console.log(zBoard.submarine.eatenStatus)
+  zBoard.receiveAttack([3,9])
+  zBoard.receiveAttack([2,9])
+  zBoard.receiveAttack([1,9])
+  zBoard.receiveAttack([0,9])
+  console.log(zBoard.french.eatenStatus)
+  zBoard.receiveAttack([8,1])
+  zBoard.receiveAttack([8,2])
+  zBoard.receiveAttack([8,3])
+  console.log(zBoard.reuben.eatenStatus)
+  zBoard.receiveAttack([7,2])
+  zBoard.receiveAttack([6,2])
+  zBoard.receiveAttack([5,2])
+  console.log(zBoard.club.eatenStatus)
+  console.log(zBoard.board)
 

@@ -26,15 +26,6 @@ export const Gameboard = ( (player) => {
     club: makeWich('club', 3),
     hotDog: makeWich('hot dog', 2),
 
-    // EXAMPLES: Could refactor sandwiches into an array
-    // This would allow me to iterate through them which
-    // might help during the wich-placing turn.
-    swicArr: {
-      bulk: makeWich('bulk', 6),
-      long: makeWich('long', 7)
-    },
-
-    sandwichArr: ['submarine', 'french', 'reuben', 'club', 'hot dog'],
     currentSandwich: 'submarine',
     // End of Sandwich array examples
 
@@ -117,7 +108,7 @@ export const Gameboard = ( (player) => {
           || coordinates[1] < 0
           || coordinates[1] > 9){
           console.log("Please attack in bounds! (0-9 for both row and col)")
-          return;
+          return; // Out of bounds? Return early
         }
         if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
           console.log("You've already bitten these coordinates.");
@@ -134,6 +125,7 @@ export const Gameboard = ( (player) => {
         if (squareStatus === '') {
           // If it's a miss, mark the board with an x
           this.board[row][col] = 'x';
+          // renderBoard();
           console.log(`Your bite hits nothing but other teeth. Ouch!`);
         } else if (squareStatus.match(sandwichRegex)) {
           console.log(`Your teeth sink heavily into the flour, the flesh, the forbidden!`);
@@ -160,10 +152,28 @@ export const Gameboard = ( (player) => {
               await this.hotDog.makeWich.isEaten();
               break;
           }
+          if (this.isEverythingConsumed()){
+            if (this.player === 'Robot'){
+              alert(`Noooob. The Robot ate your sandwiches`)
+            } else {
+              alert(`Stop eating! You did it! You devoured all the oponent's sandwiches.`)
+            }
+          }
         }
-        // Mark the board somehow && disable that square.
-        // e.target - Do this in the event listener actually.
-      });
+      });  
+    },
+    // Check is all 5 sandwiches have been consumed
+    isEverythingConsumed() {
+      const everythingIsEaten = false;
+      if (
+        this.submarine.eatenStatus === true &&
+        this.french.eatenStatus === true && 
+        this.reuben.eatenStatus === true &&
+        this.club.eatenStatus === true &&
+        this.hotDog.eatenStatus === true){
+          everythingIsEaten = true;
+        }
+      return everythingIsEaten;
     }
   }
 })

@@ -104,6 +104,7 @@ export const Gameboard = ( (player) => {
 
     receiveAttack(coordinates) {
       return Promise.resolve().then(async () => {
+        console.log(typeof coordinates[0])
         if (coordinates[0] < 0
           || coordinates[0] > 9
           || coordinates[1] < 0

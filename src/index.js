@@ -6,57 +6,52 @@ import { makeWich } from './wichFactory.js'
 import { Gameboard } from "./Gameboard";
 import { attackBtn, attackRow, attackCol } from './attack'
 
-// const attackBtn = document.querySelector('.attack-btn');
-// const attackRow = document.querySelector('#row-coords');
-// const attackCol = document.querySelector('#col-coords');
-
 /* Memory allocation */
 
 
 /* Application */
 console.log("Welcome to Battle 'Wich!")
-export const aBoard = Gameboard('anyone')
+export const computerBoard = Gameboard('Computer')
 
-aBoard.placeWich(aBoard.submarine, [1, 1]) // Add 'y' axis to throw error but doesn't break the app
-aBoard.placeWich(aBoard.french, [3,3])
-// .then(aBoard.receiveAttack([3,3])) // This works, but I can initiate attacks
-// from the UI now.
-aBoard.placeWich(aBoard.reuben, [6,6])
+computerBoard.placeWich(computerBoard.submarine, [0,0])
+computerBoard.placeWich(computerBoard.french, [3,9], 'y')
+computerBoard.placeWich(computerBoard.reuben, [8,1])
+computerBoard.placeWich(computerBoard.club, [7,2], 'y')
+computerBoard.placeWich(computerBoard.hotDog, [2,2])
 
-
-
-// console.log("Welcome to Battle 'Wich!")
-// export const zBoard = Gameboard('Computer')
-
-// zBoard.placeWich(zBoard.submarine, [0,0])
-// zBoard.placeWich(zBoard.french, [3,9], 'y')
-// zBoard.placeWich(zBoard.reuben, [8,1])
-// zBoard.placeWich(zBoard.club, [7,2], 'y')
-// zBoard.placeWich(zBoard.hotDog, [2,2])
-//   // .then(zBoard.receiveAttack([0,0]))
-
-// await console.log(zBoard.board)
+await console.log(computerBoard.board)
   
-// await zBoard.receiveAttack([0,0])
-// await zBoard.receiveAttack([0,1])
-// await zBoard.receiveAttack([0,2])
-// await zBoard.receiveAttack([0,3])
-// await zBoard.receiveAttack([0,4])
-// await console.log(zBoard.submarine.eatenStatus)
-// await zBoard.receiveAttack([3,9])
-// await zBoard.receiveAttack([2,9])
-// await zBoard.receiveAttack([1,9])
-// await zBoard.receiveAttack([0,9])
-// await console.log(zBoard.french.eatenStatus)
-// await zBoard.receiveAttack([8,1])
-// await zBoard.receiveAttack([8,2])
-// await zBoard.receiveAttack([8,3])
-// await console.log(zBoard.reuben.eatenStatus)
-// await zBoard.receiveAttack([7,2])
-// await zBoard.receiveAttack([6,2])
-// await zBoard.receiveAttack([5,2])
-// await console.log(zBoard.club.eatenStatus)
-// await zBoard.receiveAttack([2,2])
-// await console.log(zBoard.hotDog.eatenStatus)
-// await console.log('I bet if you attack [2,3] you can beat the computer!')
+await computerBoard.receiveAttack([0,0])
+await computerBoard.receiveAttack([0,1])
+await computerBoard.receiveAttack([0,2])
+await computerBoard.receiveAttack([0,3])
+await computerBoard.receiveAttack([0,4])
+await console.log(computerBoard.submarine.eatenStatus)
+await computerBoard.receiveAttack([3,9])
+await computerBoard.receiveAttack([2,9])
+await computerBoard.receiveAttack([1,9])
+await computerBoard.receiveAttack([0,9])
+await console.log(computerBoard.french.eatenStatus)
+await computerBoard.receiveAttack([8,1])
+await computerBoard.receiveAttack([8,2])
+await computerBoard.receiveAttack([8,3])
+await console.log(computerBoard.reuben.eatenStatus)
+await computerBoard.receiveAttack([7,2])
+await computerBoard.receiveAttack([6,2])
+await computerBoard.receiveAttack([5,2])
+await console.log(computerBoard.club.eatenStatus)
+await computerBoard.receiveAttack([2,2])
+await console.log(computerBoard.hotDog.eatenStatus)
+await console.log('I bet if you attack [2,3] you can beat the computer!')
 
+
+
+
+// computerBoard.placeWich(computerBoard.submarine, [1, 1]) // Add 'y' axis to throw error but doesn't break the app
+// computerBoard.placeWich(computerBoard.french, [3,3])
+// // .then(computerBoard.receiveAttack([3,3])) // This works, but I can initiate attacks
+// // from the UI now.
+// computerBoard.placeWich(computerBoard.reuben, [6,6])
+
+// await console.log(computerBoard.board)
+// computerBoard.receiveAttack([1,2])

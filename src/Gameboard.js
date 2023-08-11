@@ -1,8 +1,8 @@
 import { makeWich } from "./wichFactory"
+import Player from "./Player"
 
-export const Gameboard = ( (player) => {
+export const Gameboard = ( () => {
   return {
-    player,
     axis: 'x',
     board: 
       [

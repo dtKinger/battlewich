@@ -123,13 +123,14 @@ export const Gameboard = ( () => {
         const row = coordinates[0];
         const col = coordinates[1];
         
-        const squareStatus = this.board[row][col];
+        let squareStatus = this.board[row][col];
         if (squareStatus === '') {
           // If it's a miss, mark the board with an x
           this.board[row][col] = 'x';
           // renderBoard();
           console.log(`Your bite hits nothing but other teeth. Ouch!`);
         } else if (squareStatus.match(sandwichRegex)) {
+          this.board[row][col] = 'b';
           console.log(`Your teeth sink heavily into the flour, the flesh, the forbidden!`);
           switch (squareStatus) {
             case 's':
@@ -153,13 +154,6 @@ export const Gameboard = ( () => {
               await this.hotDog.bite();
               await this.hotDog.isEaten();
               break;
-          }
-          if (this.isEverythingConsumed()){
-            if (this.player === 'Robot'){
-              alert(`Noooob. The Robot ate your sandwiches`)
-            } else {
-              alert(`Stop eating! You did it! You devoured all the oponent's sandwiches.`)
-            }
           }
         }
       });  

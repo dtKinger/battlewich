@@ -1,7 +1,5 @@
 import { makeWich } from './wichFactory.js'
 import { Gameboard } from "./Gameboard";
-import { xoroshiro128plus } from 'pure-rand';
-import { ZERO_OR_MORE } from 'argparse';
 
 test('Place and find submarine', async () => {
   const aBoard = Gameboard('anyone')

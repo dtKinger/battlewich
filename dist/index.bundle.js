@@ -156,7 +156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Player: () => (/* binding */ Player)\n/* harmony export */ });\n/* harmony import */ var _Gameboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gameboard */ \"./src/Gameboard.js\");\n\n\nconst Player = ((name) => {\n  return {\n    gameboard: (0,_Gameboard__WEBPACK_IMPORTED_MODULE_0__.Gameboard)(),\n    name,\n    active: false,\n    takeTurn: function() {\n      if (this.active){\n        // bite the enemy\n        \n        // I can call gameboard.receiveAttack() here\n      }\n\n      if (this.active){\n        this.active = false;\n\n        if (this === player){\n          computer.active = true;\n        } else if (this === computer){\n          player.active = true;\n        }\n      }\n    },\n  }\n});\n\n\n//# sourceURL=webpack://battle-sandwich/./src/Player.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Player: () => (/* binding */ Player)\n/* harmony export */ });\n/* harmony import */ var _Gameboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gameboard */ \"./src/Gameboard.js\");\n\n\nconst Player = ((name) => {\n  return {\n    gameboard: (0,_Gameboard__WEBPACK_IMPORTED_MODULE_0__.Gameboard)(),\n    name,\n    active: false,\n    takeTurn() {\n      if (this.active){\n        // bite the enemy\n        \n        // I can call gameboard.receiveAttack() here\n      }\n\n      if (this.active){\n        this.active = false;\n\n        if (this === player){\n          computer.active = true;\n        } else if (this === computer){\n          player.active = true;\n        }\n      }\n    },\n  }\n});\n\n\n//# sourceURL=webpack://battle-sandwich/./src/Player.js?");
 
 /***/ }),
 
@@ -166,7 +166,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Player */ \"./src/Player.js\");\n\nconst attackBtn = document.querySelector('.attack-btn');\nconst attackRow = document.querySelector('#row-coords');\nconst attackCol = document.querySelector('#col-coords');\n\n\nattackBtn.addEventListener('click', () => {\n  const targetBoard = _Player__WEBPACK_IMPORTED_MODULE_0__.computer.board\n  console.log(`Attacking: [${attackRow.value},${attackCol.value}]`)\n  targetBoard.receiveAttack([attackRow.value, attackCol.value]);\n  console.log(targetBoard)\n})\n\n\n\n\n//# sourceURL=webpack://battle-sandwich/./src/attack.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ \"./src/index.js\");\n\nconst attackBtn = document.querySelector('.attack-btn');\nconst attackRow = document.querySelector('#row-coords');\nconst attackCol = document.querySelector('#col-coords');\n\n\nattackBtn.addEventListener('click', (e) => {\n  const targetBoard = _index__WEBPACK_IMPORTED_MODULE_0__.computer.gameboard\n  targetBoard.receiveAttack([attackRow.value, attackCol.value]);\n  \n  console.log(`Attacking: [${attackRow.value},${attackCol.value}]`)\n  console.log(targetBoard)\n})\n\n\n\n\n//# sourceURL=webpack://battle-sandwich/./src/attack.js?");
 
 /***/ }),
 
@@ -350,7 +350,7 @@ eval("module.exports = __webpack_require__.p + \"9a02de9e536394ee0026.ttf\";\n\n
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()

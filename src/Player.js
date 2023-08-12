@@ -5,7 +5,7 @@ export const Player = ((name) => {
     gameboard: Gameboard(),
     name,
     active: false,
-    takeTurn: function() {
+    takeTurn() {
       if (this.active){
         // bite the enemy
         

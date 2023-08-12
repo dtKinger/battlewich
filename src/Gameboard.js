@@ -130,7 +130,7 @@ export const Gameboard = ( () => {
           // renderBoard();
           console.log(`Your bite hits nothing but other teeth. Ouch!`);
         } else if (squareStatus.match(sandwichRegex)) {
-          this.board[row][col] = 'b';
+          this.board[row][col] += 'b';
           console.log(`Your teeth sink heavily into the flour, the flesh, the forbidden!`);
           switch (squareStatus) {
             case 's':

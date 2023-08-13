@@ -92,14 +92,23 @@ a, a:visited, a:hover, a:active {
 
 .square {
   border: 1px solid white;
+  transition: 100ms ease-in-out;
+}
+
+.square:hover{
+  cursor: crosshair;
+  background-color: rgba(255, 188, 2, 1);
+  /* cursor: not-allowed;  */
 }
 
 .odd-rows {
 /* Assigned to use as a group selector in JS */
+
 }
 
 .even-rows {
 /* Assigned to use as a group selector in JS */
+
 }
 
 .light-wood {

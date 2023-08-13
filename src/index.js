@@ -7,21 +7,19 @@ import { addListeners } from "./gameLoopEvents"
 import { renderComputerBoard, renderPlayerBoard, renderGame } from './renderBoard';
 
 /* Memory allocation */
-buildHTMLBoards();
+
+// Sign-in stage
 export const player1 = Player('Player 1');
 export const computer = Player('Robot');
+// Gameboard alias creations
 export const p1Gameboard = player1.gameboard; // alias for gameboard
 export const p1Board = p1Gameboard.board; // alias for the board
 export const compGameboard = computer.gameboard; // alias for gameboard
 export const compBoard = compGameboard.board; // alias for the board
 
-export const playerGameBoard = document.querySelector('.gameboard-player');
-export const computerGameBoard = document.querySelector('.gameboard-computer');
-
-/* Event listeners */
-
-
-/* Application */
+// all After Game Sign-in stage.
+// Generate HTML and CSS for two gameboards. Note: Does not render sandwiches
+buildHTMLBoards();
 
 // Game Set up Stage.
 console.log("Welcome to Battle 'Wich!")
@@ -38,7 +36,11 @@ compGameboard.placeWich(compGameboard.reuben, [2,0])
 compGameboard.placeWich(compGameboard.club, [3,0])
 compGameboard.placeWich(compGameboard.hotDog, [4,0])
 
-// console.log(p1Board)
+/* Event listeners */
+renderPlayerBoard();
+addListeners();
+
+/* Application */
 
 
 // Game Play stage
@@ -67,16 +69,3 @@ function gameLoop() {
   
 }
 
-buildHTMLBoards()
-renderPlayerBoard()
-addListeners();
-
-
-// Create Player1
-
-  /// Create playerBoard
-
-
-// Create Computer
-
-  /// Create computerBoard

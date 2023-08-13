@@ -113,7 +113,7 @@ export const Gameboard = ( () => {
           return; // Out of bounds? Return early
         }
         if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
-          updateDomMessage(`You've already bitten these coordinates.`, 1500)
+          updateDomMessage(`You've already bitten these coordinates.`)
           return; // Coordinates have been attacked before, return early
         }
         

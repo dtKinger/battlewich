@@ -9,9 +9,8 @@ export const addListeners = ( () => {
   p1Board.classList.add('game-loop-hover__player')
   compBoard.classList.add('game-loop-hover__computer')
 
-  
   boardContainer.addEventListener("click", async (e) => {
-    if (e.target.getAttribute('disabled') !== true){
+    if (e.target.getAttribute('disabled') !== 'true'){
       const biteAttempt = e.target.dataset.id
       if (biteAttempt){
         if(e.target.closest('.gameboard').classList.contains('gameboard-player')){
@@ -36,6 +35,7 @@ export const addListeners = ( () => {
       alert(`Congratulations! You snarfed up everything the robot had to offer.`)
     }
   }
+
 
 })
 

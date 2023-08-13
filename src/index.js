@@ -4,7 +4,6 @@ import './style.css'
 import { buildHTMLBoards } from "./dom"
 import { makeWich } from './wichFactory.js'
 import { Gameboard } from "./Gameboard";
-import { attackBtn, attackRow, attackCol } from './attack'
 import { Player } from "./Player"
 import { addListeners } from "./events"
 
@@ -36,8 +35,6 @@ compGameboard.placeWich(compGameboard.french, [1,0])
 compGameboard.placeWich(compGameboard.reuben, [2,0])
 compGameboard.placeWich(compGameboard.club, [3,0])
 compGameboard.placeWich(compGameboard.hotDog, [4,0])
-
-
 
 // Game Play stage
 

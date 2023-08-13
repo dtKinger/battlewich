@@ -1,7 +1,7 @@
-import { player1, computer } from "./index";
-const attackBtn = document.querySelector('.attack-btn');
-const attackRow = document.querySelector('#row-coords');
-const attackCol = document.querySelector('#col-coords');
+// import { player1, computer } from "./index";
+// const attackBtn = document.querySelector('.attack-btn');
+// const attackRow = document.querySelector('#row-coords');
+// const attackCol = document.querySelector('#col-coords');
 
 
 // attackBtn.addEventListener('click', (e) => {

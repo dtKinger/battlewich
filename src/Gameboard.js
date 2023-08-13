@@ -108,7 +108,7 @@ export const Gameboard = ( () => {
           || coordinates[0] > 9
           || coordinates[1] < 0
           || coordinates[1] > 9){
-          console.log("Please attack in bounds! (0-9 for both row and col)")
+          console.log("Please bite in bounds! (0-9 for both row and col)")
           return; // Out of bounds? Return early
         }
         if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
@@ -139,7 +139,6 @@ export const Gameboard = ( () => {
             case 'f':
               await this.french.bite();
               await this.french.isEaten();
-              console.log(this.french)
               break;
             case 'r':
               await this.reuben.bite();

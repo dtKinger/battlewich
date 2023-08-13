@@ -56,6 +56,19 @@ p {
 
 a, a:visited, a:hover, a:active {
   color: inherit;
+  text-decoration: none;
+}
+
+.title-image:not(h1) {
+  background-image: url('../dist/title-sandwich.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.h1 {
+  color: white;
+  text-shadow: 3px 3px 2px black;
 }
 
 .gameboard-container {

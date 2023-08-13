@@ -1,5 +1,7 @@
+const domStatusMessage = document.querySelector('.game-status')
+
 export function updateDomMessage (message) {
-  const domStatusMessage = document.querySelector('.game-status')  
+    
   if (domStatusMessage){
   domStatusMessage.classList.remove('game-status__reveal')
   }

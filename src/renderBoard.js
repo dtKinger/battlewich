@@ -1,9 +1,4 @@
-import { player1, computer, p1Board, compBoard } from "./index"
-
-export function renderGame() {
-  renderComputerBoard()
-  renderPlayerBoard()
-}
+import { p1Board, compBoard } from "./index"
 
 export function renderComputerBoard() {
   // const cell = computerGameBoard.querySelector(`[data-id="[${row},${col}]"]`);
@@ -23,4 +18,9 @@ export function renderPlayerBoard() {
       }
     }
   }
+}
+
+export function renderGame() {
+  renderComputerBoard()
+  renderPlayerBoard()
 }

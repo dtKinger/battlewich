@@ -1,16 +1,14 @@
 /* Imports */
 import './meyer-reset.css'
 import './style.css'
+import { updateDomMessage } from './updateDomMessage'
 import { buildHTMLBoards } from "./buildHTMLBoards"
-import { Player } from "./Player"
+import { player1, computer } from "./playerCreation";
 import { addListeners } from "./gameLoopEvents"
 import { renderComputerBoard, renderPlayerBoard, renderGame } from './renderBoard';
 
 /* Memory allocation */
 
-// Sign-in stage
-export const player1 = Player('Player 1');
-export const computer = Player('Robot');
 // Gameboard alias creations
 export const p1Gameboard = player1.gameboard; // alias for gameboard
 export const p1Board = p1Gameboard.board; // alias for the board

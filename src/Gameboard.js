@@ -1,6 +1,5 @@
-import { makeWich } from "./wichFactory"
 import { updateDomMessage } from "./updateDomMessage"
-import { renderComputerBoard, renderGame, renderPlayerBoard } from "./renderBoard"
+import { makeWich } from "./wichFactory"
 
 export const Gameboard = ( () => {
   return {

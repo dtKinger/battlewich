@@ -1,4 +1,3 @@
-import { player1 } from ".";
 import { Gameboard } from "./Gameboard"
 
 

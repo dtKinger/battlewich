@@ -5,7 +5,7 @@ import { buildHTMLBoards } from "./dom"
 import { makeWich } from './wichFactory.js'
 import { Gameboard } from "./Gameboard";
 import { Player } from "./Player"
-import { addListeners } from "./events"
+import { addListeners } from "./gameLoopEvents"
 
 /* Memory allocation */
 buildHTMLBoards();
@@ -17,7 +17,7 @@ export const compGameboard = computer.gameboard; // alias for gameboard
 export const compBoard = compGameboard.board; // alias for the board
 
 /* Event listeners */
-addListeners();
+
 
 /* Application */
 
@@ -40,6 +40,7 @@ compGameboard.placeWich(compGameboard.hotDog, [4,0])
 
 // Game Loop
 function gameLoop() {
+  
   if (!p1Gameboard.everythingIsEaten && !compBoard.everythingIsEaten) {
     player1.takeTurn()
   }
@@ -60,7 +61,7 @@ function gameLoop() {
   gameLoop(); // Start the game loop
   
 }
-
+addListeners();
 
 
 // Create Player1

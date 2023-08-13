@@ -23,21 +23,25 @@ export const buildHTMLBoards = ( () => {
           const newDiv = document.createElement('div')
           newDiv.classList.add(...oddClasses)
           newDiv.dataset.id = `[${row},${col}]`
+          newDiv.setAttribute('disabled', true);
           playerGameBoard.append(newDiv)
         } else if (row % 2 === 0 && col % 2 !== 0){
           const newDiv = document.createElement('div')
           newDiv.classList.add(...evenClasses)
           newDiv.dataset.id = `[${row},${col}]`
+          newDiv.setAttribute('disabled', true);
           playerGameBoard.append(newDiv)
         } else if (row % 2 !== 0 && col % 2 !== 0){
           const newDiv = document.createElement('div')
           newDiv.classList.add(...oddClasses)
           newDiv.dataset.id = `[${row},${col}]`
+          newDiv.setAttribute('disabled', true);
           playerGameBoard.append(newDiv)
         } else if (row % 2 !== 0 && col % 2 === 0){
           const newDiv = document.createElement('div')
           newDiv.classList.add(...evenClasses)
           newDiv.dataset.id = `[${row},${col}]`
+          newDiv.setAttribute('disabled', true);
           playerGameBoard.append(newDiv)
         }
       }

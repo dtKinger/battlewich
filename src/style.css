@@ -96,11 +96,20 @@ a, a:visited, a:hover, a:active {
   transition: 100ms ease-in-out;
 }
 
-.square:hover{
+.game-loop-hover__computer > .square:hover {
   cursor: crosshair;
   background-color: rgba(255, 188, 2, 1);
-  /* cursor: not-allowed;  */
 }
+.game-loop-hover__player > .square:hover {
+  cursor: not-allowed;
+}
+
+
+/* .square:hover{
+  cursor: crosshair;
+  background-color: rgba(255, 188, 2, 1);
+  /* cursor: not-allowed;
+} */
 
 .odd-rows {
 /* Assigned to use as a group selector in JS */

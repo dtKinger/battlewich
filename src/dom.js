@@ -1,4 +1,4 @@
-export function buildHTMLBoards () {
+export const buildHTMLBoards = ( () => {
   
   const oddClasses = ['square', 'light-wood']
   const evenClasses = ['square', 'dark-wood']
@@ -69,26 +69,4 @@ export function buildHTMLBoards () {
       }
     }
   }
-};
-
-
-
-// let colorOddRows = ( () => {
-//   oddRowSquares.forEach( (square) => {
-//     if (square.dataset.id )
-//       if (square.dataset.id % 2 === 0){
-//         square.classList.add('light-wood')
-//       } else {
-//         square.classList.add('dark-wood');
-//       }
-//     })
-//   })()
-
-//   evenRowSquares.forEach( (square) => {
-//     if (square.dataset.id )
-//       if (square.dataset.id % 2 !== 0){
-//         square.classList.add('light-wood')
-//       } else {
-//         square.classList.add('dark-wood');
-//       }
-//     })
+});

@@ -25,6 +25,7 @@
 
 .main {
   min-height: calc(90vh - 100px);
+  transition: 2s ease-in;
 }
 
 .footer {

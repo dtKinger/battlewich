@@ -10,7 +10,6 @@ export const makeWich = (name, length, biteCount = 0, eatenStatus = false) => {
       if (this.biteCount < this.length){
         this.biteCount += 1
       }
-      console.log(`Bite the ${this.name}`)
       return this.biteCount
     },
     

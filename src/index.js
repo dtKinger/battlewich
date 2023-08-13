@@ -6,14 +6,19 @@ import { makeWich } from './wichFactory.js'
 import { Gameboard } from "./Gameboard";
 import { attackBtn, attackRow, attackCol } from './attack'
 import { Player } from "./Player"
+import { addListeners } from "./events"
 
 /* Memory allocation */
+buildHTMLBoards();
 export const player1 = Player('Player 1');
 export const computer = Player('Robot');
 export const p1Gameboard = player1.gameboard; // alias for gameboard
 export const p1Board = p1Gameboard.board; // alias for the board
 export const compGameboard = computer.gameboard; // alias for gameboard
 export const compBoard = compGameboard.board; // alias for the board
+
+/* Event listeners */
+addListeners();
 
 /* Application */
 
@@ -33,7 +38,7 @@ compGameboard.placeWich(compGameboard.club, [3,0])
 compGameboard.placeWich(compGameboard.hotDog, [4,0])
 
 
-buildHTMLBoards();
+
 // Game Play stage
 
 // Game Loop

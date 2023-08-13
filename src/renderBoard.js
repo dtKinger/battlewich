@@ -1,5 +1,7 @@
-import { p1Board, compBoard } from "./index"
+import { player1, computer } from "./playerCreation"
 
+const p1Board = player1.gameboard.board
+const compBoard = computer.gameboard.board
 export function renderComputerBoard() {
   // const cell = computerGameBoard.querySelector(`[data-id="[${row},${col}]"]`);
   

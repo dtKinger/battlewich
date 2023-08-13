@@ -206,7 +206,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   renderComputerBoard: () => (/* binding */ renderComputerBoard),\n/* harmony export */   renderGame: () => (/* binding */ renderGame),\n/* harmony export */   renderPlayerBoard: () => (/* binding */ renderPlayerBoard)\n/* harmony export */ });\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ \"./src/index.js\");\n\n\nfunction renderComputerBoard() {\n  // const cell = computerGameBoard.querySelector(`[data-id=\"[${row},${col}]\"]`);\n  \n}\n\nfunction renderPlayerBoard() {\n  const playerGameBoard = document.querySelector('.gameboard-player');\n\n  for (let row = 0; row < 10; row += 1) {\n    for (let col = 0; col < 10; col += 1) {\n      const cell = playerGameBoard.querySelector(`[data-id=\"[${row},${col}]\"]`);\n\n      if (cell !== null && _index__WEBPACK_IMPORTED_MODULE_0__.p1Board[row][col] !== '') {\n        console.log(`E.T. It's selecting!!`)\n        cell.textContent = _index__WEBPACK_IMPORTED_MODULE_0__.p1Board[row][col];\n      }\n    }\n  }\n}\n\nfunction renderGame() {\n  renderComputerBoard()\n  renderPlayerBoard()\n}\n\n//# sourceURL=webpack://battle-sandwich/./src/renderBoard.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   renderComputerBoard: () => (/* binding */ renderComputerBoard),\n/* harmony export */   renderGame: () => (/* binding */ renderGame),\n/* harmony export */   renderPlayerBoard: () => (/* binding */ renderPlayerBoard)\n/* harmony export */ });\n/* harmony import */ var _playerCreation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./playerCreation */ \"./src/playerCreation.js\");\n\n\nconst p1Board = _playerCreation__WEBPACK_IMPORTED_MODULE_0__.player1.gameboard.board\nconst compBoard = _playerCreation__WEBPACK_IMPORTED_MODULE_0__.computer.gameboard.board\nfunction renderComputerBoard() {\n  // const cell = computerGameBoard.querySelector(`[data-id=\"[${row},${col}]\"]`);\n  \n}\n\nfunction renderPlayerBoard() {\n  const playerGameBoard = document.querySelector('.gameboard-player');\n\n  for (let row = 0; row < 10; row += 1) {\n    for (let col = 0; col < 10; col += 1) {\n      const cell = playerGameBoard.querySelector(`[data-id=\"[${row},${col}]\"]`);\n\n      if (cell !== null && p1Board[row][col] !== '') {\n        console.log(`E.T. It's selecting!!`)\n        cell.textContent = p1Board[row][col];\n      }\n    }\n  }\n}\n\nfunction renderGame() {\n  renderComputerBoard()\n  renderPlayerBoard()\n}\n\n//# sourceURL=webpack://battle-sandwich/./src/renderBoard.js?");
 
 /***/ }),
 
@@ -390,7 +390,7 @@ eval("module.exports = __webpack_require__.p + \"9a02de9e536394ee0026.ttf\";\n\n
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()

@@ -1,6 +1,7 @@
 /* Imports */
 import './meyer-reset.css'
 import './style.css'
+import { updateDomMessage } from './updateDomMessage';
 import { buildHTMLBoards } from "./buildHTMLBoards"
 import { player1, computer } from "./playerCreation";
 import { addListeners } from "./gameLoopEvents"

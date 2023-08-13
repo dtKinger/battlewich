@@ -1,7 +1,8 @@
-const domStatusMessage = document.querySelector('.game-status')
+export const domStatusMessage = document.querySelector('.game-status')
 
 export function updateDomMessage (message) {
-    
+  
+  domStatusMessage.textContent = `Welcome to Battle'Wich. It's like Battleship... only tastier!`
   if (domStatusMessage){
   domStatusMessage.classList.remove('game-status__reveal')
   }

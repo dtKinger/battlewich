@@ -6,6 +6,7 @@ export function renderGame() {
 }
 
 export function renderComputerBoard() {
+  const cell = computerGameBoard.querySelector(`[data-id="[${row},${col}]"]`);
   
 }
 

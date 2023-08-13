@@ -26,22 +26,18 @@ export const computerGameBoard = document.querySelector('.gameboard-computer');
 console.log("Welcome to Battle 'Wich!")
 
 await p1Gameboard.placeWich(p1Gameboard.submarine, [0,0])
-renderPlayerBoard()
 await p1Gameboard.placeWich(p1Gameboard.french, [1,0])
-renderPlayerBoard()
 await p1Gameboard.placeWich(p1Gameboard.reuben, [2,0])
-renderPlayerBoard()
 await p1Gameboard.placeWich(p1Gameboard.club, [3,0])
-renderPlayerBoard()
 await p1Gameboard.placeWich(p1Gameboard.hotDog, [4,0])
-renderPlayerBoard()
+
 
 await compGameboard.placeWich(compGameboard.submarine, [0,0])
 await compGameboard.placeWich(compGameboard.french, [1,0])
 await compGameboard.placeWich(compGameboard.reuben, [2,0])
 await compGameboard.placeWich(compGameboard.club, [3,0])
 await compGameboard.placeWich(compGameboard.hotDog, [4,0])
-
+renderPlayerBoard()
 
 // console.log(p1Board)
 

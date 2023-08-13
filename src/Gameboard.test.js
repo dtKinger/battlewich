@@ -45,9 +45,9 @@ test("Don't allow new sandwich on existing sandwich", () => {
   // })
 })
 
-test("Fail when placing a piece that would be out of bounds", () => {
+test("Fail when placing a piece that would be out of bounds", async () => {
   const player1Board = Gameboard('player1');
-  player1Board.placeWich(player1Board.submarine, [1, 1], 'y')
+  await player1Board.placeWich(player1Board.submarine, [1, 1], 'y')
   expect(player1Board.board[1][1]).toBe('');
   expect(player1Board.board[0][1]).toBe('');
 })

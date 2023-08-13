@@ -17,7 +17,7 @@ test('Place and find submarine', () => {
 
 
 test("Pass 'y' as a parameter to make a sandwich vertical", () => {
-  const boardZ = Gameboard('player1');
+  const boardZ = Gameboard('Player 1');
   
   boardZ.placeWich(boardZ.club, [4, 4], 'y');
   
@@ -30,7 +30,7 @@ test("Pass 'y' as a parameter to make a sandwich vertical", () => {
 
 
 test("Don't allow new sandwich on existing sandwich", () => {
-  const boardZ = Gameboard('player1');
+  const boardZ = Gameboard('Player 1');
   
   boardZ.placeWich(boardZ.club, [4, 4], 'y');
   

@@ -1,6 +1,5 @@
 import { Gameboard } from "./Gameboard"
 
-
 export const Player = ((name) => {
   return {
     gameboard: Gameboard(),

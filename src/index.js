@@ -2,8 +2,6 @@
 import './meyer-reset.css'
 import './style.css'
 import { buildHTMLBoards } from "./dom"
-import { makeWich } from './wichFactory.js'
-import { Gameboard } from "./Gameboard";
 import { Player } from "./Player"
 import { addListeners } from "./gameLoopEvents"
 import { renderComputerBoard, renderPlayerBoard, renderGame } from './renderBoard';

@@ -1,5 +1,4 @@
 import { makeWich } from "./wichFactory"
-import Player from "./Player"
 import { updateDomMessage } from "./updateDomMessage"
 import { renderComputerBoard, renderGame, renderPlayerBoard } from "./renderBoard"
 

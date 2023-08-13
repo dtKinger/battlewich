@@ -1,5 +1,4 @@
 import { player1, computer } from "./index";
-import { Gameboard } from "./Gameboard"; 
 
 export const addListeners = ( () => {
   const boardContainer = document.querySelector('.gameboard-container');

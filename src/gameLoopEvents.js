@@ -8,20 +8,20 @@ export const addListeners = ( () => {
   p1Board.classList.add('game-loop-hover__player')
   compBoard.classList.add('game-loop-hover__computer')
 
-  boardContainer.addEventListener("click", async (e) => {
+  boardContainer.addEventListener("click", (e) => {
     if (e.target.getAttribute('disabled') !== 'true'){
       const biteAttempt = e.target.dataset.id
       if (biteAttempt){
         if(e.target.closest('.gameboard').classList.contains('gameboard-player')){
           const parentBoard = player1.gameboard;
-          await parentBoard.receiveAttack([biteAttempt[1],biteAttempt[3]])
-          await parentBoard.isEverythingConsumed()
-          await checkWinner()
+          parentBoard.receiveAttack([biteAttempt[1],biteAttempt[3]])
+          parentBoard.isEverythingConsumed()
+          checkWinner()
         } else if (e.target.closest('.gameboard').classList.contains('gameboard-computer')){
           const parentBoard = computer.gameboard;
-          await parentBoard.receiveAttack([biteAttempt[1],biteAttempt[3]])
-          await parentBoard.isEverythingConsumed();
-          await checkWinner()
+          parentBoard.receiveAttack([biteAttempt[1],biteAttempt[3]])
+          parentBoard.isEverythingConsumed();
+          checkWinner()
         }
       }
     }

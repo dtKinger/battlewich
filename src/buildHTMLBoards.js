@@ -1,19 +1,7 @@
 export const buildHTMLBoards = ( () => {
   const gameArea = document.querySelector('.game')
-
-  gameArea.innerHTML = `
-    <div class="gameboard-container">
-      <div class="board-context"><h3>Player 1</h3>
-        <div class="gameboard gameboard-player">
-        </div>
-      </div>
-      <div class="board-context">
-        <h3>Computer</h3>
-        <div class="gameboard gameboard-computer">
-        </div>
-      </div>
-    </div>
-    `
+  
+  gameArea.innerHTML = `<div class="gameboard-container"><div class="board-context"><h3>Player 1</h3><div class="gameboard gameboard-player"></div></div><div class="board-context"><h3>Computer</h3><div class="gameboard gameboard-computer"></div></div></div>`
   
   const oddClasses = ['square', 'light-wood']
   const evenClasses = ['square', 'dark-wood']

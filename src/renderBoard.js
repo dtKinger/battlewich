@@ -1,4 +1,4 @@
-import { player1, computer, p1Board, compBoard, playerGameBoard, computerGameBoard } from "./index"
+import { player1, computer, p1Board, compBoard } from "./index"
 
 export function renderGame() {
   renderComputerBoard()
@@ -6,12 +6,12 @@ export function renderGame() {
 }
 
 export function renderComputerBoard() {
-  const cell = computerGameBoard.querySelector(`[data-id="[${row},${col}]"]`);
+  // const cell = computerGameBoard.querySelector(`[data-id="[${row},${col}]"]`);
   
 }
 
-export async function renderPlayerBoard() {
-  // const playerGameBoard = document.querySelector('.gameboard-player');
+export function renderPlayerBoard() {
+  const playerGameBoard = document.querySelector('.gameboard-player');
 
   for (let row = 0; row < 10; row += 1) {
     for (let col = 0; col < 10; col += 1) {

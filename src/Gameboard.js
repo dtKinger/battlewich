@@ -1,5 +1,6 @@
 import { makeWich } from "./wichFactory"
 import Player from "./Player"
+import { updateDomMessage } from "./updateDomMessage"
 
 export const Gameboard = ( () => {
   return {
@@ -108,13 +109,14 @@ export const Gameboard = ( () => {
           || coordinates[0] > 9
           || coordinates[1] < 0
           || coordinates[1] > 9){
-          console.log("Please bite in bounds! (0-9 for both row and col)")
+          updateDomMessage(`Please bite in bounds! (0-9 for both row and col)`)
           return; // Out of bounds? Return early
         }
         if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
-          console.log("You've already bitten these coordinates.");
+          updateDomMessage(`You've already bitten these coordinates.`)
           return; // Coordinates have been attacked before, return early
         }
+        
     
         this.bittenCoordinates.add(JSON.stringify(coordinates)); // Add coordinates to Set
         console.log(this.bittenCoordinates)

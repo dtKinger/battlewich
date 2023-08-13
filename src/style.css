@@ -47,7 +47,7 @@
 }
 
 .h3 {
-  font-size: 1.5em
+  font-size: 1.25em;
 }
 
 p {
@@ -104,13 +104,6 @@ a, a:visited, a:hover, a:active {
   cursor: not-allowed;
 }
 
-
-/* .square:hover{
-  cursor: crosshair;
-  background-color: rgba(255, 188, 2, 1);
-  /* cursor: not-allowed;
-} */
-
 .odd-rows {
 /* Assigned to use as a group selector in JS */
 
@@ -131,14 +124,42 @@ a, a:visited, a:hover, a:active {
   /* background-image: url(); */
 }
 
-.attack-form > *{
-  padding: 6px;
+.attack-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  min-height: 100px;
+  width: 85%;
+  box-shadow: 0 0 10px 10px white;
 }
 
-.attack-btn {
-  background-color: red;
-  border-radius: 10px;
-  padding: 6px 12px;
+.game-status {
+  line-height: 1.2;;
+  color: black;
+  text-shadow: 2px 2px 2px white;
+  text-align: center;
+  padding: 10px;
+  flex: 1;
+  transition: 300ms;
+}
+
+.game-status__animate {
+  animation: fadeInRefresh 1500ms;
+}
+
+.game-status__reveal {
+  animation: fadeInText 1s;
+}
+
+@keyframes fadeInText {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInRefresh {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @media screen and (max-width: 900px) {

@@ -12,7 +12,6 @@ export const addListeners = ( () => {
   
   boardContainer.addEventListener("click", async (e) => {
     if (e.target.getAttribute('disabled') !== true){
-      console.log(e.target)
       const biteAttempt = e.target.dataset.id
       if (biteAttempt){
         if(e.target.closest('.gameboard').classList.contains('gameboard-player')){

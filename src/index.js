@@ -6,6 +6,7 @@ import { makeWich } from './wichFactory.js'
 import { Gameboard } from "./Gameboard";
 import { Player } from "./Player"
 import { addListeners } from "./gameLoopEvents"
+import { renderComputerBoard, renderPlayerBoard, renderGame } from './renderBoard';
 
 /* Memory allocation */
 buildHTMLBoards();
@@ -15,6 +16,8 @@ export const p1Gameboard = player1.gameboard; // alias for gameboard
 export const p1Board = p1Gameboard.board; // alias for the board
 export const compGameboard = computer.gameboard; // alias for gameboard
 export const compBoard = compGameboard.board; // alias for the board
+export const playerGameBoard = document.querySelector('.gameboard-player');
+export const computerGameBoard = document.querySelector('.gameboard-computer');
 
 /* Event listeners */
 
@@ -24,17 +27,26 @@ export const compBoard = compGameboard.board; // alias for the board
 // Game Set up Stage.
 console.log("Welcome to Battle 'Wich!")
 
-p1Gameboard.placeWich(p1Gameboard.submarine, [0,0])
-p1Gameboard.placeWich(p1Gameboard.french, [1,0])
-p1Gameboard.placeWich(p1Gameboard.reuben, [2,0])
-p1Gameboard.placeWich(p1Gameboard.club, [3,0])
-p1Gameboard.placeWich(p1Gameboard.hotDog, [4,0])
+await p1Gameboard.placeWich(p1Gameboard.submarine, [0,0])
+renderPlayerBoard()
+await p1Gameboard.placeWich(p1Gameboard.french, [1,0])
+renderPlayerBoard()
+await p1Gameboard.placeWich(p1Gameboard.reuben, [2,0])
+renderPlayerBoard()
+await p1Gameboard.placeWich(p1Gameboard.club, [3,0])
+renderPlayerBoard()
+await p1Gameboard.placeWich(p1Gameboard.hotDog, [4,0])
+renderPlayerBoard()
 
-compGameboard.placeWich(compGameboard.submarine, [0,0])
-compGameboard.placeWich(compGameboard.french, [1,0])
-compGameboard.placeWich(compGameboard.reuben, [2,0])
-compGameboard.placeWich(compGameboard.club, [3,0])
-compGameboard.placeWich(compGameboard.hotDog, [4,0])
+await compGameboard.placeWich(compGameboard.submarine, [0,0])
+await compGameboard.placeWich(compGameboard.french, [1,0])
+await compGameboard.placeWich(compGameboard.reuben, [2,0])
+await compGameboard.placeWich(compGameboard.club, [3,0])
+await compGameboard.placeWich(compGameboard.hotDog, [4,0])
+
+
+// console.log(p1Board)
+
 
 // Game Play stage
 

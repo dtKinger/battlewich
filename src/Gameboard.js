@@ -1,6 +1,7 @@
 import { makeWich } from "./wichFactory"
 import Player from "./Player"
 import { updateDomMessage } from "./updateDomMessage"
+import { renderComputerBoard, renderGame, renderPlayerBoard } from "./renderBoard"
 
 export const Gameboard = ( () => {
   return {
@@ -119,7 +120,6 @@ export const Gameboard = ( () => {
         
     
         this.bittenCoordinates.add(JSON.stringify(coordinates)); // Add coordinates to Set
-        console.log(this.bittenCoordinates)
         const sandwichRegex = /[sfrch]/i;
         const row = coordinates[0];
         const col = coordinates[1];
@@ -129,10 +129,11 @@ export const Gameboard = ( () => {
           // If it's a miss, mark the board with an x
           this.board[row][col] = 'x';
           // renderBoard();
-          console.log(`Your bite hits nothing but other teeth. Ouch!`);
+          updateDomMessage(`Your bite hits nothing but other teeth. Ouch!`)
         } else if (squareStatus.match(sandwichRegex)) {
           this.board[row][col] += 'b'; // append a bite to the sandwich square.
-          console.log(`Your teeth sink heavily into the flour, the flesh, the forbidden!`);
+          
+          updateDomMessage(`NOM NOM NOM! Your teeth sink heavily into the flour and the flesh!`);
           switch (squareStatus) {
             case 's':
               await this.submarine.bite();

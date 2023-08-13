@@ -1,25 +1,25 @@
-import { player1, computer } from "./index"
+import { player1, computer, p1Board, compBoard, playerGameBoard, computerGameBoard } from "./index"
 
-function renderGame() {
+export function renderGame() {
   renderComputerBoard()
   renderPlayerBoard()
 }
 
-function renderComputerBoard() {
-  for (let row = 0; row < template2DArr.length; row += 1){
-    for (let col = 0; col < template2DArr.length; col += 1){
-
-    }
-  }
+export function renderComputerBoard() {
+  
 }
 
-function renderPlayerBoard() {
-  for (let row = 0; row < template2DArr.length; row += 1){
-    for (let col = 0; col < template2DArr.length; col += 1){
-      if (player1.gameboard.board[row][col] !== ''){
-        (p1Board[row][col]).textContent = player1.gameboard.board[row][col];
+export async function renderPlayerBoard() {
+  // const playerGameBoard = document.querySelector('.gameboard-player');
+
+  for (let row = 0; row < 10; row += 1) {
+    for (let col = 0; col < 10; col += 1) {
+      const cell = playerGameBoard.querySelector(`[data-id="[${row},${col}]"]`);
+
+      if (cell !== null && p1Board[row][col] !== '') {
+        console.log(`E.T. It's selecting!!`)
+        cell.textContent = p1Board[row][col];
       }
     }
   }
 }
-renderPlayerBoard()

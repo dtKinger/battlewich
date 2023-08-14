@@ -60,8 +60,8 @@ async function gameLoop() {
     console.log("Human player's turn");
     const playerCoordinates = await player1.takeTurn(compGameboard);
     compGameboard.receiveAttack(playerCoordinates);
-    renderComputerBoard()//
-    
+    renderComputerBoard()
+
     compGameboard.isEverythingConsumed();
     console.log('consumption checked')
     checkWinner();
@@ -69,7 +69,7 @@ async function gameLoop() {
   } else if (computer.active) {
     // Computer's turn
     console.log("Computer's turn");
-    const computerCoordinates = computer.generateAtkCoords(); 
+    const computerCoordinates = computer.generateAtkCoords(player1.gameboard); 
     p1Gameboard.receiveAttack(computerCoordinates);
     p1Gameboard.isEverythingConsumed();
     checkWinner();

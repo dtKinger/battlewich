@@ -9,8 +9,10 @@ export const Player = ((name, role) => {
     
     async takeTurn(opponentBoard) {
       if (this.role === 'player2') {
-        const coordinates = this.generateAtkCoords();
-        opponentBoard.receiveAttack(coordinates);
+        // NOT USED IN PLAYERS1 SETTING
+        // console.log(opponentBoard)
+        // const coordinates = this.generateAtkCoords();
+        // opponentBoard.receiveAttack(coordinates);
       } else if (this.role === 'player1') {
         console.log('this.role === player1')
         return new Promise((resolve) => {
@@ -38,19 +40,20 @@ export const Player = ((name, role) => {
       }
     },
 
-    generateAtkCoords() {
+    generateAtkCoords(opponentBoard) {
+      // Call this with player1.gameboard as the argument
       // Stupidest possible computer AI
-      if (this.name !== 'Computer'){
+      if (this.role !== 'player2'){
         return;
       }
       // Check the opponents previously bitten squares.
       const a = Math.floor(Math.random() * 10); // Generates a random integer from 0 to 9
       const b = Math.floor(Math.random() * 10); // Generates a random integer from 0 to 9
       const coordinates = [a, b]
-      if (player1.gameboard.bittenCoordinates.has(JSON.stringify(coordinates))) {
+      if (opponentBoard.bittenCoordinates.has(JSON.stringify(coordinates))) {
 
         // If all coordinates are bitten, stop the recursion
-        if (player1.gameboard.bittenCoordinates.size >= 100) {
+        if (opponentBoard.bittenCoordinates.size >= 100) {
           return null; 
         }
 

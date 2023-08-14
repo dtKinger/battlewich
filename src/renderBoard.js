@@ -4,6 +4,7 @@ const p1Board = player1.gameboard.board
 const compBoard = computer.gameboard.board
 
 export function renderComputerBoard() {
+  const span = document.createElement('span');
   const computerGameBoard = document.querySelector('.gameboard-computer')
   for (let row = 0; row < 10; row += 1) {
     for (let col = 0; col < 10; col += 1) {
@@ -12,6 +13,12 @@ export function renderComputerBoard() {
         // cell.style.backgroundColor = 'blue';
         cell.classList.add('bitten')
         // }
+      }
+      if (cell !== null && compBoard[row][col] === 'x'){
+        const missMarker = span;
+        missMarker.classList = 'miss-dot';
+        cell.appendChild(missMarker);
+        // cell.classList.add('miss-dot')
       }
     }
   }

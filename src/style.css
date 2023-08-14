@@ -178,6 +178,7 @@ a, a:visited, a:hover, a:active {
   background-color: black;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .bitten {
@@ -201,6 +202,15 @@ a, a:visited, a:hover, a:active {
 
 .attribution > a {
   flex: 1;
+}
+
+.miss-dot{
+  display: flex;
+  margin: 20% auto;
+  width: 60%;
+  height: 60%;
+  background-color: white;
+  border-radius: 50%;
 }
 
 @keyframes fadeInText {

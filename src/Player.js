@@ -2,7 +2,7 @@ import { Gameboard } from "./Gameboard"
 
 export const Player = ((name, role) => {
   return {
-    gameboard: Gameboard(),
+    gameboard: Gameboard(name),
     name,
     role,
     active: false,
@@ -51,7 +51,7 @@ export const Player = ((name, role) => {
       const b = Math.floor(Math.random() * 10); // Generates a random integer from 0 to 9
       const coordinates = [a, b]
       if (opponentBoard.bittenCoordinates.has(JSON.stringify(coordinates))) {
-
+        // console.log(coordinates)
         // If all coordinates are bitten, stop the recursion
         if (opponentBoard.bittenCoordinates.size >= 100) {
           return null; 

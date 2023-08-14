@@ -1,9 +1,10 @@
 import { updateDomMessage } from "./updateDomMessage"
 import { makeWich } from "./wichFactory"
 
-export const Gameboard = ( () => {
+export const Gameboard = ( (name) => {
   return {
     axis: 'x',
+    name,
     board: 
       [
         ['','','','','','','','','',''],
@@ -105,7 +106,7 @@ export const Gameboard = ( () => {
       }
       
       if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
-        updateDomMessage(`You've already bitten these coordinates.`);
+        updateDomMessage(`${this.parent} already bitten these coordinates.`);
         return; // Coordinates have been attacked before, return early
       }
     
@@ -119,11 +120,11 @@ export const Gameboard = ( () => {
         // If it's a miss, mark the board with an x
         this.board[row][col] = 'x';
         // renderBoard();
-        updateDomMessage(`Your bite hits nothing but other teeth. Ouch!`);
+        updateDomMessage(`${this.name}'s sandwiches are SAFE this bite.`);
       } else if (squareStatus.match(sandwichRegex)) {
         this.board[row][col] += 'b'; // append a bite to the sandwich square.
     
-        updateDomMessage(`NOM NOM NOM! Your teeth sink heavily into the flour and the flesh!`);
+        updateDomMessage(`NOM NOM NOM! ${this.name} loses a big chunk of sandwich!`);
         switch (squareStatus) {
           case 's':
             this.submarine.bite();

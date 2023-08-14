@@ -19,7 +19,7 @@ export const makeWich = (name, length, biteCount = 0, eatenStatus = false) => {
       const sandwichName = this.name
       if (this.biteCount === this.length){
         this.eatenStatus = true;
-        updateDomMessage(`The ${sandwichName.charAt(0).toUpperCase()}${sandwichName.slice(1)} has been entirely consumed. You animal!`)
+        updateDomMessage(`The ${sandwichName.charAt(0).toUpperCase()}${sandwichName.slice(1)} has been entirely consumed!`)
       } 
       return this.eatenStatus;
     },

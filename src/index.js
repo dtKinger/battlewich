@@ -38,7 +38,7 @@ compGameboard.placeWich(compGameboard.hotDog, [4,0])
 
 /* Event listeners */
 renderPlayerWiches();
-addListeners();
+addListeners(); // crosshair, orange highlight
 
 /* Application */
 
@@ -61,11 +61,8 @@ async function gameLoop() {
     const playerCoordinates = await player1.takeTurn(compGameboard);
     compGameboard.receiveAttack(playerCoordinates);
     renderComputerBoard()
-
     compGameboard.isEverythingConsumed();
-    console.log('consumption checked')
     checkWinner();
-    console.log('winner checked')
   } else if (computer.active) {
     // Computer's turn
     console.log("Computer's turn");

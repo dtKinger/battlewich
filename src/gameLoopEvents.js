@@ -1,5 +1,3 @@
-import { player1, computer } from "./playerCreation";
-
 export const addListeners = ( () => {
   
   const boardContainer = document.querySelector('.gameboard-container');

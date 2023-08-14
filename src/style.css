@@ -35,6 +35,7 @@
 .footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   min-height: 5vh;
   padding: 20px;
 }

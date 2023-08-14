@@ -156,7 +156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Player: () => (/* binding */ Player)\n/* harmony export */ });\n/* harmony import */ var _Gameboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gameboard */ \"./src/Gameboard.js\");\n\n\nconst Player = ((name) => {\n  return {\n    gameboard: (0,_Gameboard__WEBPACK_IMPORTED_MODULE_0__.Gameboard)(),\n    name,\n    active: true,\n    takeTurn(opponentBoard) {\n      if (this.active){\n        // bite the enemy\n        opponentBoard.receiveAttack(getCoordinates())\n        \n        // I can call gameboard.receiveAttack() here\n      }\n    },\n  }\n});\n\n\n//# sourceURL=webpack://battle-sandwich/./src/Player.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Player: () => (/* binding */ Player)\n/* harmony export */ });\n/* harmony import */ var _Gameboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gameboard */ \"./src/Gameboard.js\");\n\n\nconst Player = ((name) => {\n  return {\n    gameboard: (0,_Gameboard__WEBPACK_IMPORTED_MODULE_0__.Gameboard)(),\n    name,\n    active: false,\n    takeTurn(opponentBoard) {\n      if (this.active){\n        // bite the enemy\n        opponentBoard.receiveAttack(getCoordinates())\n        \n        // I can call gameboard.receiveAttack() here\n      }\n    },\n  }\n});\n\n\n//# sourceURL=webpack://battle-sandwich/./src/Player.js?");
 
 /***/ }),
 

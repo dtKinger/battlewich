@@ -24,6 +24,10 @@
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: calc(90vh - 100px);
   transition: 2s ease-in;
 }
@@ -165,6 +169,14 @@ a, a:visited, a:hover, a:active {
 
 .game-status__reveal {
   animation: fadeInText 1s;
+}
+
+.start-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
 }
 
 @keyframes fadeInText {

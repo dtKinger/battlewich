@@ -80,4 +80,9 @@ async function gameLoop() {
   setTimeout(gameLoop, 2000); // Re-start the game loop
 }
 
-startButton.addEventListener('click', (gameLoop))
+startButton.addEventListener('click', () => {
+  // Prevent multiple loops running at once
+  if (player1.active === false && computer.active === false) {
+    gameLoop()
+  }
+})

@@ -8,8 +8,11 @@ It's like Battleship... only tastier!
 - Jest --coverage
 
 ## Additional learning
-- I found a dependecy mapper to expose circular module depedencies and used its output to help resolve structural issues.
+
+- I found a dependecy mapper to expose circular module depedencies to help me resolve structural issues.
+- Initial dependency map:
 ![](./dist/old-map.png)
+- Restructred:
 ![](./dist/updated-map.png)
 
 ## Reminders

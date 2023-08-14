@@ -13,12 +13,14 @@ export function renderComputerBoard() {
         // cell.style.backgroundColor = 'blue';
         cell.classList.add('bitten')
         // }
-      }
-      if (cell !== null && compBoard[row][col] === 'x'){
-        const missMarker = span;
-        missMarker.classList = 'miss-dot';
-        cell.appendChild(missMarker);
-        // cell.classList.add('miss-dot')
+      } else if (cell !== null && compBoard[row][col] === 'x'){
+        if (cell.hasChildNodes() === false){ // This is a bug fix. Prevents misses from 
+          // appending a span every time after the first miss is applied to a cell.
+          // I can probably find a better solution later.
+          const missMarker = span;
+          missMarker.classList = 'miss-dot';
+          cell.appendChild(missMarker);
+        }
       }
     }
   }

@@ -65,7 +65,7 @@ a, a:visited, a:hover, a:active {
 }
 
 .title-image:not(h1) {
-  background-image: url('../dist/sandwich_images/title-sandwich.png');
+  background-image: url('../dist/sandwich_images/attributed_sub.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -190,11 +190,17 @@ a, a:visited, a:hover, a:active {
 
 .attribution{
   display: flex;
+  flex-direction: row;
   justify-content: center;
   background-color: black;
   color: white;
   font-size: 1em;
   font-family: 'Courier New', Courier, monospace;
+  gap: 40px;
+}
+
+.attribution > a {
+  flex: 1;
 }
 
 @keyframes fadeInText {

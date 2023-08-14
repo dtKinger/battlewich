@@ -65,7 +65,7 @@ a, a:visited, a:hover, a:active {
 }
 
 .title-image:not(h1) {
-  background-image: url('../dist/title-sandwich.png');
+  background-image: url('../dist/sandwich_images/title-sandwich.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -178,6 +178,23 @@ a, a:visited, a:hover, a:active {
   background-color: black;
   color: white;
   border-radius: 10px;
+}
+
+.bitten {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../dist/sandwich_images/vecteezy_sandwich-bite.png');
+}
+
+.attribution{
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  font-size: 1em;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 @keyframes fadeInText {

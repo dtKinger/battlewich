@@ -5,7 +5,7 @@ import { updateDomMessage } from './updateDomMessage';
 import { buildHTMLBoards } from "./buildHTMLBoards"
 import { player1, computer } from "./playerCreation";
 import { addListeners } from "./gameLoopEvents"
-import { renderComputerBoard, renderPlayerBoard, renderGame } from './renderBoard';
+import { renderComputerBoard, renderPlayerWiches, updatePlayerBoard, renderGame } from './renderBoard';
 import { checkWinner } from "./checkWinner"
 
 /* Memory allocation */
@@ -37,7 +37,7 @@ compGameboard.placeWich(compGameboard.club, [3,0])
 compGameboard.placeWich(compGameboard.hotDog, [4,0])
 
 /* Event listeners */
-renderPlayerBoard();
+renderPlayerWiches();
 addListeners();
 
 /* Application */
@@ -59,9 +59,9 @@ async function gameLoop() {
     // Human player's turn
     console.log("Human player's turn");
     const playerCoordinates = await player1.takeTurn(compGameboard);
-    console.log('playerCoordinates')
     compGameboard.receiveAttack(playerCoordinates);
-    console.log('Attack sent')
+    renderComputerBoard()//
+    
     compGameboard.isEverythingConsumed();
     console.log('consumption checked')
     checkWinner();

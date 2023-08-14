@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(90vh - 100px);
+  min-height: calc(90vh - 200px);
   transition: 2s ease-in;
 }
 

@@ -6,6 +6,7 @@ import { buildHTMLBoards } from "./buildHTMLBoards"
 import { player1, computer } from "./playerCreation";
 import { addListeners } from "./gameLoopEvents"
 import { renderComputerBoard, renderPlayerBoard, renderGame } from './renderBoard';
+import { checkWinner } from "./checkWinner"
 
 /* Memory allocation */
 
@@ -14,6 +15,7 @@ export const p1Gameboard = player1.gameboard; // alias for gameboard
 export const p1Board = p1Gameboard.board; // alias for the board
 export const compGameboard = computer.gameboard; // alias for gameboard
 export const compBoard = compGameboard.board; // alias for the board
+const startButton = document.querySelector('.start-btn')
 
 // all After Game Sign-in stage.
 // Generate HTML and CSS for two gameboards. Note: Does not render sandwiches
@@ -44,26 +46,38 @@ addListeners();
 // Game Play stage
 
 // Game Loop
-function gameLoop() {
-  
-  if (!p1Gameboard.everythingIsEaten && !compBoard.everythingIsEaten) {
-    player1.takeTurn()
+async function gameLoop() {
+  if (p1Gameboard.everythingIsEaten || compBoard.everythingIsEaten) {
+    // Game over condition, stop the loop
+    return;
   }
-  if (!p1Gameboard.everythingIsEaten && !compBoard.everythingIsEaten) {
-    computer.takeTurn()
+  if (player1.active === false && computer.active === false){ // new game? P1's turn
+    player1.active = true;
   }
-  console.log(this.board)
-    if (this.isEverythingConsumed()){
-      if (this.player === 'Robot'){
-        alert(`Noooob. The Robot ate your sandwiches`)
-      } else {
-        alert(`Stop eating! You did it! You devoured all the oponent's sandwiches.`)
-      }
-    }
+
+  if (player1.active) {
+    // Human player's turn
+    console.log("Human player's turn");
+    const playerCoordinates = await player1.takeTurn(compGameboard);
+    console.log('playerCoordinates')
+    compGameboard.receiveAttack(playerCoordinates);
+    console.log('Attack sent')
+    compGameboard.isEverythingConsumed();
+    console.log('consumption checked')
+    checkWinner();
+    console.log('winner checked')
+  } else if (computer.active) {
+    // Computer's turn
+    console.log("Computer's turn");
+    const computerCoordinates = computer.generateAtkCoords(); 
+    p1Gameboard.receiveAttack(computerCoordinates);
+    p1Gameboard.isEverythingConsumed();
+    checkWinner();
+  }
   // Flip the turn switch
   player1.active = !player1.active;
   computer.active = !computer.active;
-  gameLoop(); // Start the game loop
-  
+  setTimeout(gameLoop, 2000); // Re-start the game loop
 }
 
+startButton.addEventListener('click', (gameLoop))

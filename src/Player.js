@@ -1,22 +1,40 @@
 import { Gameboard } from "./Gameboard"
 
-export const Player = ((name) => {
+export const Player = ((name, role) => {
   return {
     gameboard: Gameboard(),
     name,
+    role,
     active: false,
     
-    takeTurn(opponentBoard) {
-      if (this.active){
-        if (this.name === 'Computer'){ // something the average player wouldn't create
-          console.log(`It's the ${this.name}'s turn`)
-          const coords = generateAtkCoords() // generates and checks them against the Set on other board.
-          opponentBoard.receiveAttack(coords)
-        } else if (this.name !== 'Computer'){
-          console.log(`It's the ${this}'s turn`)
-          // Player's version of takeTurn()
-        }
-        return;
+    async takeTurn(opponentBoard) {
+      if (this.role === 'player2') {
+        const coordinates = this.generateAtkCoords();
+        opponentBoard.receiveAttack(coordinates);
+      } else if (this.role === 'player1') {
+        console.log('this.role === player1')
+        return new Promise((resolve) => {
+          const boardContainer = document.querySelector('.gameboard-container');
+          
+          // Define the click handler function
+          const clickHandler = (e) => {
+            if (e.target.getAttribute('disabled') !== 'true'){
+              const biteAttempt = e.target.dataset.id;
+              if (biteAttempt) {
+                const a = biteAttempt[1];
+                const b = biteAttempt[3];
+                const chosenCoordinates = [a, b];
+                // Remove the event listener to prevent further clicks during this turn
+                boardContainer.removeEventListener("click", clickHandler);
+                // Resolve the Promise with the chosen coordinates
+                resolve(chosenCoordinates);
+              }
+            }
+          };
+          
+          // Register the click event listener immediately
+          boardContainer.addEventListener("click", clickHandler);
+        });
       }
     },
 
@@ -30,8 +48,14 @@ export const Player = ((name) => {
       const b = Math.floor(Math.random() * 10); // Generates a random integer from 0 to 9
       const coordinates = [a, b]
       if (player1.gameboard.bittenCoordinates.has(JSON.stringify(coordinates))) {
-        this.generateAtkCoords() // recursive call until open coordinates found.
-        return; // Coordinates have been attacked before, return early
+
+        // If all coordinates are bitten, stop the recursion
+        if (player1.gameboard.bittenCoordinates.size >= 100) {
+          return null; 
+        }
+
+        return this.generateAtkCoords();// recursive call until open coordinates found.
+
       } else {
         return coordinates;
       }

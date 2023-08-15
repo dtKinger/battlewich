@@ -24,11 +24,11 @@ buildHTMLBoards();
 // Game Set up Stage.
 console.log("Welcome to Battle 'Wich!")
 
-p1Gameboard.placeWich(p1Gameboard.submarine, [0,0])
-p1Gameboard.placeWich(p1Gameboard.french, [1,0])
-p1Gameboard.placeWich(p1Gameboard.reuben, [2,0])
+p1Gameboard.placeWich(p1Gameboard.submarine, [8,8], 'y')
+p1Gameboard.placeWich(p1Gameboard.french, [1,0])  
+p1Gameboard.placeWich(p1Gameboard.reuben, [5,5], 'y')
 p1Gameboard.placeWich(p1Gameboard.club, [3,0])
-p1Gameboard.placeWich(p1Gameboard.hotDog, [4,0])
+p1Gameboard.placeWich(p1Gameboard.hotDog, [7,2], 'y')
 
 compGameboard.placeWich(compGameboard.submarine, [0,0])
 compGameboard.placeWich(compGameboard.french, [1,0])
@@ -75,7 +75,7 @@ async function gameLoop() {
   // Flip the turn switch
   player1.active = !player1.active;
   computer.active = !computer.active;
-  setTimeout(gameLoop, 2000); // Re-start the game loop
+  setTimeout(gameLoop, 200); // Re-start the game loop
 }
 
 startButton.addEventListener('click', () => {

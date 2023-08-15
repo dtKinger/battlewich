@@ -110,8 +110,13 @@ a, a:visited, a:hover, a:active {
 }
 
 .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid white;
   transition: 100ms ease-in-out;
+  color: rgba(255,255,255, 0.9);
+  text-shadow: 2px 2px 2px rgba(0,0,0, 0.7);
 }
 
 .game-loop-hover__computer > .square:hover {
@@ -202,16 +207,70 @@ a, a:visited, a:hover, a:active {
 
 .attribution > a {
   flex: 1;
+  text-align: center;
 }
 
 .miss-dot{
   display: flex;
   margin: 20% auto;
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 50%;
   background-color: white;
   border-radius: 50%;
 }
+/* 
+.wich-marker{
+  position: absolute;
+  height: 32px;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.wich-marker__submarine{
+  width: calc(32px * 5);
+  background-image: url("../dist/sandwich_images/attributed_sub.png");
+
+}
+.wich-marker__french{
+  width: calc(32px * 4);
+  background-image: url("../dist/sandwich_images/attributed_sub.png");
+}
+.wich-marker__reuben{
+  width: calc(32px * 3);
+  background-image: url("../dist/sandwich_images/attributed_sub.png");
+}
+.wich-marker__club{
+  width: calc(32px * 3);
+  background-image: url("../dist/sandwich_images/attributed_sub.png");
+}
+.wich-marker__hot-dog{
+  width: calc(32px * 2);
+  background-image: url("../dist/sandwich_images/attributed_sub.png");
+}
+
+@media screen and (min-width: 901px) {
+
+  .wich-marker{
+    height: 40px;
+  }
+
+  .wich-marker__submarine{
+    width: calc(40px * 5);
+  }
+  .wich-marker__french{
+    width: calc(40px * 4);
+  }
+  .wich-marker__reuben{
+    width: calc(40px * 3);
+  }
+  .wich-marker__club{
+    width: calc(40px * 3);
+  }
+  .wich-marker__hot-dog{
+    width: calc(40px * 2);
+  }
+} */
+
 
 @keyframes fadeInText {
   0% { opacity: 0; }

@@ -41,27 +41,41 @@ export const Player = ((name, role) => {
     },
 
     generateAtkCoords(opponentBoard) {
-      // Call this with player1.gameboard as the argument
-      // Stupidest possible computer AI
-      if (this.role !== 'player2'){
+      if (this.role !== 'player2') {
         return;
       }
-      // Check the opponents previously bitten squares.
-      const a = Math.floor(Math.random() * 10); // Generates a random integer from 0 to 9
-      const b = Math.floor(Math.random() * 10); // Generates a random integer from 0 to 9
-      const coordinates = [a, b]
-      if (opponentBoard.bittenCoordinates.has(JSON.stringify(coordinates))) {
-        // console.log(coordinates)
-        // If all coordinates are bitten, stop the recursion
-        if (opponentBoard.bittenCoordinates.size >= 100) {
-          return null; 
+    
+      let attempts = 0;
+      const maxAttempts = 10; // Maximum number of attempts before giving up
+    
+      const tryGenerateCoordinates = () => {
+        const a = Math.floor(Math.random() * 10);
+        const b = Math.floor(Math.random() * 10);
+        const coordinates = [`${a}`, `${b}`];
+    
+        if (opponentBoard.bittenCoordinates.has(JSON.stringify(coordinates))) {
+          if (opponentBoard.bittenCoordinates.size >= 100) {
+            console.log(`That took too many randoms!`);
+            return null;
+          }
+          return tryGenerateCoordinates(); // Recursive call to try generating new coordinates
+        } else {
+          return coordinates;
         }
-
-        return this.generateAtkCoords();// recursive call until open coordinates found.
-
-      } else {
-        return coordinates;
+      };
+    
+      while (attempts < maxAttempts) {
+        try {
+          return tryGenerateCoordinates();
+        } catch (error) {
+          console.error(`Error generating coordinates: ${error}`);
+          attempts += 1;
+        }
       }
+    
+      console.error(`Failed to generate coordinates after ${maxAttempts} attempts`);
+      return null; // Give up and return null
     }
+    
   }
 });

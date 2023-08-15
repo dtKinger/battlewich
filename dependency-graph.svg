@@ -54,7 +54,7 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="498.47,-53.53 504.79,-52.8 499.4,-49.43 498.47,-53.53"/>
 </g>
 <!-- src/wichFactory.js&#45;&gt;src/updateDomMessage.js -->
-<g id="edge20" class="edge">
+<g id="edge19" class="edge">
 <title>src/wichFactory.js&#45;&gt;src/updateDomMessage.js</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M581.48,-53.24C586.12,-52.25 590.94,-51.23 595.77,-50.2"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="597.01,-51.65 602.44,-48.35 596.13,-47.54 597.01,-51.65"/>
@@ -129,8 +129,8 @@
 <g id="node8" class="node">
 <title>src/checkWinner.js</title>
 <g id="a_node8"><a xlink:href="src/checkWinner.js" xlink:title="checkWinner.js">
-<path fill="#ffffcc" stroke="black" d="M164.71,-77.88C164.71,-77.88 98.29,-77.88 98.29,-77.88 95.33,-77.88 92.38,-74.92 92.38,-71.96 92.38,-71.96 92.38,-66.04 92.38,-66.04 92.38,-63.08 95.33,-60.12 98.29,-60.12 98.29,-60.12 164.71,-60.12 164.71,-60.12 167.67,-60.12 170.62,-63.08 170.62,-66.04 170.62,-66.04 170.62,-71.96 170.62,-71.96 170.62,-74.92 167.67,-77.88 164.71,-77.88"/>
-<text text-anchor="start" x="100.38" y="-65.33" font-family="Helvetica,sans-Serif" font-size="9.00">checkWinner.js</text>
+<path fill="#ffffcc" stroke="black" d="M164.71,-91.88C164.71,-91.88 98.29,-91.88 98.29,-91.88 95.33,-91.88 92.38,-88.92 92.38,-85.96 92.38,-85.96 92.38,-80.04 92.38,-80.04 92.38,-77.08 95.33,-74.12 98.29,-74.12 98.29,-74.12 164.71,-74.12 164.71,-74.12 167.67,-74.12 170.62,-77.08 170.62,-80.04 170.62,-80.04 170.62,-85.96 170.62,-85.96 170.62,-88.92 167.67,-91.88 164.71,-91.88"/>
+<text text-anchor="start" x="100.38" y="-79.33" font-family="Helvetica,sans-Serif" font-size="9.00">checkWinner.js</text>
 </a>
 </g>
 </g>
@@ -146,11 +146,11 @@
 <!-- src/checkWinner.js&#45;&gt;src/playerCreation.js -->
 <g id="edge8" class="edge">
 <title>src/checkWinner.js&#45;&gt;src/playerCreation.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M170.91,-69C175.16,-69 179.53,-69 183.89,-69"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="183.82,-71.1 189.82,-69 183.82,-66.9 183.82,-71.1"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M170.91,-77.75C175.27,-77.15 179.76,-76.54 184.24,-75.92"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="185.16,-77.65 190.82,-74.75 184.59,-73.48 185.16,-77.65"/>
 </g>
 <!-- src/playerCreation.js&#45;&gt;src/Player.js -->
-<g id="edge18" class="edge">
+<g id="edge17" class="edge">
 <title>src/playerCreation.js&#45;&gt;src/Player.js</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M267.66,-59.67C278.23,-56.47 290.13,-52.86 301,-49.57"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="302.32,-50.76 307.45,-47.01 301.1,-46.74 302.32,-50.76"/>
@@ -164,50 +164,44 @@
 </a>
 </g>
 </g>
-<!-- src/gameLoopEvents.js&#45;&gt;src/playerCreation.js -->
-<g id="edge9" class="edge">
-<title>src/gameLoopEvents.js&#45;&gt;src/playerCreation.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M158.29,-103.66C165.37,-100.98 173.02,-97.97 180,-95 189.36,-91.02 199.46,-86.34 208.41,-82.07"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="209.76,-83.78 214.25,-79.28 207.93,-80 209.76,-83.78"/>
-</g>
 <!-- src/index.js -->
 <g id="node11" class="node">
 <title>src/index.js</title>
 <g id="a_node11"><a xlink:href="src/index.js" xlink:title="index.js">
-<path fill="#ffffcc" stroke="black" d="M64.08,-110.88C64.08,-110.88 21.92,-110.88 21.92,-110.88 18.96,-110.88 16,-107.92 16,-104.96 16,-104.96 16,-99.04 16,-99.04 16,-96.08 18.96,-93.12 21.92,-93.12 21.92,-93.12 64.08,-93.12 64.08,-93.12 67.04,-93.12 70,-96.08 70,-99.04 70,-99.04 70,-104.96 70,-104.96 70,-107.92 67.04,-110.88 64.08,-110.88"/>
-<text text-anchor="start" x="27.25" y="-98.33" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+<path fill="#ffffcc" stroke="black" d="M64.08,-106.88C64.08,-106.88 21.92,-106.88 21.92,-106.88 18.96,-106.88 16,-103.92 16,-100.96 16,-100.96 16,-95.04 16,-95.04 16,-92.08 18.96,-89.12 21.92,-89.12 21.92,-89.12 64.08,-89.12 64.08,-89.12 67.04,-89.12 70,-92.08 70,-95.04 70,-95.04 70,-100.96 70,-100.96 70,-103.92 67.04,-106.88 64.08,-106.88"/>
+<text text-anchor="start" x="27.25" y="-94.33" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
 </a>
 </g>
 </g>
 <!-- src/index.js&#45;&gt;src/updateDomMessage.js -->
-<g id="edge17" class="edge">
+<g id="edge16" class="edge">
 <title>src/index.js&#45;&gt;src/updateDomMessage.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M45.52,-92.78C48.88,-75.8 58.63,-39.85 83,-24 139.65,12.84 167.3,-17 234.88,-17 234.88,-17 234.88,-17 445.62,-17 492.5,-17 545.13,-22.89 584.99,-28.58"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M45.64,-88.72C49.14,-72 59.07,-37.16 83,-22 140.05,14.15 167.34,-17 234.88,-17 234.88,-17 234.88,-17 445.62,-17 492.5,-17 545.13,-22.89 584.99,-28.58"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="585.57,-31.07 591.81,-29.86 586.18,-26.92 585.57,-31.07"/>
 </g>
 <!-- src/index.js&#45;&gt;src/buildHTMLBoards.js -->
-<g id="edge10" class="edge">
+<g id="edge9" class="edge">
 <title>src/index.js&#45;&gt;src/buildHTMLBoards.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M47.27,-111.27C52.49,-124.45 64.1,-148.13 83,-158 121.21,-177.96 137.3,-163.96 180,-158 202.37,-154.88 336.59,-115.13 404.43,-94.8"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M46.75,-106.98C51.55,-120.87 62.91,-147.1 83,-158 120.89,-178.56 137.3,-163.96 180,-158 202.37,-154.88 336.59,-115.13 404.43,-94.8"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="405.61,-96.04 410.75,-92.3 404.4,-92.02 405.61,-96.04"/>
 </g>
 <!-- src/index.js&#45;&gt;src/checkWinner.js -->
-<g id="edge11" class="edge">
+<g id="edge10" class="edge">
 <title>src/index.js&#45;&gt;src/checkWinner.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M67.92,-92.78C72.9,-90.86 78.12,-88.86 83,-87 87.75,-85.19 92.77,-83.28 97.7,-81.41"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="98.97,-83.41 103.84,-79.32 97.48,-79.48 98.97,-83.41"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M70.42,-93.42C74.6,-92.69 79.03,-91.93 83.51,-91.15"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="84.59,-92.75 90.14,-89.65 83.87,-88.61 84.59,-92.75"/>
 </g>
 <!-- src/index.js&#45;&gt;src/playerCreation.js -->
-<g id="edge14" class="edge">
+<g id="edge13" class="edge">
 <title>src/index.js&#45;&gt;src/playerCreation.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M70.38,-98.94C103.84,-94.98 159.63,-88.11 180,-84 184.96,-83 190.14,-81.8 195.24,-80.51"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="196.43,-81.85 201.71,-78.3 195.37,-77.79 196.43,-81.85"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M46.75,-89.02C51.55,-75.13 62.91,-48.9 83,-38 120.89,-17.44 141.07,-19.47 180,-38 188.27,-41.94 185.52,-48.7 193,-54 193.66,-54.47 194.34,-54.92 195.03,-55.37"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="194.58,-57.6 200.86,-58.63 196.59,-53.91 194.58,-57.6"/>
 </g>
 <!-- src/index.js&#45;&gt;src/gameLoopEvents.js -->
-<g id="edge12" class="edge">
+<g id="edge11" class="edge">
 <title>src/index.js&#45;&gt;src/gameLoopEvents.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M70.42,-105.36C71.51,-105.5 72.62,-105.64 73.74,-105.78"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="73.32,-108.23 79.53,-106.9 73.85,-104.06 73.32,-108.23"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M70.42,-102.58C71.51,-102.77 72.62,-102.96 73.74,-103.16"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="74.26,-105.73 80.53,-104.68 74.98,-101.59 74.26,-105.73"/>
 </g>
 <!-- src/meyer&#45;reset.css -->
 <g id="node12" class="node">
@@ -219,25 +213,25 @@
 </g>
 </g>
 <!-- src/index.js&#45;&gt;src/meyer&#45;reset.css -->
-<g id="edge13" class="edge">
+<g id="edge12" class="edge">
 <title>src/index.js&#45;&gt;src/meyer&#45;reset.css</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M56.11,-111.37C63.55,-116.79 73.46,-123.43 83,-128 84.77,-128.85 86.61,-129.67 88.48,-130.45"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="88.47,-132.47 94.82,-132.67 89.98,-128.55 88.47,-132.47"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M53.92,-107.21C61.42,-113.77 72.25,-122.39 83,-128 84.52,-128.79 86.1,-129.56 87.7,-130.29"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="87.58,-132.33 93.93,-132.66 89.18,-128.44 87.58,-132.33"/>
 </g>
 <!-- src/renderBoard.js -->
 <g id="node13" class="node">
 <title>src/renderBoard.js</title>
 <g id="a_node13"><a xlink:href="src/renderBoard.js" xlink:title="renderBoard.js">
-<path fill="#ffffcc" stroke="black" d="M163.96,-47.88C163.96,-47.88 99.04,-47.88 99.04,-47.88 96.08,-47.88 93.12,-44.92 93.12,-41.96 93.12,-41.96 93.12,-36.04 93.12,-36.04 93.12,-33.08 96.08,-30.12 99.04,-30.12 99.04,-30.12 163.96,-30.12 163.96,-30.12 166.92,-30.12 169.88,-33.08 169.88,-36.04 169.88,-36.04 169.88,-41.96 169.88,-41.96 169.88,-44.92 166.92,-47.88 163.96,-47.88"/>
-<text text-anchor="start" x="101.12" y="-35.33" font-family="Helvetica,sans-Serif" font-size="9.00">renderBoard.js</text>
+<path fill="#ffffcc" stroke="black" d="M163.96,-61.88C163.96,-61.88 99.04,-61.88 99.04,-61.88 96.08,-61.88 93.12,-58.92 93.12,-55.96 93.12,-55.96 93.12,-50.04 93.12,-50.04 93.12,-47.08 96.08,-44.12 99.04,-44.12 99.04,-44.12 163.96,-44.12 163.96,-44.12 166.92,-44.12 169.88,-47.08 169.88,-50.04 169.88,-50.04 169.88,-55.96 169.88,-55.96 169.88,-58.92 166.92,-61.88 163.96,-61.88"/>
+<text text-anchor="start" x="101.12" y="-49.33" font-family="Helvetica,sans-Serif" font-size="9.00">renderBoard.js</text>
 </a>
 </g>
 </g>
 <!-- src/index.js&#45;&gt;src/renderBoard.js -->
-<g id="edge15" class="edge">
+<g id="edge14" class="edge">
 <title>src/index.js&#45;&gt;src/renderBoard.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M49.14,-92.86C55.66,-82.06 67.91,-64.26 83,-54 83.93,-53.37 84.88,-52.77 85.85,-52.19"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="87.29,-53.8 91.69,-49.21 85.39,-50.05 87.29,-53.8"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M53.92,-88.79C61.42,-82.23 72.25,-73.61 83,-68 84.52,-67.21 86.1,-66.44 87.7,-65.71"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="89.18,-67.56 93.93,-63.34 87.58,-63.67 89.18,-67.56"/>
 </g>
 <!-- src/style.css -->
 <g id="node14" class="node">
@@ -249,16 +243,16 @@
 </g>
 </g>
 <!-- src/index.js&#45;&gt;src/style.css -->
-<g id="edge16" class="edge">
+<g id="edge15" class="edge">
 <title>src/index.js&#45;&gt;src/style.css</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M47.04,-111.12C52.22,-125.38 64.11,-152.99 83,-169 86.88,-172.29 91.42,-175.01 96.13,-177.25"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="95.78,-179.21 102.12,-179.58 97.39,-175.33 95.78,-179.21"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M46.72,-107.17C51.61,-122.14 63.25,-151.84 83,-169 86.84,-172.33 91.36,-175.08 96.05,-177.33"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="95.7,-179.3 102.04,-179.68 97.32,-175.42 95.7,-179.3"/>
 </g>
 <!-- src/renderBoard.js&#45;&gt;src/playerCreation.js -->
-<g id="edge19" class="edge">
+<g id="edge18" class="edge">
 <title>src/renderBoard.js&#45;&gt;src/playerCreation.js</title>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M164.33,-48.33C173.86,-51.12 184.45,-54.22 194.46,-57.16"/>
-<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="194.72,-60.01 201.06,-59.68 195.9,-55.98 194.72,-60.01"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M170.33,-58.91C174.77,-59.61 179.36,-60.32 183.94,-61.04"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="184.47,-63.56 190.72,-62.41 185.11,-59.41 184.47,-63.56"/>
 </g>
 <!-- src/wichFactory.test.js -->
 <g id="node15" class="node">
@@ -270,7 +264,7 @@
 </g>
 </g>
 <!-- src/wichFactory.test.js&#45;&gt;src/wichFactory.js -->
-<g id="edge21" class="edge">
+<g id="edge20" class="edge">
 <title>src/wichFactory.test.js&#45;&gt;src/wichFactory.js</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M481,-103.69C485.56,-102.03 490.08,-100.14 494.25,-98 505.91,-92.03 517.66,-83.24 526.71,-75.73"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="528.15,-76.56 531.34,-71.06 525.42,-73.36 528.15,-76.56"/>

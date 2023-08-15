@@ -119,7 +119,6 @@ export const Gameboard = ( (name) => {
       if (squareStatus === '') {
         // If it's a miss, mark the board with an x
         this.board[row][col] = 'x';
-        // renderBoard();
         updateDomMessage(`${this.name}'s sandwiches are SAFE this bite.`);
       } else if (squareStatus.match(sandwichRegex)) {
         this.board[row][col] += 'b'; // append a bite to the sandwich square.

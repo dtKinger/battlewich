@@ -47,18 +47,17 @@ addListeners(); // crosshair, orange highlight
 
 // Game Loop
 async function gameLoop() {
+  // Base case 1
   if (p1Gameboard.everythingIsEaten || compBoard.everythingIsEaten) {
     // Game over condition, stop the loop
     return;
-  }
-  if (player1.active === false && computer.active === false){ // new game? P1's turn
-    player1.active = true;
   }
 
   if (player1.active) {
     // Human player's turn
     console.log("Human player's turn");
     const playerCoordinates = await player1.takeTurn(compGameboard);
+    console.log(playerCoordinates) // they log as string numbers
     compGameboard.receiveAttack(playerCoordinates);
     renderComputerBoard()
     compGameboard.isEverythingConsumed();
@@ -66,8 +65,10 @@ async function gameLoop() {
   } else if (computer.active) {
     // Computer's turn
     console.log("Computer's turn");
-    const computerCoordinates = computer.generateAtkCoords(player1.gameboard); 
+    const computerCoordinates = computer.generateAtkCoords(p1Gameboard); 
+    console.log(computerCoordinates) // they log as number numbers
     p1Gameboard.receiveAttack(computerCoordinates);
+    updatePlayerBoard();
     p1Gameboard.isEverythingConsumed();
     checkWinner();
   }
@@ -78,8 +79,10 @@ async function gameLoop() {
 }
 
 startButton.addEventListener('click', () => {
-  // Prevent multiple loops running at once
+  // Prevent multiple loops running for multiple clicks
+  // new game? Set P1's turn
   if (player1.active === false && computer.active === false) {
+    player1.active = true;
     gameLoop()
   }
 })

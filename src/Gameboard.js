@@ -106,7 +106,7 @@ export const Gameboard = ( (name) => {
       }
       
       if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
-        updateDomMessage(`${this.parent} already bitten these coordinates.`);
+        updateDomMessage(`Those coordinates have already been bitten.`);
         return; // Coordinates have been attacked before, return early
       }
     

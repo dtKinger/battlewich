@@ -75,7 +75,7 @@ async function gameLoop() {
   // Flip the turn switch
   player1.active = !player1.active;
   computer.active = !computer.active;
-  setTimeout(gameLoop, 200); // Re-start the game loop
+  setTimeout(gameLoop, 2000); // Re-start the game loop
 }
 
 startButton.addEventListener('click', () => {

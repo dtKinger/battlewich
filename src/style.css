@@ -178,12 +178,21 @@ a, a:visited, a:hover, a:active {
 }
 
 .start-btn {
+  display: none;
   margin-top: 20px;
   padding: 10px 20px;
   background-color: black;
   color: white;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.show-flex {
+  display: flex;
+}
+
+.show-block{
+  display: block;
 }
 
 .bitten {
@@ -218,6 +227,29 @@ a, a:visited, a:hover, a:active {
   background-color: white;
   border-radius: 50%;
 }
+
+.loading-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+#p1-name{
+  flex: 1;
+  padding: 10px 20px;
+  width: 80%;
+  height: 60px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 20px;
+}
+
+.tester{
+  flex: 1;
+}
+
+
 /* 
 .wich-marker{
   position: absolute;

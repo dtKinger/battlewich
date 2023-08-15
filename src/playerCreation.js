@@ -3,5 +3,10 @@ import { Player } from "./Player";
 // Sign-in stage
 // Other code to have a Player create a username
 export const player1 = Player('Daniel', 'player1');
-export const computer = Player('Robotica', 'player2'); // Keep this static as the computer's name
-// since it's used in logic... for now.
+export const computer = Player('Robotica', 'player2'); 
+
+// Gameboard alias creations
+export const p1Gameboard = player1.gameboard; // alias for gameboard
+export const p1Board = p1Gameboard.board; // alias for the board
+export const compGameboard = computer.gameboard; // alias for gameboard
+export const compBoard = compGameboard.board; // alias for the board

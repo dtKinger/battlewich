@@ -1,4 +1,4 @@
-import { player1, computer } from "./playerCreation"
+import { player1, computer } from "./boardSetUp"
 
 export function checkWinner () {
   if (player1.gameboard.everythingIsEaten === true){

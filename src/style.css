@@ -233,20 +233,56 @@ a, a:visited, a:hover, a:active {
   flex-direction: column;
   gap: 20px;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 #p1-name{
   flex: 1;
   padding: 10px 20px;
-  width: 80%;
-  height: 60px;
-  border: 1px solid black;
-  box-shadow: 2px 2px 2px black;
+  width: 80vw;
+  min-height: 80px;
+  border: none;
+  box-shadow: 0 0 6px 6px white, inset 0 0 6px 6px white;
   border-radius: 20px;
+  font-size: 1.5em;
+  background-color: transparent;
+  animation: glowBoxShadow 1.5s infinite; 
+  caret-color:blue; 
+  caret-shape: underscore;
 }
 
+@keyframes glowBoxShadow {
+  0% { box-shadow:0 0 4px 4px white, inset 0 0 4px 4px white; }
+  50% { box-shadow:0 0 4px 4px gold, inset 0 0 4px 4px gold;}
+  100% { box-shadow:0 0 4px 4px white, inset 0 0 4px 4px white;}
+}
+
+
 .tester{
-  flex: 1;
+  padding: 4px 20px;
+  font-family: 'videophreak';
+  /* text-transform: uppercase; */
+  text-shadow: 2px 2px 2px black;
+  color: white;
+  font-size: 1.25em;
+  width: 250px;
+  border-radius: 30px 20px 30px 20px;
+  background-color: rgba(174, 107, 20, 0.9);
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 200ms ease;
+  box-shadow: transparent;
+}
+
+.tester-background {
+  background-color: transparent;
+  border-radius: 30px 20px 30px 20px;
+  box-shadow: -5px 5px 2px rgb(143, 110, 64);
+}
+
+.tester:active{
+  transform: translateX(-5px) translateY(5px);
 }
 
 

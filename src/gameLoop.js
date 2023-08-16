@@ -1,8 +1,31 @@
-import { player1, computer } from "./playerCreation";
 import { Gameboard } from "./Gameboard";
-import { renderComputerBoard, updatePlayerBoard, renderGame  } from "./renderBoard";
+import { player1, computer, p1Gameboard, p1Board, compGameboard, compBoard } from "./playerCreation";
+import { renderComputerBoard, updatePlayerBoard, renderGame, renderPlayerWiches  } from "./renderBoard";
 import { checkWinner } from "./checkWinner"
-import { p1Gameboard, p1Board, compGameboard, compBoard } from "./playerCreation";
+import { addListeners } from './gameLoopEvents';
+import { buildHTMLBoards } from "./buildHTMLBoards";
+
+export function setUpGameLoop() {
+  const mainArea = document.querySelector('.main')
+  mainArea.innerHTML = `
+    <div class="game">
+
+    </div>
+    <div><button class="start-btn">Start Game</button></div>
+  `
+  // inject HTML boards
+  buildHTMLBoards();
+
+  // Let player see their selections
+  renderPlayerWiches();
+  /* Event listeners */
+  addListeners(); // crosshair, orange highlight
+  console.log(`Player 1 Name after import is: ${player1.name}`)
+  if (player1.active){
+    gameLoop();
+  }
+  
+}
 
 // Game Loop
 export async function gameLoop() {

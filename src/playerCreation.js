@@ -1,9 +1,7 @@
-import { Player } from "./Player"; 
+import { Player } from "./Player";
 
-// Sign-in stage
-// Other code to have a Player create a username
-export const player1 = Player('Daniel', 'player1');
-export const computer = Player('Robotica', 'player2'); 
+export const player1 = Player(`placeholder`, `player1`)
+export const computer = Player(`computer`, `player2`)
 
 // Gameboard alias creations
 export const p1Gameboard = player1.gameboard; // alias for gameboard

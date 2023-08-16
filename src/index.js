@@ -1,10 +1,11 @@
 /* Imports */
 import './meyer-reset.css'
 import './style.css'
+import { Player } from './Player';
+import { player1, computer } from "./playerCreation"
 import { updateDomMessage } from './updateDomMessage';
 import { welcomeScreen } from './welcomeScreen'
 import { buildHTMLBoards } from "./buildHTMLBoards"
-import { player1, computer, p1Gameboard, compGameboard, p1Board, compBoard } from "./playerCreation";
 import { addListeners } from "./gameLoopEvents"
 
 

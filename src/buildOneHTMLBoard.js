@@ -70,6 +70,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
 
     allSquares.forEach((square) => {
       square.addEventListener('mouseover', (e) => {
+        square.style.cursor = 'pointer';
         let getDataId = square.getAttribute("data-id")
         let a = parseInt(getDataId[1])
         let b = parseInt(getDataId[3])
@@ -79,14 +80,17 @@ export const buildOneHTMLBoard = ( (contextName) => {
           // square.classList.add('illegal-placement')
           console.log(`Can't put a wich there.`)
           square.style.cursor = 'not-allowed'
-          
+          square.classList.add('illegal-placement')
+        } else if (player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)){
+          square.classList.add('legal-placement')
         }
       })
     })
 
     allSquares.forEach((square) => {
       square.addEventListener('mouseout', (e) => {
-        square.style.cursor = 'revert'
+        square.style.cursor = ''
+        square.classList.remove('illegal-placement', 'legal-placement')
       })
     })
 

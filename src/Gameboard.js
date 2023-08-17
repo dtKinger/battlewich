@@ -80,8 +80,9 @@ export const Gameboard = ( (name) => {
         for (let i = 0; i < sandwich.length; i += 1) {
           // Check for out-of-bounds
           if (anchorArr[0] - i < 0) {
-
-            throw new Error('Sandwich placement is out of bounds');
+            return false;
+            // throw new Error('Sandwich placement is out of bounds'); // disable the click
+            // another way. checkSpaces being called on hover now.
           }
           // Check if the space is empty
           if (this.board[anchorArr[0] - i][anchorArr[1]] === '') {

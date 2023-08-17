@@ -9,6 +9,8 @@ const sandwichArr = [
   player1.gameboard.hotDog
 ]
 
+let currentAxis = player1.gameboard.axis;
+
 export const buildOneHTMLBoard = ( (contextName) => {
   
   const gameArea = document.querySelector('.game')
@@ -66,11 +68,11 @@ export const buildOneHTMLBoard = ( (contextName) => {
     const allSquares = document.querySelectorAll('.square')
 
     axisButton.addEventListener('click', (e) => {
-      if (player1.gameboard.axis === 'x'){
-        player1.gameboard.axis = 'y'
+      if (currentAxis === 'x'){
+        currentAxis = 'y'
         axisLabel.textContent = 'Y'
-      } else if (player1.gameboard.axis === 'y'){
-        player1.gameboard.axis = 'x'
+      } else if (currentAxis === 'y'){
+        currentAxis = 'x'
         axisLabel.textContent = 'X'
       }
       axisButton.classList.toggle('axis-btn__y')
@@ -83,11 +85,11 @@ export const buildOneHTMLBoard = ( (contextName) => {
         let a = parseInt(getDataId[1])
         let b = parseInt(getDataId[3])
         let coords = [a, b];
-        if (!player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)){
+        if (!player1.gameboard.checkSpaces(sandwichArr[0], coords, currentAxis)){
           square.style.cursor = 'not-allowed'
           square.classList.add('illegal-placement')
-        } else if (player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)){
-          highlightChecked(square, coords, sandwichArr[0])
+        } else if (player1.gameboard.checkSpaces(sandwichArr[0], coords, currentAxis)){
+          highlightChecked(sandwichArr[0], coords)
         }
       })
     })
@@ -102,9 +104,34 @@ export const buildOneHTMLBoard = ( (contextName) => {
       })
     })
 
+    allSquares.forEach((square) => {
+      square.addEventListener('click', (e) => {
+        
+        console.log(`e.target.getAttribute('data-id') is ${e.target.getAttribute('data-id')}`)
+        let a = parseInt(e.target.getAttribute('data-id').charAt(1)) // [4, 2] => 4
+        let b = parseInt(e.target.getAttribute('data-id').charAt(3)) // [4, 2] => 2
+        placeWich(sandwichArr.shift(), [a, b], currentAxis)
+
+      })
+    })
+
 });
 
-function highlightChecked (square, anchorArr, sandwich, axis = player1.gameboard.axis) {
+
+  // Game Set up Stage.
+  // p1Gameboard.placeWich(p1Gameboard.submarine, [8,8], 'y')
+  // p1Gameboard.placeWich(p1Gameboard.french, [1,0])  
+  // p1Gameboard.placeWich(p1Gameboard.reuben, [5,5], 'y')
+  // p1Gameboard.placeWich(p1Gameboard.club, [3,0])
+  // p1Gameboard.placeWich(p1Gameboard.hotDog, [7,2], 'y')
+
+  // compGameboard.placeWich(compGameboard.submarine, [0,0])
+  // compGameboard.placeWich(compGameboard.french, [1,0])
+  // compGameboard.placeWich(compGameboard.reuben, [2,0])
+  // compGameboard.placeWich(compGameboard.club, [3,0])
+  // compGameboard.placeWich(compGameboard.hotDog, [4,0])
+
+function highlightChecked (sandwich, anchorArr, axis = currentAxis) {
   
   let allClear = 0;
   let a = anchorArr[0]

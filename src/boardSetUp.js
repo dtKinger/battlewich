@@ -4,12 +4,12 @@ import { player1, computer } from "./playerCreation"
 import { buildOneHTMLBoard } from "./buildOneHTMLBoard"
 
 export function boardSetUp (p1Name) {
-  console.log(p1Name)
+  
   player1.name = `${p1Name}`
   const mainArea = document.querySelector('.main')
   updateDomMessage(`Welcome ${p1Name}. Place your sandwiches... guard them well!`)
   mainArea.style.justifyContent = 'center'; // Undo styling from Welcome screen.
-  console.log(`${player1.name}: ${player1.gameboard.board}`)
+  
   mainArea.innerHTML = `
     <div class="game">
 
@@ -18,6 +18,7 @@ export function boardSetUp (p1Name) {
   `
 
   buildOneHTMLBoard(player1.name);
+  generateComputerPlacements()
 
   const startButton = document.querySelector('.start-btn')
   startButton.classList.add('show-block')
@@ -30,6 +31,14 @@ export function boardSetUp (p1Name) {
       }
     })
   
-  console.log(player1.name)
+  function generateComputerPlacements() {
+    // Non-randomly for now:
+  computer.gameboard.placeWich(computer.gameboard.submarine, [0,0])
+  computer.gameboard.placeWich(computer.gameboard.french, [1,0])
+  computer.gameboard.placeWich(computer.gameboard.reuben, [2,0])
+  computer.gameboard.placeWich(computer.gameboard.club, [3,0])
+  computer.gameboard.placeWich(computer.gameboard.hotDog, [4,0])
+  }
+
 }
 

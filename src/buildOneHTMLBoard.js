@@ -109,7 +109,6 @@ export const buildOneHTMLBoard = ( (contextName) => {
     allSquares.forEach((square) => {
       square.addEventListener('click', (e) => {
         
-        console.log(`e.target.getAttribute('data-id') is ${e.target.getAttribute('data-id')}`)
         let a = parseInt(e.target.getAttribute('data-id').charAt(1)) // [4, 2] => 4
         let b = parseInt(e.target.getAttribute('data-id').charAt(3)) // [4, 2] => 2
         if (e.target.textContent === ''){
@@ -123,19 +122,6 @@ export const buildOneHTMLBoard = ( (contextName) => {
 
 });
 
-
-  // Game Set up Stage.
-  // p1Gameboard.placeWich(p1Gameboard.submarine, [8,8], 'y')
-  // p1Gameboard.placeWich(p1Gameboard.french, [1,0])  
-  // p1Gameboard.placeWich(p1Gameboard.reuben, [5,5], 'y')
-  // p1Gameboard.placeWich(p1Gameboard.club, [3,0])
-  // p1Gameboard.placeWich(p1Gameboard.hotDog, [7,2], 'y')
-
-  // compGameboard.placeWich(compGameboard.submarine, [0,0])
-  // compGameboard.placeWich(compGameboard.french, [1,0])
-  // compGameboard.placeWich(compGameboard.reuben, [2,0])
-  // compGameboard.placeWich(compGameboard.club, [3,0])
-  // compGameboard.placeWich(compGameboard.hotDog, [4,0])
 
 function highlightChecked (sandwich, anchorArr, axis = currentAxis) {
   

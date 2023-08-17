@@ -31,6 +31,7 @@ export const Player = ((name, role) => {
                 // Resolve the Promise with the chosen coordinates
                 resolve(chosenCoordinates);
               }
+              e.target.setAttribute('disabled', 'true')
             }
           };
           

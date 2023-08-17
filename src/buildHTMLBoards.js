@@ -1,10 +1,12 @@
+import {player1, computer} from "./playerCreation"
+
 export const buildHTMLBoards = ( () => {
   const gameArea = document.querySelector('.game')
   
   gameArea.innerHTML = `
     <div class="gameboard-container">
       <div class="board-context">
-        <h3>Player 1</h3>
+        <h3>${player1.name}</h3>
         <div class="gameboard gameboard-player">
         </div>
       </div>

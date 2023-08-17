@@ -16,23 +16,30 @@ let currentAxis = player1.gameboard.axis;
 export const buildOneHTMLBoard = ( (contextName) => {
   
   const gameArea = document.querySelector('.game')
-  
+
   gameArea.innerHTML = `
     <div class="gameboard-container">
-      <div class="tester-background axis-btn">
-        <button class="tester axis-btn axis-btn-padding">Axis</button>
-      </div>
-      <p class="axis-label">X</p>
+        <div class="tester-background axis-btn">
+          <button class="tester axis-btn axis-btn-padding">Axis</button>
+        </div>
+      
       <div class="board-context">
         <h3>${contextName}</h3>
-        <div class="gameboard gameboard-player">
+        <div class="gameboard gameboard-player ontouchstart="">
         </div>
       </div>
+
+
+    <div class="sandwich-info">
+      <p class="sandwich-label">submarine</p>
+      <p class="sandwich-layout"><span class="wich-component">s</span><span class="wich-component">s</span><span class="wich-component">s</span><span class="wich-component">s</span><span class="wich-component">s</span></p>
+    </div>
+
     </div>
   `
   
   const axisButton = document.querySelector('.axis-btn')
-  const axisLabel = document.querySelector('.axis-label')
+  // const axisLabel = document.querySelector('.axis-label')
   const oddClasses = ['square', 'light-wood']
   const evenClasses = ['square', 'dark-wood']
   const playerGameBoard = document.querySelector('.gameboard-player');
@@ -72,10 +79,10 @@ export const buildOneHTMLBoard = ( (contextName) => {
     axisButton.addEventListener('click', (e) => {
       if (currentAxis === 'x'){
         currentAxis = 'y'
-        axisLabel.textContent = 'Y'
+        // axisLabel.textContent = 'Y'
       } else if (currentAxis === 'y'){
         currentAxis = 'x'
-        axisLabel.textContent = 'X'
+        // axisLabel.textContent = 'X'
       }
       axisButton.classList.toggle('axis-btn__y')
     })
@@ -101,24 +108,13 @@ export const buildOneHTMLBoard = ( (contextName) => {
         square.style.cursor = ''
         allSquares.forEach((square) => {
           square.classList.remove('illegal-placement', 'legal-placement')
+          square.setAttribute('disabled', '');
         })
         
       })
     })
 
-    allSquares.forEach((square) => {
-      square.addEventListener('click', (e) => {
-        
-        let a = parseInt(e.target.getAttribute('data-id').charAt(1)) // [4, 2] => 4
-        let b = parseInt(e.target.getAttribute('data-id').charAt(3)) // [4, 2] => 2
-        if (e.target.textContent === ''){
-          // I like shift() here... makes a queue to cycle through sandwiches. Feels clean.
-          player1.gameboard.placeWich(sandwichArr.shift(), [a,b], currentAxis)
-          renderPlayerWiches()
-        }
-        
-      })
-    })
+    
 
 });
 
@@ -138,6 +134,7 @@ function highlightChecked (sandwich, anchorArr, axis = currentAxis) {
           let newY = b + j
           let neighbor = document.querySelector(`[data-id="[${a},${newY}]"]`);
           neighbor.classList.add('legal-placement')
+          neighbor.setAttribute('disabled', 'true');
         }
       }
     }
@@ -151,8 +148,46 @@ function highlightChecked (sandwich, anchorArr, axis = currentAxis) {
           let newX = a - j
           let neighbor = document.querySelector(`[data-id="[${newX},${b}]"]`);
           neighbor.classList.add('legal-placement')
+          neighbor.setAttribute('disabled', 'true');
         }
       }
     }
   }
+  const allSquares = document.querySelectorAll('.square')
+  allSquares.forEach((square) => {
+    square.addEventListener('click', (e) => {
+      
+      let a = parseInt(e.target.getAttribute('data-id').charAt(1)) // [4, 2] => 4
+      let b = parseInt(e.target.getAttribute('data-id').charAt(3)) // [4, 2] => 2
+      if (e.target.textContent === '' && !e.target.classList.contains('illegal-placement')){
+        // I like shift() here... makes a queue to cycle through sandwiches. Feels clean.
+        // if (){ // Put a guard clause for disabled hovers.
+          player1.gameboard.placeWich(sandwichArr.shift(), [a,b], currentAxis)
+          renderPlayerWiches()
+        // }
+        // document.querySelector('.sandwich-label').textContent = shift.name
+        // document.querySelector('.sandwich-layout').innerHTML = getWichLayout()
+      
+      }
+    })
+  })
+
 }
+
+// function getWichLayout () {
+//   let wichLayout = '';
+//   for (let i = 0; i < sandwichArr[0].length; i += 1){
+//     wichLayout += `<span class="wich-component">${sandwichArr[0].name.charAt(0)}</span>`;
+//   }
+//   return wichLayout;
+// }
+
+// function getSandwichName () {
+//   let copyArr = [];
+//   for (let i = 0; i < sandwichArr.length; i += 1){
+//     copyArr.push(sandwichArr[i])
+//   }
+//   console.log(copyArr[0].name)
+//   console.log(sandwichArr[0].name)
+//   return copyArr.shift().name;
+// }

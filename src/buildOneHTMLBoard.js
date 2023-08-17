@@ -1,3 +1,4 @@
+import { cursor } from "sisteransi";
 import { player1 } from "./playerCreation";
 
 export const buildOneHTMLBoard = ( (contextName) => {
@@ -74,7 +75,18 @@ export const buildOneHTMLBoard = ( (contextName) => {
         let b = parseInt(getDataId[3])
         let coords = [a, b];
         console.log(coords)
-        player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)
+        if (!player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)){
+          // square.classList.add('illegal-placement')
+          console.log(`Can't put a wich there.`)
+          square.style.cursor = 'not-allowed'
+          
+        }
+      })
+    })
+
+    allSquares.forEach((square) => {
+      square.addEventListener('mouseout', (e) => {
+        square.style.cursor = 'revert'
       })
     })
 

@@ -299,6 +299,13 @@ a, a:visited, a:hover, a:active {
   padding: 10px;
 }
 
+.legal-placement{
+  background-color: greenyellow;
+}
+
+.illegal-placement{
+  background-color: rgba(255,0,0, 0.5)
+}
 
 /* 
 .wich-marker{

@@ -32,9 +32,6 @@ export function boardSetUp (p1Name) {
   // compGameboard.placeWich(compGameboard.reuben, [2,0])
   // compGameboard.placeWich(compGameboard.club, [3,0])
   // compGameboard.placeWich(compGameboard.hotDog, [4,0])
-  
-
-
 
   const startButton = document.querySelector('.start-btn')
   startButton.classList.add('show-block')

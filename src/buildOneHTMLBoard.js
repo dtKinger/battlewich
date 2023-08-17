@@ -23,6 +23,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
   const oddClasses = ['square', 'light-wood']
   const evenClasses = ['square', 'dark-wood']
   const playerGameBoard = document.querySelector('.gameboard-player');
+
   // Generate playerBoard
     for (let row = 0; row < 10; row += 1){
       for (let col = 0; col < 10; col += 1){
@@ -53,6 +54,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
         }
       }
     }
+    const allSquares = document.querySelectorAll('.square')
 
     axisButton.addEventListener('click', (e) => {
       if (player1.gameboard.axis === 'x'){
@@ -63,6 +65,17 @@ export const buildOneHTMLBoard = ( (contextName) => {
         axisLabel.textContent = 'X'
       }
       axisButton.classList.toggle('axis-btn__y')
+    })
+
+    allSquares.forEach((square) => {
+      square.addEventListener('mouseover', (e) => {
+        let getDataId = square.getAttribute("data-id")
+        let a = parseInt(getDataId[1])
+        let b = parseInt(getDataId[3])
+        let coords = [a, b];
+        console.log(coords)
+        player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)
+      })
     })
 
 });

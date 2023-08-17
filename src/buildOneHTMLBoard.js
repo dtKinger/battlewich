@@ -99,7 +99,10 @@ export const buildOneHTMLBoard = ( (contextName) => {
     allSquares.forEach((square) => {
       square.addEventListener('mouseout', (e) => {
         square.style.cursor = ''
-        square.classList.remove('illegal-placement', 'legal-placement')
+        allSquares.forEach((square) => {
+          square.classList.remove('illegal-placement', 'legal-placement')
+        })
+        
       })
     })
 

@@ -289,6 +289,10 @@ a, a:visited, a:hover, a:active {
   align-items: center;
 }
 
+.axis-btn-padding{
+  padding: 12px 20px;
+}
+
 .axis-btn__y {
   writing-mode: vertical-rl;
   transform: rotate(-90deg);

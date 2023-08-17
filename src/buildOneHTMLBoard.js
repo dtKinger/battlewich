@@ -16,7 +16,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
   gameArea.innerHTML = `
     <div class="gameboard-container">
       <div class="tester-background axis-btn">
-        <button class="tester axis-btn">Axis</button>
+        <button class="tester axis-btn axis-btn-padding">Axis</button>
       </div>
       <p class="axis-label">X</p>
       <div class="board-context">
@@ -83,14 +83,10 @@ export const buildOneHTMLBoard = ( (contextName) => {
         let a = parseInt(getDataId[1])
         let b = parseInt(getDataId[3])
         let coords = [a, b];
-        console.log(coords)
         if (!player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)){
-          // square.classList.add('illegal-placement')
-          console.log(`Can't put a wich there.`)
           square.style.cursor = 'not-allowed'
           square.classList.add('illegal-placement')
         } else if (player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)){
-          // square.classList.add('legal-placement')
           highlightChecked(square, coords, sandwichArr[0])
         }
       })
@@ -116,22 +112,28 @@ function highlightChecked (square, anchorArr, sandwich, axis = player1.gameboard
 
   if (axis === 'x'){
     for (let i = 0; i < sandwich.length; i += 1){
-      
       if ((b + i) <= 9){
         allClear += 1;
       } if ( allClear === sandwich.length ){
-    
         for (let j = 0; j < sandwich.length; j += 1){
           let newY = b + j
           let neighbor = document.querySelector(`[data-id="[${a},${newY}]"]`);
           neighbor.classList.add('legal-placement')
-          // square.classList.add('legal-placement');
         }
       }
-
+    }
+  } else if (axis === 'y'){
+  // do Y things
+  for (let i = 0; i < sandwich.length; i += 1){
+    if ((a - i) >=0){
+      allClear += 1;
+      } if ( allClear === sandwich.length ){
+        for (let j = 0; j < sandwich.length; j += 1){
+          let newX = a - j
+          let neighbor = document.querySelector(`[data-id="[${newX},${b}]"]`);
+          neighbor.classList.add('legal-placement')
+        }
       }
-    } else if (axis === 'y'){
-    // do Y things
-    // let newX = a - j
+    }
   }
 }

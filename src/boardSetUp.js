@@ -3,7 +3,6 @@ import { updateDomMessage } from './updateDomMessage';
 import { player1, computer } from "./playerCreation"
 import { buildOneHTMLBoard } from "./buildOneHTMLBoard"
 
-
 export function boardSetUp (p1Name) {
   console.log(p1Name)
   player1.name = `${p1Name}`
@@ -35,14 +34,15 @@ export function boardSetUp (p1Name) {
 
   const startButton = document.querySelector('.start-btn')
   startButton.classList.add('show-block')
-  startButton.addEventListener('click', () => {
-    // Prevent multiple loops running for multiple clicks
-    // new game? Set P1's turn
-    if (player1.active === false && computer.active === false) {
-      player1.active = true;
-      setUpGameLoop()
-    }
-  })
+    startButton.addEventListener('click', () => {
+      // Prevent multiple loops running for multiple clicks
+      // new game? Set P1's turn
+      if (player1.active === false && computer.active === false) {
+        player1.active = true;
+        setUpGameLoop()
+      }
+    })
+  
   console.log(player1.name)
 }
 

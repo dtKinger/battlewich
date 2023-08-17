@@ -94,7 +94,7 @@ export const Gameboard = ( (name) => {
       if (allClear === sandwich.length) {
         return true; // Placement is valid
       } else {
-        throw new Error('Invalid sandwich placement');
+        console.warn('Invalid sandwich placement');
       }
     },
     

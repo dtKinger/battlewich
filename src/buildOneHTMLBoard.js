@@ -1,5 +1,7 @@
 import { cursor } from "sisteransi";
 import { player1 } from "./playerCreation";
+import { placeWich } from "./Gameboard"
+import { renderPlayerWiches } from "./renderBoard";
 
 const sandwichArr = [
   player1.gameboard.submarine,
@@ -110,8 +112,12 @@ export const buildOneHTMLBoard = ( (contextName) => {
         console.log(`e.target.getAttribute('data-id') is ${e.target.getAttribute('data-id')}`)
         let a = parseInt(e.target.getAttribute('data-id').charAt(1)) // [4, 2] => 4
         let b = parseInt(e.target.getAttribute('data-id').charAt(3)) // [4, 2] => 2
-        placeWich(sandwichArr.shift(), [a, b], currentAxis)
-
+        if (e.target.textContent === ''){
+          // I like shift() here... makes a queue to cycle through sandwiches. Feels clean.
+          player1.gameboard.placeWich(sandwichArr.shift(), [a,b], currentAxis)
+          renderPlayerWiches()
+        }
+        
       })
     })
 

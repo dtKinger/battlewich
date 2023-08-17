@@ -19,19 +19,6 @@ export function boardSetUp (p1Name) {
 
   buildOneHTMLBoard(player1.name);
 
-  // Game Set up Stage.
-  // p1Gameboard.placeWich(p1Gameboard.submarine, [8,8], 'y')
-  // p1Gameboard.placeWich(p1Gameboard.french, [1,0])  
-  // p1Gameboard.placeWich(p1Gameboard.reuben, [5,5], 'y')
-  // p1Gameboard.placeWich(p1Gameboard.club, [3,0])
-  // p1Gameboard.placeWich(p1Gameboard.hotDog, [7,2], 'y')
-
-  // compGameboard.placeWich(compGameboard.submarine, [0,0])
-  // compGameboard.placeWich(compGameboard.french, [1,0])
-  // compGameboard.placeWich(compGameboard.reuben, [2,0])
-  // compGameboard.placeWich(compGameboard.club, [3,0])
-  // compGameboard.placeWich(compGameboard.hotDog, [4,0])
-
   const startButton = document.querySelector('.start-btn')
   startButton.classList.add('show-block')
     startButton.addEventListener('click', () => {

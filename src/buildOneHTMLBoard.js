@@ -1,6 +1,14 @@
 import { cursor } from "sisteransi";
 import { player1 } from "./playerCreation";
 
+const sandwichArr = [
+  player1.gameboard.submarine,
+  player1.gameboard.french,
+  player1.gameboard.reuben,
+  player1.gameboard.club,
+  player1.gameboard.hotDog
+]
+
 export const buildOneHTMLBoard = ( (contextName) => {
   
   const gameArea = document.querySelector('.game')
@@ -82,7 +90,8 @@ export const buildOneHTMLBoard = ( (contextName) => {
           square.style.cursor = 'not-allowed'
           square.classList.add('illegal-placement')
         } else if (player1.gameboard.checkSpaces(player1.gameboard.submarine, coords, player1.gameboard.axis)){
-          square.classList.add('legal-placement')
+          // square.classList.add('legal-placement')
+          highlightChecked(square, coords, sandwichArr[0])
         }
       })
     })
@@ -95,3 +104,31 @@ export const buildOneHTMLBoard = ( (contextName) => {
     })
 
 });
+
+function highlightChecked (square, anchorArr, sandwich, axis = player1.gameboard.axis) {
+  
+  let allClear = 0;
+  let a = anchorArr[0]
+  let b = anchorArr[1]
+
+  if (axis === 'x'){
+    for (let i = 0; i < sandwich.length; i += 1){
+      
+      if ((b + i) <= 9){
+        allClear += 1;
+      } if ( allClear === sandwich.length ){
+    
+        for (let j = 0; j < sandwich.length; j += 1){
+          let newY = b + j
+          let neighbor = document.querySelector(`[data-id="[${a},${newY}]"]`);
+          neighbor.classList.add('legal-placement')
+          // square.classList.add('legal-placement');
+        }
+      }
+
+      }
+    } else if (axis === 'y'){
+    // do Y things
+    // let newX = a - j
+  }
+}

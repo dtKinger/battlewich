@@ -12,6 +12,7 @@ const sandwichArr = [
 ]
 
 let currentAxis = player1.gameboard.axis;
+let lastKnownLoc = [0,0];
 
 export const buildOneHTMLBoard = ( (contextName) => {
   
@@ -91,6 +92,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
     })
 
     window.addEventListener('keydown', (e) => {
+      let square = document.querySelector(`[data-id="[${lastKnownLoc[0]},${lastKnownLoc[1]}]"]`)
       if (e.key === 'Alt'){
         if (currentAxis === 'x'){
           currentAxis = 'y'
@@ -101,10 +103,18 @@ export const buildOneHTMLBoard = ( (contextName) => {
         }
         axisButton.classList.toggle('axis-btn__y')
         subtext.classList.toggle('hide')
+        lowLight()
+        if (!player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)){
+          square.style.cursor = 'not-allowed'
+          square.classList.add('illegal-placement')
+        } else if (player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)){
+          highlightChecked(sandwichArr[0], lastKnownLoc)
+        }
       }
     })
 
     window.addEventListener('keyup', (e) => {
+      let square = document.querySelector(`[data-id="[${lastKnownLoc[0]},${lastKnownLoc[1]}]"]`)
       if (e.key === 'Alt'){
         if (currentAxis === 'x'){
           currentAxis = 'y'
@@ -115,6 +125,14 @@ export const buildOneHTMLBoard = ( (contextName) => {
         }
         axisButton.classList.toggle('axis-btn__y')
         subtext.classList.toggle('hide')
+        lowLight()
+        if (!player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)){
+          square.style.cursor = 'not-allowed'
+          square.classList.add('illegal-placement')
+        } else if (player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)){
+          highlightChecked(sandwichArr[0], lastKnownLoc)
+        }
+        
       }
     })
 
@@ -125,6 +143,8 @@ export const buildOneHTMLBoard = ( (contextName) => {
         let a = parseInt(getDataId[1])
         let b = parseInt(getDataId[3])
         let coords = [a, b];
+        lastKnownLoc = [a, b]
+        
         if (!player1.gameboard.checkSpaces(sandwichArr[0], coords, currentAxis)){
           square.style.cursor = 'not-allowed'
           square.classList.add('illegal-placement')
@@ -141,11 +161,18 @@ export const buildOneHTMLBoard = ( (contextName) => {
           square.classList.remove('illegal-placement', 'legal-placement')
           square.setAttribute('disabled', '');
         })
-        
       })
     })
 
-    
+    function lowLight() {
+      allSquares.forEach((square) => {
+        square.style.cursor = ''
+        allSquares.forEach((square) => {
+          square.classList.remove('illegal-placement', 'legal-placement')
+          square.setAttribute('disabled', '');
+        })
+      })
+    }
 
 });
 

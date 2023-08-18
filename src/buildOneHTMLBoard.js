@@ -21,7 +21,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
   gameArea.innerHTML = `
     <div class="gameboard-container">
         
-    <div>
+    <div class="axis-area">
       <div class="tester-background axis-btn">
           <button class="tester axis-btn axis-btn-padding">Axis</button>
         </div>
@@ -158,7 +158,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
     }
 
 
-  // const allSquares = document.querySelectorAll('.square')
+  // Click event to commit a sandwich on the board.
   allSquares.forEach((square) => {
     square.addEventListener('click', (e) => {
       

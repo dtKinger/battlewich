@@ -2,6 +2,7 @@ import { cursor } from "sisteransi";
 import { player1 } from "./playerCreation";
 import { placeWich } from "./Gameboard"
 import { renderPlayerWiches } from "./renderBoard";
+import { updateDomMessage } from "./updateDomMessage";
 
 const sandwichArr = [
   player1.gameboard.submarine,
@@ -165,6 +166,15 @@ export const buildOneHTMLBoard = ( (contextName) => {
     let b = parseInt(e.target.getAttribute('data-id').charAt(3)); // [4, 2] => 2
     if (e.target.textContent === '' && !e.target.classList.contains('illegal-placement')) {
       player1.gameboard.placeWich(sandwichArr.shift(), [a, b], currentAxis);
+      if (sandwichArr[0]){
+        if (sandwichArr[0].name === 'hot dog'){
+          updateDomMessage(`Position your ${sandwichArr[0].name.charAt(0).toUpperCase()}${sandwichArr[0].name.slice(1)}.`)  
+        } else {
+          updateDomMessage(`Position your ${sandwichArr[0].name.charAt(0).toUpperCase()}${sandwichArr[0].name.slice(1)} sandwich.`)
+        }
+      } else {
+        updateDomMessage(`You're all set. Hit Start Game!`)
+      }
       renderPlayerWiches();
     }
     if (sandwichArr.length === 0) {

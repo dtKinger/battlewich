@@ -23,8 +23,8 @@ getName.addEventListener('click', (e) => {
 })
 
 export function welcomeScreen() {
-  updateDomMessage(`Welcome to Battle 'Wich! It's like Battleship... but tastier!`)
+  updateDomMessage(`Welcome to Battle 'Wich. It's like Battleship... but tastier!`)
   welcomeTimeoutID = setTimeout(() => {
-    updateDomMessage(`Enter your name to begin`);
+    updateDomMessage(`Enter your name to begin.`);
   }, 3000);
 }

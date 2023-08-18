@@ -8,7 +8,7 @@ export function boardSetUp (p1Name) {
   player1.name = `${p1Name}`
   player1.gameboard.name = `${p1Name}`
   const mainArea = document.querySelector('.main')
-  updateDomMessage(`Welcome ${p1Name}. Place your sandwiches... guard them well!`)
+  updateDomMessage(`Welcome ${p1Name}. Position your Submarine... sandwich.`)
   mainArea.style.justifyContent = 'center'; // Undo styling from Welcome screen.
   
   mainArea.innerHTML = `
@@ -49,8 +49,6 @@ export function boardSetUp (p1Name) {
       "layoutNine": [[],[],[],[],[]],
       "layoutTen": [[],[],[],[],[]],
     }
-
-
   
   computer.gameboard.placeWich(computer.gameboard.submarine, compLayouts.layoutOne[0])
   computer.gameboard.placeWich(computer.gameboard.french, compLayouts.layoutOne[1])

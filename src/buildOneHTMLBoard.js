@@ -160,6 +160,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
 
   // Click event to commit a sandwich on the board.
   function handleSquareClick(e) {
+    const startButton = document.querySelector('.start-btn')
     let a = parseInt(e.target.getAttribute('data-id').charAt(1)); // [4, 2] => 4
     let b = parseInt(e.target.getAttribute('data-id').charAt(3)); // [4, 2] => 2
     if (e.target.textContent === '' && !e.target.classList.contains('illegal-placement')) {
@@ -173,6 +174,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
       allSquares.forEach(square => {
         square.removeEventListener('click', handleSquareClick);
       });
+      startButton.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
   

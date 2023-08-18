@@ -14,7 +14,10 @@ export function boardSetUp (p1Name) {
     <div class="game">
 
     </div>
-    <div><button class="start-btn">Start Game</button></div>
+
+    <div class="start-btn-background">
+      <button class="start-btn disabled" disabled="true">Start Game &gt; &gt; &gt;</button>
+    </div>
   `
 
   buildOneHTMLBoard(player1.name);
@@ -22,14 +25,15 @@ export function boardSetUp (p1Name) {
 
   const startButton = document.querySelector('.start-btn')
   startButton.classList.add('show-block')
-    startButton.addEventListener('click', () => {
-      // Prevent multiple loops running for multiple clicks
-      // new game? Set P1's turn
-      if (player1.active === false && computer.active === false) {
-        player1.active = true;
-        setUpGameLoop()
-      }
-    })
+  startButton.addEventListener('click', (e) => {
+    console.log(`Let's go!`)
+    // Prevent multiple loops running for multiple clicks
+    // new game? Set P1's turn
+    if (player1.active === false && computer.active === false) {
+      player1.active = true;
+      setUpGameLoop()
+    }
+  })
   
   function generateComputerPlacements() {
     // Non-randomly for now:

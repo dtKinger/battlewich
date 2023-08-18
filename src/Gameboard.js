@@ -62,39 +62,40 @@ export const Gameboard = ( (name) => {
     // during the set up stage. Red-light the affected squares.
     checkSpaces(sandwich, anchorArr, axis = this.axis) {
       let allClear = 0;
-      
-      if (axis === 'x') {
-        for (let i = 0; i < sandwich.length; i += 1) {
-          // Check for out-of-bounds
-          if (anchorArr[1] + i >= this.board[0].length) {
-            return false;
-            // throw new Error('Sandwich placement is out of bounds'); // disable the click
-            // another way. checkSpaces being called on hover now.
+      if (sandwich){ // Because I'm .shifting() sandwiches, there might not be one
+        if (axis === 'x') {
+          for (let i = 0; i < sandwich.length; i += 1) {
+            // Check for out-of-bounds
+            if (anchorArr[1] + i >= this.board[0].length) {
+              return false;
+              // throw new Error('Sandwich placement is out of bounds'); // disable the click
+              // another way. checkSpaces being called on hover now.
+            }
+            // Check if the space is empty
+            if (this.board[anchorArr[0]][anchorArr[1] + i] === '') {
+              allClear += 1;
+            }
           }
-          // Check if the space is empty
-          if (this.board[anchorArr[0]][anchorArr[1] + i] === '') {
-            allClear += 1;
+        } else if (axis === 'y') {
+          for (let i = 0; i < sandwich.length; i += 1) {
+            // Check for out-of-bounds
+            if (anchorArr[0] - i < 0) {
+              return false;
+              // throw new Error('Sandwich placement is out of bounds'); // disable the click
+              // another way. checkSpaces being called on hover now.
+            }
+            // Check if the space is empty
+            if (this.board[anchorArr[0] - i][anchorArr[1]] === '') {
+              allClear += 1;
+            }
           }
         }
-      } else if (axis === 'y') {
-        for (let i = 0; i < sandwich.length; i += 1) {
-          // Check for out-of-bounds
-          if (anchorArr[0] - i < 0) {
-            return false;
-            // throw new Error('Sandwich placement is out of bounds'); // disable the click
-            // another way. checkSpaces being called on hover now.
-          }
-          // Check if the space is empty
-          if (this.board[anchorArr[0] - i][anchorArr[1]] === '') {
-            allClear += 1;
-          }
+        
+        if (allClear === sandwich.length) {
+          return true; // Placement is valid
+        } else {
+          console.warn('Invalid sandwich placement');
         }
-      }
-      
-      if (allClear === sandwich.length) {
-        return true; // Placement is valid
-      } else {
-        console.warn('Invalid sandwich placement');
       }
     },
     

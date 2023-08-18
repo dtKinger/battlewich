@@ -159,19 +159,27 @@ export const buildOneHTMLBoard = ( (contextName) => {
 
 
   // Click event to commit a sandwich on the board.
-  allSquares.forEach((square) => {
-    square.addEventListener('click', (e) => {
-      
-      let a = parseInt(e.target.getAttribute('data-id').charAt(1)) // [4, 2] => 4
-      let b = parseInt(e.target.getAttribute('data-id').charAt(3)) // [4, 2] => 2
-      if (e.target.textContent === '' && !e.target.classList.contains('illegal-placement')){
-        // I like .shift() here and the guard clause is 
-        // handled by checkSpaces() on hover and alt key events
-        player1.gameboard.placeWich(sandwichArr.shift(), [a,b], currentAxis)
-        renderPlayerWiches()
-      }
-    })
-  })
+  function handleSquareClick(e) {
+    let a = parseInt(e.target.getAttribute('data-id').charAt(1)); // [4, 2] => 4
+    let b = parseInt(e.target.getAttribute('data-id').charAt(3)); // [4, 2] => 2
+    if (e.target.textContent === '' && !e.target.classList.contains('illegal-placement')) {
+      player1.gameboard.placeWich(sandwichArr.shift(), [a, b], currentAxis);
+      renderPlayerWiches();
+    }
+    if (sandwichArr.length === 0) {
+      console.log(`Everything got placed`);
+      // Remove the click event listener
+      allSquares.forEach(square => {
+        square.removeEventListener('click', handleSquareClick);
+      });
+    }
+  }
+  
+  // Attach the named function as the event handler
+  allSquares.forEach(square => {
+    square.addEventListener('click', handleSquareClick);
+  });
+  
 
 });
 

@@ -84,6 +84,7 @@ a, a:visited, a:hover, a:active {
   gap: 100px;
   padding: 20px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .board-context {
@@ -179,12 +180,29 @@ a, a:visited, a:hover, a:active {
 
 .start-btn {
   display: none;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: black;
+  padding: 4px 20px;
+  font-family: 'videophreak';
+  /* text-transform: uppercase; */
+  text-shadow: 2px 2px 2px black;
   color: white;
-  border-radius: 10px;
+  font-size: 1.25em;
+  width: 250px;
+  border-radius: 30px 20px 30px 20px;
+  background-color: rgba(236, 137, 8, 0.9);
+  border: 2px solid white;
   cursor: pointer;
+  transition: transform 200ms ease;
+  box-shadow: transparent;
+}
+
+.start-btn-background{
+  background-color: transparent;
+  border-radius: 30px 20px 30px 20px;
+  box-shadow: -5px 5px 2px rgb(143, 110, 64);
+}
+
+.start-btn:active{
+  transform: translateX(-5px) translateY(5px);
 }
 
 .show-flex {

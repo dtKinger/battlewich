@@ -16,7 +16,7 @@ export function boardSetUp (p1Name) {
     </div>
 
     <div class="start-btn-background">
-      <button class="start-btn disabled" disabled="true">Start Game &gt; &gt; &gt;</button>
+      <button class="start-btn disabled" disabled>Start Game &gt; &gt; &gt;</button>
     </div>
   `
 

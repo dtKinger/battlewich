@@ -205,6 +205,12 @@ a, a:visited, a:hover, a:active {
   transform: translateX(-5px) translateY(5px);
 }
 
+.disabled {
+  background-color: gray;
+  color: rgba(56, 56, 56, 0.5);
+  cursor: none;
+}
+
 .show-flex {
   display: flex;
 }

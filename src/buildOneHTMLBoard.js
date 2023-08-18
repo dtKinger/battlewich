@@ -91,51 +91,28 @@ export const buildOneHTMLBoard = ( (contextName) => {
       axisButton.classList.toggle('axis-btn__y')
     })
 
-    window.addEventListener('keydown', (e) => {
-      let square = document.querySelector(`[data-id="[${lastKnownLoc[0]},${lastKnownLoc[1]}]"]`)
-      if (e.key === 'Alt'){
-        if (currentAxis === 'x'){
-          currentAxis = 'y'
-          // axisLabel.textContent = 'Y'
-        } else if (currentAxis === 'y'){
-          currentAxis = 'x'
-          // axisLabel.textContent = 'X'
-        }
-        axisButton.classList.toggle('axis-btn__y')
-        subtext.classList.toggle('hide')
-        lowLight()
-        if (!player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)){
-          square.style.cursor = 'not-allowed'
-          square.classList.add('illegal-placement')
-        } else if (player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)){
-          highlightChecked(sandwichArr[0], lastKnownLoc)
+    // Combine keydown and keyup event listener
+    window.addEventListener('keydown', handleAltKey);
+    window.addEventListener('keyup', handleAltKey);
+
+    function handleAltKey (e) {
+      let square = document.querySelector(`[data-id="[${lastKnownLoc[0]},${lastKnownLoc[1]}]"]`);
+      
+      if (e.key === 'Alt') {
+        toggleAxis();
+        subtext.classList.toggle('hide');
+        lowLight(); // un-highlight the hover-highlight for other axis.
+
+        if (!player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)) {
+          square.style.cursor = 'not-allowed';
+          square.classList.add('illegal-placement');
+        } else if (player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)) {
+          highlightChecked(sandwichArr[0], lastKnownLoc);
         }
       }
-    })
+    }
 
-    window.addEventListener('keyup', (e) => {
-      let square = document.querySelector(`[data-id="[${lastKnownLoc[0]},${lastKnownLoc[1]}]"]`)
-      if (e.key === 'Alt'){
-        if (currentAxis === 'x'){
-          currentAxis = 'y'
-          // axisLabel.textContent = 'Y'
-        } else if (currentAxis === 'y'){
-          currentAxis = 'x'
-          // axisLabel.textContent = 'X'
-        }
-        axisButton.classList.toggle('axis-btn__y')
-        subtext.classList.toggle('hide')
-        lowLight()
-        if (!player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)){
-          square.style.cursor = 'not-allowed'
-          square.classList.add('illegal-placement')
-        } else if (player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)){
-          highlightChecked(sandwichArr[0], lastKnownLoc)
-        }
-        
-      }
-    })
-
+    // On mouseover
     allSquares.forEach((square) => {
       square.addEventListener('mouseover', (e) => {
         square.style.cursor = 'pointer';
@@ -154,6 +131,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
       })
     })
 
+    // On mouseout
     allSquares.forEach((square) => {
       square.addEventListener('mouseout', (e) => {
         square.style.cursor = ''
@@ -172,6 +150,15 @@ export const buildOneHTMLBoard = ( (contextName) => {
           square.setAttribute('disabled', '');
         })
       })
+    }
+
+    function toggleAxis() {
+      if (currentAxis === 'x') {
+        currentAxis = 'y';
+      } else if (currentAxis === 'y') {
+        currentAxis = 'x';
+      }
+      axisButton.classList.toggle('axis-btn__y');
     }
 
 });

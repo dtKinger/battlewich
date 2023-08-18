@@ -10,9 +10,7 @@ export function renderComputerBoard() {
     for (let col = 0; col < 10; col += 1) {
       const cell = computerGameBoard.querySelector(`[data-id="[${row},${col}]"]`);
       if (cell !== null && compBoard[row][col].charAt(1) === 'b') {  // If the 2nd character is b, it's bitten.
-        // cell.style.backgroundColor = 'blue';
         cell.classList.add('bitten')
-        // }
       } else if (cell !== null && compBoard[row][col] === 'x'){
         if (cell.hasChildNodes() === false){ // This is a bug fix. Prevents misses from 
           // appending a span every time after the first miss is applied to a cell.

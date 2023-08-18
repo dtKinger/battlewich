@@ -168,9 +168,9 @@ export const buildOneHTMLBoard = ( (contextName) => {
       player1.gameboard.placeWich(sandwichArr.shift(), [a, b], currentAxis);
       if (sandwichArr[0]){
         if (sandwichArr[0].name === 'hot dog'){
-          updateDomMessage(`Position your ${sandwichArr[0].name.charAt(0).toUpperCase()}${sandwichArr[0].name.slice(1)}.`)  
+          updateDomMessage(`Position your ${sandwichArr[0].name.charAt(0).toUpperCase()}${sandwichArr[0].name.slice(1)}. 4 / 5`)  
         } else {
-          updateDomMessage(`Position your ${sandwichArr[0].name.charAt(0).toUpperCase()}${sandwichArr[0].name.slice(1)} sandwich.`)
+          updateDomMessage(`Position your ${sandwichArr[0].name.charAt(0).toUpperCase()}${sandwichArr[0].name.slice(1)} sandwich. ${5 - sandwichArr.length} / 5`)
         }
       } else {
         updateDomMessage(`You're all set. Hit Start Game!`)

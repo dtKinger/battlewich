@@ -8,7 +8,7 @@ export function boardSetUp (p1Name) {
   player1.name = `${p1Name}`
   player1.gameboard.name = `${p1Name}`
   const mainArea = document.querySelector('.main')
-  updateDomMessage(`Welcome ${p1Name}. Position your Submarine... sandwich.`)
+  updateDomMessage(`Welcome ${p1Name}. Position your Submarine... sandwich. 0 / 5`)
   mainArea.style.justifyContent = 'center'; // Undo styling from Welcome screen.
   
   mainArea.innerHTML = `

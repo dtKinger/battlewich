@@ -4,6 +4,7 @@ import { renderComputerBoard, updatePlayerBoard, renderGame, renderPlayerWiches 
 import { checkWinner } from "./checkWinner"
 import { addListeners } from './gameLoopEvents';
 import { buildHTMLBoards } from "./buildHTMLBoards";
+import { updateDomMessage } from "./updateDomMessage";
 
 export function setUpGameLoop() {
   const mainArea = document.querySelector('.main')
@@ -13,6 +14,8 @@ export function setUpGameLoop() {
     </div>
     <div><button class="start-btn">Start Game</button></div>
   `
+  updateDomMessage(`Bite your way around the opponent's board.`)
+
   // inject HTML boards
   buildHTMLBoards();
 
@@ -40,6 +43,7 @@ export async function gameLoop() {
     const playerCoordinates = await player1.takeTurn(compGameboard);
     compGameboard.receiveAttack(playerCoordinates);
     renderComputerBoard()
+    revealEatenWiches()
     compGameboard.isEverythingConsumed();
     checkWinner();
   } else if (computer.active) {
@@ -54,4 +58,20 @@ export async function gameLoop() {
   player1.active = !player1.active;
   computer.active = !computer.active;
   setTimeout(gameLoop, 200); // Re-start the game loop
+}
+
+function revealEatenWiches () {
+  let domBoard = document.querySelector('.gameboard-computer')
+  console.log(domBoard)
+  if (compGameboard.submarine.isEaten()){
+    for (let row = 0; row < 10; row += 1) {
+      for (let col = 0; col < 10; col += 1) {
+        if (compBoard[row][col] === 'sb'){
+          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          cell.textContent = 's'
+        }
+      }
+    }
+  } 
+
 }

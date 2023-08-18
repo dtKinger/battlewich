@@ -19,10 +19,13 @@ export const buildOneHTMLBoard = ( (contextName) => {
 
   gameArea.innerHTML = `
     <div class="gameboard-container">
-        <div class="tester-background axis-btn">
+        
+    <div>
+      <div class="tester-background axis-btn">
           <button class="tester axis-btn axis-btn-padding">Axis</button>
         </div>
-      
+          <p class="subtext">Hold <kbd>alt</kbd> / <kbd>option</kbd></p>
+        </div>
       <div class="board-context">
         <h3>${contextName}</h3>
         <div class="gameboard gameboard-player ontouchstart="">
@@ -37,7 +40,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
 
     </div>
   `
-  
+  const subtext = document.querySelector('.subtext')
   const axisButton = document.querySelector('.axis-btn')
   // const axisLabel = document.querySelector('.axis-label')
   const oddClasses = ['square', 'light-wood']
@@ -85,6 +88,34 @@ export const buildOneHTMLBoard = ( (contextName) => {
         // axisLabel.textContent = 'X'
       }
       axisButton.classList.toggle('axis-btn__y')
+    })
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Alt'){
+        if (currentAxis === 'x'){
+          currentAxis = 'y'
+          // axisLabel.textContent = 'Y'
+        } else if (currentAxis === 'y'){
+          currentAxis = 'x'
+          // axisLabel.textContent = 'X'
+        }
+        axisButton.classList.toggle('axis-btn__y')
+        subtext.classList.toggle('hide')
+      }
+    })
+
+    window.addEventListener('keyup', (e) => {
+      if (e.key === 'Alt'){
+        if (currentAxis === 'x'){
+          currentAxis = 'y'
+          // axisLabel.textContent = 'Y'
+        } else if (currentAxis === 'y'){
+          currentAxis = 'x'
+          // axisLabel.textContent = 'X'
+        }
+        axisButton.classList.toggle('axis-btn__y')
+        subtext.classList.toggle('hide')
+      }
     })
 
     allSquares.forEach((square) => {

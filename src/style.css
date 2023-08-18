@@ -331,6 +331,15 @@ a, a:visited, a:hover, a:active {
   
 }
 
+.subtext{
+  padding-top: 10px;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
 /* 
 .wich-marker{
   position: absolute;

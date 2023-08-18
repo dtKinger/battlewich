@@ -25,6 +25,6 @@ getName.addEventListener('click', (e) => {
 export function welcomeScreen() {
   updateDomMessage(`Welcome to Battle 'Wich! It's like Battleship... but tastier!`)
   welcomeTimeoutID = setTimeout(() => {
-    updateDomMessage(`Please tell us your name to begin`);
+    updateDomMessage(`Enter your name to begin`);
   }, 3000);
 }

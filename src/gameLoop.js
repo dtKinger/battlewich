@@ -20,6 +20,7 @@ export function setUpGameLoop() {
   renderPlayerWiches();
   /* Event listeners */
   addListeners(); // crosshair, orange highlight
+
   if (player1.active){
     gameLoop();
   }

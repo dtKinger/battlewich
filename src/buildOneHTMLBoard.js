@@ -175,6 +175,8 @@ export const buildOneHTMLBoard = ( (contextName) => {
         square.removeEventListener('click', handleSquareClick);
       });
       startButton.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      turnOffAltKeys(); // disable the placeWich helper function
     }
   }
   
@@ -183,7 +185,11 @@ export const buildOneHTMLBoard = ( (contextName) => {
     square.addEventListener('click', handleSquareClick);
   });
   
-
+  function turnOffAltKeys () {
+    window.removeEventListener('keydown', handleAltKey);
+    window.removeEventListener('keyup', handleAltKey);
+  }
+  
 });
 
 

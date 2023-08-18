@@ -32,13 +32,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
         <div class="gameboard gameboard-player ontouchstart="">
         </div>
       </div>
-
-
-    <div class="sandwich-info">
-      <p class="sandwich-label">submarine</p>
-      <p class="sandwich-layout"><span class="wich-component">s</span><span class="wich-component">s</span><span class="wich-component">s</span><span class="wich-component">s</span><span class="wich-component">s</span></p>
-    </div>
-
+  
     </div>
   `
   const subtext = document.querySelector('.subtext')
@@ -83,9 +77,11 @@ export const buildOneHTMLBoard = ( (contextName) => {
     axisButton.addEventListener('click', (e) => {
       if (currentAxis === 'x'){
         currentAxis = 'y'
+        subtext.classList.add('hide')
         // axisLabel.textContent = 'Y'
       } else if (currentAxis === 'y'){
         currentAxis = 'x'
+        subtext.classList.remove('hide')
         // axisLabel.textContent = 'X'
       }
       axisButton.classList.toggle('axis-btn__y')
@@ -161,6 +157,22 @@ export const buildOneHTMLBoard = ( (contextName) => {
       axisButton.classList.toggle('axis-btn__y');
     }
 
+
+  // const allSquares = document.querySelectorAll('.square')
+  allSquares.forEach((square) => {
+    square.addEventListener('click', (e) => {
+      
+      let a = parseInt(e.target.getAttribute('data-id').charAt(1)) // [4, 2] => 4
+      let b = parseInt(e.target.getAttribute('data-id').charAt(3)) // [4, 2] => 2
+      if (e.target.textContent === '' && !e.target.classList.contains('illegal-placement')){
+        // I like .shift() here and the guard clause is 
+        // handled by checkSpaces() on hover and alt key events
+        player1.gameboard.placeWich(sandwichArr.shift(), [a,b], currentAxis)
+        renderPlayerWiches()
+      }
+    })
+  })
+
 });
 
 
@@ -198,41 +210,4 @@ function highlightChecked (sandwich, anchorArr, axis = currentAxis) {
       }
     }
   }
-  const allSquares = document.querySelectorAll('.square')
-  allSquares.forEach((square) => {
-    square.addEventListener('click', (e) => {
-      
-      let a = parseInt(e.target.getAttribute('data-id').charAt(1)) // [4, 2] => 4
-      let b = parseInt(e.target.getAttribute('data-id').charAt(3)) // [4, 2] => 2
-      if (e.target.textContent === '' && !e.target.classList.contains('illegal-placement')){
-        // I like shift() here... makes a queue to cycle through sandwiches. Feels clean.
-        // if (){ // Put a guard clause for disabled hovers.
-          player1.gameboard.placeWich(sandwichArr.shift(), [a,b], currentAxis)
-          renderPlayerWiches()
-        // }
-        // document.querySelector('.sandwich-label').textContent = shift.name
-        // document.querySelector('.sandwich-layout').innerHTML = getWichLayout()
-      
-      }
-    })
-  })
-
 }
-
-// function getWichLayout () {
-//   let wichLayout = '';
-//   for (let i = 0; i < sandwichArr[0].length; i += 1){
-//     wichLayout += `<span class="wich-component">${sandwichArr[0].name.charAt(0)}</span>`;
-//   }
-//   return wichLayout;
-// }
-
-// function getSandwichName () {
-//   let copyArr = [];
-//   for (let i = 0; i < sandwichArr.length; i += 1){
-//     copyArr.push(sandwichArr[i])
-//   }
-//   console.log(copyArr[0].name)
-//   console.log(sandwichArr[0].name)
-//   return copyArr.shift().name;
-// }

@@ -35,13 +35,28 @@ export function boardSetUp (p1Name) {
     }
   })
   
-  function generateComputerPlacements() {
-    // Non-randomly for now:
-  computer.gameboard.placeWich(computer.gameboard.submarine, [0,0])
-  computer.gameboard.placeWich(computer.gameboard.french, [1,0])
-  computer.gameboard.placeWich(computer.gameboard.reuben, [2,0])
-  computer.gameboard.placeWich(computer.gameboard.club, [3,0])
-  computer.gameboard.placeWich(computer.gameboard.hotDog, [4,0])
+  function generateComputerPlacements() {  
+    // Controlled-random:
+    const compLayouts = {
+      "layoutOne": [[1,1,'x'],[7,1,'y'],[9,6,'x'],[6,5,'y'],[3,7,'y']],
+      "layoutTwo": [[],[],[],[],[]],
+      "layoutThree": [[],[],[],[],[]],
+      "layoutFour": [[],[],[],[],[]],
+      "layoutFive": [[],[],[],[],[]],
+      "layoutSix": [[],[],[],[],[]],
+      "layoutSeven": [[],[],[],[],[]],
+      "layoutEight": [[],[],[],[],[]],
+      "layoutNine": [[],[],[],[],[]],
+      "layoutTen": [[],[],[],[],[]],
+    }
+
+
+  
+  computer.gameboard.placeWich(computer.gameboard.submarine, compLayouts.layoutOne[0])
+  computer.gameboard.placeWich(computer.gameboard.french, compLayouts.layoutOne[1])
+  computer.gameboard.placeWich(computer.gameboard.reuben, compLayouts.layoutOne[2])
+  computer.gameboard.placeWich(computer.gameboard.club, compLayouts.layoutOne[3])
+  computer.gameboard.placeWich(computer.gameboard.hotDog, compLayouts.layoutOne[4])
   }
 
 }

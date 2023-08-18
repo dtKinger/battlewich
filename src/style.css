@@ -160,8 +160,14 @@ a, a:visited, a:hover, a:active {
   border-radius: 10px;
 }
 
+@media screen and (max-width: 550px) {
+  .status-message-box{
+    min-height: 130px;
+  }
+}
+
 .game-status {
-  line-height: 1.2;;
+  line-height: 1.2;
   color: black;
   text-shadow: 2px 2px 2px white;
   text-align: center;

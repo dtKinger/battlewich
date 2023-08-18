@@ -167,7 +167,6 @@ export const buildOneHTMLBoard = ( (contextName) => {
       renderPlayerWiches();
     }
     if (sandwichArr.length === 0) {
-      console.log(`Everything got placed`);
       document.querySelector('.start-btn').removeAttribute('disabled')
       document.querySelector('.start-btn').classList.remove('disabled')
       // Remove the click event listener

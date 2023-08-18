@@ -14,7 +14,6 @@ export const Player = ((name, role) => {
         // const coordinates = this.generateAtkCoords();
         // opponentBoard.receiveAttack(coordinates);
       } else if (this.role === 'player1') {
-        console.log('this.role === player1')
         return new Promise((resolve) => {
           const boardContainer = document.querySelector('.gameboard-container');
           

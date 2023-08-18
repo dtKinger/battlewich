@@ -6,6 +6,7 @@ import { buildOneHTMLBoard } from "./buildOneHTMLBoard"
 export function boardSetUp (p1Name) {
   
   player1.name = `${p1Name}`
+  player1.gameboard.name = `${p1Name}`
   const mainArea = document.querySelector('.main')
   updateDomMessage(`Welcome ${p1Name}. Place your sandwiches... guard them well!`)
   mainArea.style.justifyContent = 'center'; // Undo styling from Welcome screen.
@@ -26,7 +27,6 @@ export function boardSetUp (p1Name) {
   const startButton = document.querySelector('.start-btn')
   startButton.classList.add('show-block')
   startButton.addEventListener('click', (e) => {
-    console.log(`Let's go!`)
     // Prevent multiple loops running for multiple clicks
     // new game? Set P1's turn
     if (player1.active === false && computer.active === false) {

@@ -7,6 +7,7 @@ import { buildHTMLBoards } from "./buildHTMLBoards";
 import { updateDomMessage } from "./updateDomMessage";
 
 export function setUpGameLoop() {
+  
   const mainArea = document.querySelector('.main')
   mainArea.innerHTML = `
     <div class="game">
@@ -32,6 +33,8 @@ export function setUpGameLoop() {
 
 // Game Loop
 export async function gameLoop() {
+
+  const compDomBoard = document.querySelector('.gameboard-computer')
   // Base case 1
   if (p1Gameboard.everythingIsEaten || compBoard.everythingIsEaten) {
     // Game over condition, stop the loop
@@ -45,14 +48,21 @@ export async function gameLoop() {
     renderComputerBoard()
     revealEatenWiches()
     compGameboard.isEverythingConsumed();
-    checkWinner();
+    if(checkWinner() === true){
+      compDomBoard.setAttribute('disabled', 'true')
+      showPlayAgainModal();
+      return;
+    };
   } else if (computer.active) {
     // Computer's turn
     const computerCoordinates = computer.generateAtkCoords(p1Gameboard); 
     p1Gameboard.receiveAttack(computerCoordinates);
     updatePlayerBoard();
     p1Gameboard.isEverythingConsumed();
-    checkWinner();
+    if(checkWinner() === true){
+      showPlayAgainModal();
+      return;
+    };
   }
   // Flip the turn switch
   player1.active = !player1.active;
@@ -64,13 +74,13 @@ function revealEatenWiches () {
   // This function is soaking wet...
   // I could introduce the sandwichArr again to iterate on it to
   // DRY things up, though.
-  let domBoard = document.querySelector('.gameboard-computer')
-  console.log(domBoard)
+  const compDomBoard = document.querySelector('.gameboard-computer')
+  
   if (compGameboard.submarine.isEaten()){
     for (let row = 0; row < 10; row += 1) {
       for (let col = 0; col < 10; col += 1) {
         if (compBoard[row][col] === 'sb'){
-          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
           cell.textContent = compBoard[row][col].charAt(0);
         }
       }
@@ -81,7 +91,7 @@ function revealEatenWiches () {
     for (let row = 0; row < 10; row += 1) {
       for (let col = 0; col < 10; col += 1) {
         if (compBoard[row][col] === 'fb'){
-          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
           cell.textContent = compBoard[row][col].charAt(0);
         }
       }
@@ -92,7 +102,7 @@ function revealEatenWiches () {
     for (let row = 0; row < 10; row += 1) {
       for (let col = 0; col < 10; col += 1) {
         if (compBoard[row][col] === 'rb'){
-          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
           cell.textContent = compBoard[row][col].charAt(0);
           }
         }
@@ -103,7 +113,7 @@ function revealEatenWiches () {
     for (let row = 0; row < 10; row += 1) {
       for (let col = 0; col < 10; col += 1) {
         if (compBoard[row][col] === 'cb'){
-          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
           cell.textContent = compBoard[row][col].charAt(0);
         }
       }
@@ -113,11 +123,17 @@ function revealEatenWiches () {
     for (let row = 0; row < 10; row += 1) {
       for (let col = 0; col < 10; col += 1) {
         if (compBoard[row][col] === 'hb'){
-          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
           cell.textContent = compBoard[row][col].charAt(0);
           }
         }
       }
     }
   }
+}
+
+function showPlayAgainModal () {
+  const mainArea = document.querySelector('.main')
+
+  
 }

@@ -5,6 +5,7 @@ import { checkWinner } from "./checkWinner"
 import { addListeners } from './gameLoopEvents';
 import { buildHTMLBoards } from "./buildHTMLBoards";
 import { updateDomMessage } from "./updateDomMessage";
+import { boardSetUp } from "./boardSetUp";
 
 export function setUpGameLoop() {
   
@@ -135,5 +136,15 @@ function revealEatenWiches () {
 function showPlayAgainModal () {
   const mainArea = document.querySelector('.main')
 
-  
+  const modalBackground = document.createElement('div');
+  modalBackground.classList.add('modal-background')
+  const playAgainBtn = document.createElement('div');
+  playAgainBtn.classList.add('tester', 'modal-sizing')
+  playAgainBtn.textContent = `Play Again > > >`;
+  playAgainBtn.addEventListener('click', (e) => {
+    location.reload()
+    // boardSetUp(player1.name); // This requires a lot of memory dumping
+  })
+  modalBackground.append(playAgainBtn);
+  mainArea.prepend(modalBackground);
 }

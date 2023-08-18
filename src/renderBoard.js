@@ -8,7 +8,7 @@ export function renderComputerBoard() {
   const computerGameBoard = document.querySelector('.gameboard-computer')
   for (let row = 0; row < 10; row += 1) {
     for (let col = 0; col < 10; col += 1) {
-      const cell = computerGameBoard.querySelector(`[data-id="[${row},${col}]"]`);
+      const cell = computerGameBoard.querySelector(`[data-id="[${row},${col}]"]`); 
       if (cell !== null && compBoard[row][col].charAt(1) === 'b') {  // If the 2nd character is b, it's bitten.
         cell.classList.add('bitten')
       } else if (cell !== null && compBoard[row][col] === 'x'){

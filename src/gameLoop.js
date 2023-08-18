@@ -61,6 +61,9 @@ export async function gameLoop() {
 }
 
 function revealEatenWiches () {
+  // This function is soaking wet...
+  // I could introduce the sandwichArr again to iterate on it to
+  // DRY things up, though.
   let domBoard = document.querySelector('.gameboard-computer')
   console.log(domBoard)
   if (compGameboard.submarine.isEaten()){
@@ -68,10 +71,53 @@ function revealEatenWiches () {
       for (let col = 0; col < 10; col += 1) {
         if (compBoard[row][col] === 'sb'){
           let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
-          cell.textContent = 's'
+          cell.textContent = compBoard[row][col].charAt(0);
         }
       }
     }
-  } 
-
+  }
+    
+  if (compGameboard.french.isEaten()){
+    for (let row = 0; row < 10; row += 1) {
+      for (let col = 0; col < 10; col += 1) {
+        if (compBoard[row][col] === 'fb'){
+          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          cell.textContent = compBoard[row][col].charAt(0);
+        }
+      }
+    }
+  }
+  
+  if (compGameboard.reuben.isEaten()){
+    for (let row = 0; row < 10; row += 1) {
+      for (let col = 0; col < 10; col += 1) {
+        if (compBoard[row][col] === 'rb'){
+          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          cell.textContent = compBoard[row][col].charAt(0);
+          }
+        }
+      }
+    }
+    
+  if (compGameboard.club.isEaten()){
+    for (let row = 0; row < 10; row += 1) {
+      for (let col = 0; col < 10; col += 1) {
+        if (compBoard[row][col] === 'cb'){
+          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          cell.textContent = compBoard[row][col].charAt(0);
+        }
+      }
+    }
+    
+  if (compGameboard.hotDog.isEaten()){
+    for (let row = 0; row < 10; row += 1) {
+      for (let col = 0; col < 10; col += 1) {
+        if (compBoard[row][col] === 'hb'){
+          let cell = domBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+          cell.textContent = compBoard[row][col].charAt(0);
+          }
+        }
+      }
+    }
+  }
 }

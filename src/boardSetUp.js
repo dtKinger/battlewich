@@ -1,6 +1,6 @@
 import { setUpGameLoop } from './gameLoop';
 import { updateDomMessage } from './updateDomMessage';
-import { player1, computer } from "./playerCreation"
+import { player1, computer, compGameboard } from "./playerCreation"
 import { buildOneHTMLBoard } from "./buildOneHTMLBoard"
 
 export function boardSetUp (p1Name) {
@@ -22,7 +22,7 @@ export function boardSetUp (p1Name) {
   `
 
   buildOneHTMLBoard(player1.name);
-  generateComputerPlacements()
+  placeFiveCompWiches();
 
   const startButton = document.querySelector('.start-btn')
   startButton.classList.add('show-block')
@@ -35,27 +35,68 @@ export function boardSetUp (p1Name) {
     }
   })
   
-  function generateComputerPlacements() {  
-    // Controlled-random:
-    const compLayouts = {
-      "layoutOne": [[1,1,'x'],[7,1,'y'],[9,6,'x'],[6,5,'y'],[3,7,'y']],
-      "layoutTwo": [[],[],[],[],[]],
-      "layoutThree": [[],[],[],[],[]],
-      "layoutFour": [[],[],[],[],[]],
-      "layoutFive": [[],[],[],[],[]],
-      "layoutSix": [[],[],[],[],[]],
-      "layoutSeven": [[],[],[],[],[]],
-      "layoutEight": [[],[],[],[],[]],
-      "layoutNine": [[],[],[],[],[]],
-      "layoutTen": [[],[],[],[],[]],
+  function placeFiveCompWiches() {
+    const sandwichArr = [
+      compGameboard.submarine,
+      compGameboard.french,
+      compGameboard.reuben,
+      compGameboard.club,
+      compGameboard.hotDog
+    ]
+
+    let attempts = 0;
+    const maxAttempts = 20;
+    
+    while (attempts < maxAttempts){
+      let coords = generateOneCoordSet()
+      try{
+        attempts += 1;
+        if(compGameboard.checkSpaces(sandwichArr[0], coords) === true){
+          compGameboard.placeWich(sandwichArr[0], coords)
+          return;
+        }
+      } catch (error) {
+        console.error(error);
+      }
     }
-  
-  computer.gameboard.placeWich(computer.gameboard.submarine, compLayouts.layoutOne[0])
-  computer.gameboard.placeWich(computer.gameboard.french, compLayouts.layoutOne[1])
-  computer.gameboard.placeWich(computer.gameboard.reuben, compLayouts.layoutOne[2])
-  computer.gameboard.placeWich(computer.gameboard.club, compLayouts.layoutOne[3])
-  computer.gameboard.placeWich(computer.gameboard.hotDog, compLayouts.layoutOne[4])
   }
 
+  function generateOneCoordSet () {
+  
+    const a = Math.floor(Math.random() * 10);
+    const b = Math.floor(Math.random() * 10);
+    // let thisAxis = 'y'
+    const coordinates = [a,b];
+    return coordinates;
+     
+  }
 }
 
+
+  //   // Controlled-random:
+  //   const compLayouts = {
+  //     "layoutOne": [[1,1,'x'],[7,1,'y'],[9,6,'x'],[6,5,'y'],[3,7,'y']],
+  //     "layoutTwo": [[],[],[],[],[]],
+  //     "layoutThree": [[],[],[],[],[]],
+  //     "layoutFour": [[],[],[],[],[]],
+  //     "layoutFive": [[],[],[],[],[]],
+  //     "layoutSix": [[],[],[],[],[]],
+  //     "layoutSeven": [[],[],[],[],[]],
+  //     "layoutEight": [[],[],[],[],[]],
+  //     "layoutNine": [[],[],[],[],[]],
+  //     "layoutTen": [[],[],[],[],[]],
+  //   }
+
+  // // Get a random compLayouts Key
+  // const keys = Object.keys(compLayouts)
+  // const pickRandom = Math.floor(Math.random() * 10); // returns integer
+  // console.log(pickRandom)
+
+
+  
+  // computer.gameboard.placeWich(computer.gameboard.submarine, compLayouts.layoutOne[0])
+  // computer.gameboard.placeWich(computer.gameboard.french, compLayouts.layoutOne[1])
+  // computer.gameboard.placeWich(computer.gameboard.reuben, compLayouts.layoutOne[2])
+  // computer.gameboard.placeWich(computer.gameboard.club, compLayouts.layoutOne[3])
+  // computer.gameboard.placeWich(computer.gameboard.hotDog, compLayouts.layoutOne[4])
+  

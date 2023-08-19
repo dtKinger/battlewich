@@ -10,7 +10,6 @@ let welcomeTimeoutID;
 
 mainArea.style.justifyContent = 'flex-start';
 
-
 getName.addEventListener('click', (e) => {
   e.preventDefault();
   if (form.checkValidity()){

@@ -44,19 +44,22 @@ export function boardSetUp (p1Name) {
       compGameboard.hotDog
     ]
 
-    let attempts = 0;
-    const maxAttempts = 20;
-    
-    while (attempts < maxAttempts){
-      let coords = generateOneCoordSet()
-      try{
-        attempts += 1;
-        if(compGameboard.checkSpaces(sandwichArr[0], coords) === true){
-          compGameboard.placeWich(sandwichArr[0], coords)
-          return;
+    for (let i = 0; i < sandwichArr.length; i += 1){
+      let attempts = 0;
+      const maxAttempts = 20;
+      
+      while (attempts < maxAttempts){
+        let coords = generateOneCoordSet()
+        try{
+          attempts += 1;
+          if(compGameboard.checkSpaces(sandwichArr[i], coords.coordinates, coords.axis) === true){
+            console.log(sandwichArr[i].name, coords.coordinates, coords.axis)
+            compGameboard.placeWich(sandwichArr[i], coords.coordinates, coords.axis)
+            break;
+          }
+        } catch (error) {
+          console.error(error);
         }
-      } catch (error) {
-        console.error(error);
       }
     }
   }
@@ -65,10 +68,15 @@ export function boardSetUp (p1Name) {
   
     const a = Math.floor(Math.random() * 10);
     const b = Math.floor(Math.random() * 10);
-    // let thisAxis = 'y'
-    const coordinates = [a,b];
-    return coordinates;
-     
+    let c = Math.floor(Math.random() * 10);
+    if (c < 5){ // Coin flip tails
+      c = 'x'
+    } else if (c >= 5){
+      c = 'y'
+    }
+    const axis = c;
+    const coordinates = [a,b]; // row, col, axis
+    return {coordinates, axis};  
   }
 }
 

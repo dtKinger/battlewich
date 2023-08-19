@@ -119,6 +119,7 @@ function revealEatenWiches () {
         }
       }
     }
+  }
     
   if (compGameboard.hotDog.isEaten()){
     for (let row = 0; row < 10; row += 1) {
@@ -131,7 +132,7 @@ function revealEatenWiches () {
       }
     }
   }
-}
+
 
 function showPlayAgainModal () {
   const mainArea = document.querySelector('.main')

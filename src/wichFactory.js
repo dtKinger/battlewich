@@ -11,6 +11,7 @@ export const makeWich = (name, length, biteCount = 0, eatenStatus = false) => {
     bite() { // The action of getting hit
       if (this.biteCount < this.length){
         this.biteCount += 1
+        this.playSound();
       }
       return this.biteCount
     },
@@ -22,6 +23,13 @@ export const makeWich = (name, length, biteCount = 0, eatenStatus = false) => {
         updateDomMessage(`The ${sandwichName.charAt(0).toUpperCase()}${sandwichName.slice(1)} has been entirely consumed!`)
       } 
       return this.eatenStatus;
+    },
+
+    playSound() {
+      const audio = document.querySelector('#sound-bite');
+      if (!audio) return;
+      audio.currentTime = 0;
+      audio.play();
     },
 
   }

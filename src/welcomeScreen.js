@@ -9,7 +9,7 @@ const form = document.querySelector('form')
 let welcomeTimeoutID;
 
 mainArea.style.justifyContent = 'flex-start';
-document.querySelector('.header').style.marginBottom = '20px';
+
 
 getName.addEventListener('click', (e) => {
   e.preventDefault();

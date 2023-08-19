@@ -27,6 +27,7 @@
   justify-content: space-around;
   align-items: center;
   min-height: 100px;
+  margin-bottom: 20px;
 }
 
 .main {
@@ -473,9 +474,14 @@ a, a:visited, a:hover, a:active {
   }
 }
 
-@media screen and (max-width: 683px) {
+@media screen and (max-width: 739px) {
   
   .gameboard-container {
     flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .header {
+    margin-bottom: 0px;
   }
 }

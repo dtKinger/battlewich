@@ -72,66 +72,28 @@ export async function gameLoop() {
 }
 
 function revealEatenWiches () {
-  // This function is soaking wet...
-  // I could introduce the sandwichArr again to iterate on it to
-  // DRY things up, though.
   const compDomBoard = document.querySelector('.gameboard-computer')
-  
-  if (compGameboard.submarine.isEaten()){
-    for (let row = 0; row < 10; row += 1) {
-      for (let col = 0; col < 10; col += 1) {
-        if (compBoard[row][col] === 'sb'){
-          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
-          cell.textContent = compBoard[row][col].charAt(0);
-        }
-      }
-    }
-  }
-    
-  if (compGameboard.french.isEaten()){
-    for (let row = 0; row < 10; row += 1) {
-      for (let col = 0; col < 10; col += 1) {
-        if (compBoard[row][col] === 'fb'){
-          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
-          cell.textContent = compBoard[row][col].charAt(0);
-        }
-      }
-    }
-  }
-  
-  if (compGameboard.reuben.isEaten()){
-    for (let row = 0; row < 10; row += 1) {
-      for (let col = 0; col < 10; col += 1) {
-        if (compBoard[row][col] === 'rb'){
-          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
-          cell.textContent = compBoard[row][col].charAt(0);
-          }
-        }
-      }
-    }
-    
-  if (compGameboard.club.isEaten()){
-    for (let row = 0; row < 10; row += 1) {
-      for (let col = 0; col < 10; col += 1) {
-        if (compBoard[row][col] === 'cb'){
-          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
-          cell.textContent = compBoard[row][col].charAt(0);
-        }
-      }
-    }
-  }
-    
-  if (compGameboard.hotDog.isEaten()){
-    for (let row = 0; row < 10; row += 1) {
-      for (let col = 0; col < 10; col += 1) {
-        if (compBoard[row][col] === 'hb'){
-          let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
-          cell.textContent = compBoard[row][col].charAt(0);
+  const sandwichArr = [
+    compGameboard.submarine,
+    compGameboard.french,
+    compGameboard.reuben,
+    compGameboard.club,
+    compGameboard.hotDog
+  ]
+
+  for (let i = 0; i < sandwichArr.length; i += 1){
+    if (sandwichArr[i].isEaten()){
+      for (let row = 0; row < 10; row += 1) {
+        for (let col = 0; col < 10; col += 1) {
+          if (compBoard[row][col] === `${sandwichArr[i].name.charAt(0)}b`){
+            let cell = compDomBoard.querySelector(`[data-id="[${row},${col}]"]`) 
+            cell.textContent = compBoard[row][col].charAt(0);
           }
         }
       }
     }
   }
+}
 
 
 function showPlayAgainModal () {

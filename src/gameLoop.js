@@ -6,7 +6,7 @@ import { addListeners } from './gameLoopEvents';
 import { buildHTMLBoards } from "./buildHTMLBoards";
 import { updateDomMessage } from "./updateDomMessage";
 import { boardSetUp } from "./boardSetUp";
-import { compTargeting } from "./compTargeting";
+import { compTargeting, populateHitQueue, checkIfHit } from "./compTargeting";
 
 export function setUpGameLoop() {
   
@@ -62,10 +62,15 @@ export async function gameLoop() {
     console.log(`Computer's turn`)
 
     let newTarget = compTargeting(); // off-load targeting
-    console.log(newTarget)
+    
     // newTarget will be defined. It will either be from the queue or a random attack
     p1Gameboard.receiveAttack(newTarget);
-    console.log(newTarget[0], newTarget[1])
+    let a = parseInt(newTarget[0])
+    let b = parseInt(newTarget[1])
+    if (checkIfHit(a,b)){
+      populateHitQueue(a,b)
+    }
+    
     // How do I report a hit to gameLoop?
     // Check for a bite
     // Check the p1Board[newTarget[0], newTarget[1]].chartAt(1) == b

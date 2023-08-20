@@ -9,7 +9,7 @@ import { compTargeting, populateHitQueue, checkIfHit } from "./compTargeting";
 
 
 export function setUpGameLoop(gameSpeed) {
-  
+  document.querySelector('.h1').scrollIntoView({ behavior: 'smooth', block: 'start' });
   const mainArea = document.querySelector('.main')
   mainArea.innerHTML = `
     <div class="game">

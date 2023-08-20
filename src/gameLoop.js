@@ -5,7 +5,6 @@ import { checkWinner } from "./checkWinner"
 import { addListeners } from './gameLoopEvents';
 import { buildHTMLBoards } from "./buildHTMLBoards";
 import { updateDomMessage } from "./updateDomMessage";
-import { boardSetUp } from "./boardSetUp";
 import { compTargeting, populateHitQueue, checkIfHit } from "./compTargeting";
 
 export function setUpGameLoop() {

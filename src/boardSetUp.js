@@ -10,7 +10,7 @@ export function boardSetUp (p1Name, gameSpeed) {
   const mainArea = document.querySelector('.main')
   updateDomMessage(`Welcome ${p1Name}. Position your Submarine... sandwich. 0 / 5`)
   mainArea.style.justifyContent = 'center'; // Undo styling from Welcome screen.
-  
+  document.querySelector('.loading-bumper').remove() // just to center hamburger layout briefly.
   mainArea.innerHTML = `
     <div class="game">
 

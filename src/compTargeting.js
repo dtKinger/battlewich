@@ -9,8 +9,6 @@ export function compTargeting() {
     let generated = computer.generateAtkCoords(p1Gameboard);
     if (generated) {
       queuedCoordinates.add(JSON.stringify(generated)); // Add to the queuedCoordinates Set
-      console.log(queuedCoordinates)
-      console.log(p1Gameboard.bittenCoordinates)
     }
     return generated;
   }

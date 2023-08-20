@@ -404,6 +404,10 @@ a, a:visited, a:hover, a:active {
   display: none;
 }
 
+.loading-bumper{
+  height: 20vh;
+}
+
 .axis-area {
   min-height: 140px;
 }

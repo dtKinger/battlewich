@@ -9,6 +9,7 @@ const form = document.querySelector('form')
 let welcomeTimeoutID;
 const speedSelect = document.querySelector('#speed')
 let gameSpeed;
+document.querySelector('.loading-bumper').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
 mainArea.style.justifyContent = 'flex-start';
 

@@ -1,5 +1,6 @@
 # Battle Sandwich
 It's like Battleship... only tastier!
+- [Assignment outline](https://www.theodinproject.com/lessons/node-path-javascript-battleship)
 
 ## Key Learnings
 - First project built using TDD
@@ -19,3 +20,5 @@ It's like Battleship... only tastier!
 - Jest config
 - Babel config
 - Webpack config
+- Try/Catch error handling
+- Async/await useful for player turn in game loop.

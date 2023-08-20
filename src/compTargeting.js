@@ -1,21 +1,27 @@
 import { player1, computer, p1Gameboard, p1Board, compGameboard, compBoard } from "./playerCreation";
 
-// p1Gameboard.bittencoordinates = player1.gameboard.bittencoordinates
 export function compTargeting () {
+  
+//   if (computer.nextHitQueue.length > 0){
+//     return getValidCoords(); // Recursive, but if it exhausts the Q, it will generate random anyway
+//   } else {
+//     return computer.generateAtkCoords();
+//   }
+  
+// }
 
+// function getValidCoords () {
+//   console.log(`Try to read p1Gameboard.bittenCoordinates`)
+//   if (!p1Gameboard.bittenCoordinates.has(computer.nextHitQueue[0])){
+//     let qItem = computer.nextHitQueue.shift()
+//     return qItem; 
+//   } else {
+//     computer.nextHitQueue.shift() // Toss it in the garbage.
+//   };
 
-  return nextTarget;
-}
+//   while (computer.nextHitQueue.length > 0){
+//     return getValidCoords();
+//   }
 
-// If there are hits in the queue, use them for targeting
-if (computer.nextHitQueue.length > 0) {
-  newTarget = computer.nextHitQueue[0].shift();
-
-  // If everything around the hit has been bitten
-  if (computer.nextHitQueue[0].length === 0) {
-    computer.nextHitQueue.shift();
-  }
-} else {
-  // If queue is empty, generate random coordinates for the first attack
-  newTarget = computer.generateAtkCoords(p1Gameboard);
+  return computer.generateAtkCoords(p1Gameboard);
 }

@@ -6,6 +6,7 @@ import { addListeners } from './gameLoopEvents';
 import { buildHTMLBoards } from "./buildHTMLBoards";
 import { updateDomMessage } from "./updateDomMessage";
 import { boardSetUp } from "./boardSetUp";
+import { compTargeting } from "./compTargeting";
 
 export function setUpGameLoop() {
   
@@ -58,24 +59,16 @@ export async function gameLoop() {
     
   } else if (computer.active) {
     // Computer's turn
-
     console.log(`Computer's turn`)
-    let newTarget;
 
-    // If there are hits in the queue, use them for targeting
-    if (computer.nextHitQueue.length > 0) {
-      newTarget = computer.nextHitQueue[0].shift();
-
-      // If everything around the hit has been bitten
-      if (computer.nextHitQueue[0].length === 0) {
-        computer.nextHitQueue.shift();
-      }
-    } else {
-      // If queue is empty, generate random coordinates for the first attack
-      newTarget = computer.generateAtkCoords(p1Gameboard);
-    }
-
+    let newTarget = compTargeting(); // off-load targeting
+    console.log(newTarget)
+    // newTarget will be defined. It will either be from the queue or a random attack
     p1Gameboard.receiveAttack(newTarget);
+    console.log(newTarget[0], newTarget[1])
+    // How do I report a hit to gameLoop?
+    // Check for a bite
+    // Check the p1Board[newTarget[0], newTarget[1]].chartAt(1) == b
     updatePlayerBoard();
     p1Gameboard.isEverythingConsumed();
 

@@ -6,6 +6,7 @@ export const Player = ((name, role) => {
     name,
     role,
     active: false,
+    nextHitQueue: [],
     nextHitOptions: [
       [-1, 0], [0, 1], [1, 0], [0, -1]
     ],

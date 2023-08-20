@@ -360,6 +360,10 @@ a, a:visited, a:hover, a:active {
   align-items: center;
 }
 
+.alt-axis-btn {
+  display: none;
+}
+
 .axis-btn-padding{
   padding: 12px 20px;
 }
@@ -400,6 +404,12 @@ a, a:visited, a:hover, a:active {
   text-align: center;
 }
 
+.alt-subtext{
+  display: none;
+  padding-top: 10px;
+  text-align: center;
+}
+
 .hide {
   display: none;
 }
@@ -409,10 +419,12 @@ a, a:visited, a:hover, a:active {
 }
 
 .axis-area {
-  min-height: 140px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-
 
 @keyframes fadeInText {
   0% { opacity: 0; }
@@ -455,4 +467,29 @@ a, a:visited, a:hover, a:active {
   .big-name-input{
     border: 2px solid white; 
    }  
+
+  .subtext{
+    display: none;
+  }
+
+  .alt-subtext{
+    display: block;
+  }
+
+  .axis-btn__y {
+    writing-mode: initial;
+    transform: rotate(0deg);
+  }
+
+  .axis-area {
+    min-height: 120px;
+  }
+
+  .original-axis {
+    display: none;
+  }
+
+  .alt-axis-btn {
+    display: block;
+  }
 }

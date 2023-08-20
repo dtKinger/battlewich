@@ -1,5 +1,5 @@
 import { cursor } from "sisteransi";
-import { player1 } from "./playerCreation";
+import { p1Gameboard, player1 } from "./playerCreation";
 import { placeWich } from "./Gameboard"
 import { renderPlayerWiches } from "./renderBoard";
 import { updateDomMessage } from "./updateDomMessage";
@@ -24,9 +24,11 @@ export const buildOneHTMLBoard = ( (contextName) => {
         
     <div class="axis-area">
       <div class="tester-background axis-btn">
-          <button class="tester axis-btn axis-btn-padding">Axis</button>
+          <button class="tester axis-btn axis-btn-padding original-axis">Axis</button>
+          <button class="tester axis-btn-padding alt-axis-btn">Orientation</button>
         </div>
           <p class="subtext">Hold <kbd>alt</kbd> / <kbd>option</kbd></p>
+          <p class="alt-subtext">Horizontal</p>
         </div>
       <div class="board-context">
         <h3>${contextName}</h3>
@@ -37,6 +39,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
     </div>
   `
   const subtext = document.querySelector('.subtext')
+  const altSubtext = document.querySelector('.alt-subtext')
   const axisButton = document.querySelector('.axis-btn')
   // const axisLabel = document.querySelector('.axis-label')
   const oddClasses = ['square', 'light-wood']
@@ -79,11 +82,11 @@ export const buildOneHTMLBoard = ( (contextName) => {
       if (currentAxis === 'x'){
         currentAxis = 'y'
         subtext.classList.add('hide')
-        // axisLabel.textContent = 'Y'
+        altSubtext.textContent = `Vertical` // Mobile concessions
       } else if (currentAxis === 'y'){
         currentAxis = 'x'
         subtext.classList.remove('hide')
-        // axisLabel.textContent = 'X'
+        altSubtext.textContent = `Horizontal` // Mobile concessions
       }
       axisButton.classList.toggle('axis-btn__y')
     })

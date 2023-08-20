@@ -80,7 +80,7 @@ export async function gameLoop(gameSpeed) {
   // Flip the turn switch
   player1.active = !player1.active;
   computer.active = !computer.active;
-  if (gameSpeed === 'suspensful'){
+  if (gameSpeed === 'suspenseful'){
     setTimeout(() => gameLoop(gameSpeed), 2200); // Re-start the game loop
   } else if (gameSpeed === 'turbo'){
     setTimeout(() => gameLoop(gameSpeed), 600); // Re-start the game loop

@@ -296,10 +296,6 @@ a, a:visited, a:hover, a:active {
   max-width: 750px;
 }
 
-.big-name-input--webkit{
-  border: 2px solid white;
-}
-
 @keyframes glowBoxShadow {
   0% { box-shadow:0 0 4px 4px white, inset 0 0 4px 4px white; }
   50% { box-shadow:0 0 4px 4px rgba(0, 255, 0, 0.5), inset 0 0 4px 4px rgba(0, 255, 0, 0.5);}
@@ -495,4 +491,11 @@ a, a:visited, a:hover, a:active {
   .header {
     margin-bottom: 0px;
   }
+}
+
+/* Mobile concessions */
+@media screen and (max-width: 480px) {
+  .big-name-input{
+    border: 2px solid white; 
+   }  
 }

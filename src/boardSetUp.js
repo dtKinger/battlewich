@@ -22,6 +22,8 @@ export function boardSetUp (p1Name, gameSpeed) {
   `
 
   buildOneHTMLBoard(player1.name);
+  // scroll is helpful on mobile view
+  document.querySelector('.h1').scrollIntoView({ behavior: 'smooth', block: 'start' });
   placeFiveCompWiches();
 
   const startButton = document.querySelector('.start-btn')

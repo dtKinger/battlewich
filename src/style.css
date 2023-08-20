@@ -285,6 +285,8 @@ a, a:visited, a:hover, a:active {
   width: 80vw;
   min-height: 80px;
   border: none;
+  -webkit-box-shadow: 0 0 6px 6px white, inset 0 0 6px 6px white;
+  -moz-box-shadow: 0 0 6px 6px white, inset 0 0 6px 6px white;
   box-shadow: 0 0 6px 6px white, inset 0 0 6px 6px white;
   border-radius: 20px;
   font-size: 1.5em;
@@ -292,6 +294,10 @@ a, a:visited, a:hover, a:active {
   animation: glowBoxShadow 1.5s infinite; 
   caret-color:blue; 
   max-width: 750px;
+}
+
+.big-name-input--webkit{
+  border: 2px solid white;
 }
 
 @keyframes glowBoxShadow {

@@ -63,17 +63,14 @@ export async function gameLoop() {
 
     let newTarget = compTargeting(); // off-load targeting
     
-    // newTarget will be defined. It will either be from the queue or a random attack
     p1Gameboard.receiveAttack(newTarget);
     let a = parseInt(newTarget[0])
     let b = parseInt(newTarget[1])
     if (checkIfHit(a,b)){
       populateHitQueue(a,b)
     }
+    console.log(computer.nextHitQueue)
     
-    // How do I report a hit to gameLoop?
-    // Check for a bite
-    // Check the p1Board[newTarget[0], newTarget[1]].chartAt(1) == b
     updatePlayerBoard();
     p1Gameboard.isEverythingConsumed();
 

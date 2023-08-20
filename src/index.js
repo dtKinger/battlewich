@@ -17,8 +17,6 @@ console.log("Welcome to Battle 'Wich!")
 // all After Game Sign-in stage.
 // Generate HTML and CSS for two gameboards. Note: Does not render sandwiches
 
-
-
 /* Application */
 
 

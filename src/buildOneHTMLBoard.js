@@ -98,7 +98,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
     function handleAltKey (e) {
       let square = document.querySelector(`[data-id="[${lastKnownLoc[0]},${lastKnownLoc[1]}]"]`);
       
-      if (e.key === 'Alt') {
+      if (e.code === 'AltLeft' || e.code === 'AltRight') {
         toggleAxis();
         subtext.classList.toggle('hide');
         lowLight(); // un-highlight the hover-highlight for other axis.

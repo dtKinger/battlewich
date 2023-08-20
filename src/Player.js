@@ -16,7 +16,6 @@ export const Player = ((name, role) => {
     async takeTurn(opponentBoard) {
       if (this.role === 'player2') {
         // NOT USED IN PLAYERS1 SETTING
-        // console.log(opponentBoard)
         // const coordinates = this.generateAtkCoords();
         // opponentBoard.receiveAttack(coordinates);
       } else if (this.role === 'player1') {
@@ -50,7 +49,6 @@ export const Player = ((name, role) => {
       if (this.role !== 'player2') {
         return;
       }
-      console.log()
       let attempts = 0;
       const maxAttempts = 10; // Maximum number of attempts before giving up
     
@@ -61,7 +59,7 @@ export const Player = ((name, role) => {
     
         if (opponentBoard.bittenCoordinates.has(JSON.stringify(coordinates))) {
           if (opponentBoard.bittenCoordinates.size >= 100) {
-            console.log(`That took too many randoms!`);
+            console.warn(`That took too many randoms!`);
             return null;
           }
           return tryGenerateCoordinates(); // Recursive call to try generating new coordinates

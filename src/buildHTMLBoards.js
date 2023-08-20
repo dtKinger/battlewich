@@ -11,7 +11,7 @@ export const buildHTMLBoards = ( () => {
         </div>
       </div>
       <div class="board-context">
-        <h3>Computer</h3>
+        <h3>Robotica</h3>
         <div class="gameboard gameboard-computer">
         </div>
       </div>

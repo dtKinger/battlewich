@@ -53,7 +53,6 @@ export function boardSetUp (p1Name, gameSpeed) {
         try{
           attempts += 1;
           if(compGameboard.checkSpaces(sandwichArr[i], coords.coordinates, coords.axis) === true){
-            console.log(sandwichArr[i].name, coords.coordinates, coords.axis)
             compGameboard.placeWich(sandwichArr[i], coords.coordinates, coords.axis)
             break;
           }

@@ -55,11 +55,9 @@ export async function gameLoop(gameSpeed) {
       showPlayAgainModal();
       return;
     };
-    console.log(`something less unique`)
     
   } else if (computer.active) {
     // Computer's turn
-    console.log(`Computer's turn`)
 
     let newTarget = compTargeting(); // off-load targeting
     
@@ -69,7 +67,6 @@ export async function gameLoop(gameSpeed) {
     if (checkIfHit(a,b)){
       populateHitQueue(a,b)
     }
-    console.log(computer.nextHitQueue)
     
     updatePlayerBoard();
     p1Gameboard.isEverythingConsumed();
@@ -83,7 +80,6 @@ export async function gameLoop(gameSpeed) {
   // Flip the turn switch
   player1.active = !player1.active;
   computer.active = !computer.active;
-  console.log(gameSpeed + 'Right before I need to use it')
   if (gameSpeed === 'suspensful'){
     setTimeout(() => gameLoop(gameSpeed), 2200); // Re-start the game loop
   } else if (gameSpeed === 'turbo'){

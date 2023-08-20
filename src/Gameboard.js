@@ -128,7 +128,7 @@ export const Gameboard = ( (name) => {
       } else if (squareStatus.match(sandwichRegex)) {
         this.board[row][col] += 'b'; // append a bite to the sandwich square.
     
-        updateDomMessage(`NOM NOM NOM! ${this.name} loses a big chunk of sandwich!`);
+        updateDomMessage(`NOM NOM NOM! ${this.name.charAt(0).toUpperCase()}${this.name.slice(1)} loses a big chunk of sandwich!`);
         switch (squareStatus) {
           case 's':
             this.submarine.bite();

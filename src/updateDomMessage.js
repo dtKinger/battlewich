@@ -8,5 +8,5 @@ export function updateDomMessage (message) {
   domStatusMessage.classList.add('game-status__animate'); // Add the animation class
   setTimeout(() => {
     domStatusMessage.classList.remove('game-status__animate'); // Remove the animation class after the animation plays
-  }, 1500); // Adjust the delay as needed
+  }, 600); // Adjust the delay as needed
 }

@@ -50,7 +50,7 @@ export const Player = ((name, role) => {
       if (this.role !== 'player2') {
         return;
       }
-    
+      console.log()
       let attempts = 0;
       const maxAttempts = 10; // Maximum number of attempts before giving up
     

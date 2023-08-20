@@ -7,6 +7,8 @@ const getName = document.querySelector('.tester')
 const input = document.querySelector('#p1-name')
 const form = document.querySelector('form')
 let welcomeTimeoutID;
+const speedSelect = document.querySelector('#speed')
+let gameSpeed;
 
 mainArea.style.justifyContent = 'flex-start';
 
@@ -15,7 +17,8 @@ getName.addEventListener('click', (e) => {
   if (form.checkValidity()){
     const newPlayer = input.value
     clearTimeout(welcomeTimeoutID);
-    boardSetUp(newPlayer)
+    gameSpeed = getSpeed()
+    boardSetUp(newPlayer, gameSpeed)
   } else {
     form.reportValidity()
   }
@@ -26,4 +29,8 @@ export function welcomeScreen() {
   welcomeTimeoutID = setTimeout(() => {
     updateDomMessage(`Enter your name to begin.`);
   }, 3000);
+}
+
+function getSpeed () {
+  return speedSelect.options[speedSelect.selectedIndex].value;
 }

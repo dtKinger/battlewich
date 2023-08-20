@@ -7,7 +7,8 @@ import { buildHTMLBoards } from "./buildHTMLBoards";
 import { updateDomMessage } from "./updateDomMessage";
 import { compTargeting, populateHitQueue, checkIfHit } from "./compTargeting";
 
-export function setUpGameLoop() {
+
+export function setUpGameLoop(gameSpeed) {
   
   const mainArea = document.querySelector('.main')
   mainArea.innerHTML = `
@@ -27,13 +28,13 @@ export function setUpGameLoop() {
   addListeners(); // crosshair, orange highlight
 
   if (player1.active){
-    gameLoop();
+    gameLoop(gameSpeed);
   }
   
 }
 
 // Game Loop
-export async function gameLoop() {
+export async function gameLoop(gameSpeed) {
   
   const compDomBoard = document.querySelector('.gameboard-computer')
   // Base case 1
@@ -82,7 +83,14 @@ export async function gameLoop() {
   // Flip the turn switch
   player1.active = !player1.active;
   computer.active = !computer.active;
-  setTimeout(gameLoop, 1000); // Re-start the game loop
+  console.log(gameSpeed + 'Right before I need to use it')
+  if (gameSpeed === 'suspensful'){
+    setTimeout(() => gameLoop(gameSpeed), 2200); // Re-start the game loop
+  } else if (gameSpeed === 'turbo'){
+    setTimeout(() => gameLoop(gameSpeed), 600); // Re-start the game loop
+  } else if (gameSpeed === 'balanced'){ 
+    setTimeout(() => gameLoop(gameSpeed), 1200); // Re-start the game loop
+  }
 };
     
     

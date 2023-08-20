@@ -3,7 +3,7 @@ import { updateDomMessage } from './updateDomMessage';
 import { player1, computer, compGameboard } from "./playerCreation"
 import { buildOneHTMLBoard } from "./buildOneHTMLBoard"
 
-export function boardSetUp (p1Name) {
+export function boardSetUp (p1Name, gameSpeed) {
   
   player1.name = `${p1Name}`
   player1.gameboard.name = `${p1Name}`
@@ -31,7 +31,7 @@ export function boardSetUp (p1Name) {
     // new game? Set P1's turn
     if (player1.active === false && computer.active === false) {
       player1.active = true;
-      setUpGameLoop()
+      setUpGameLoop(gameSpeed)
     }
   })
   
@@ -69,7 +69,7 @@ export function boardSetUp (p1Name) {
     const a = Math.floor(Math.random() * 10);
     const b = Math.floor(Math.random() * 10);
     let c = Math.floor(Math.random() * 10);
-    if (c < 5){ // Coin flip tails
+    if (c < 5){ // Coin flip tails to orient computer sandwich.
       c = 'x'
     } else if (c >= 5){
       c = 'y'
@@ -79,32 +79,3 @@ export function boardSetUp (p1Name) {
     return {coordinates, axis};  
   }
 }
-
-
-  //   // Controlled-random:
-  //   const compLayouts = {
-  //     "layoutOne": [[1,1,'x'],[7,1,'y'],[9,6,'x'],[6,5,'y'],[3,7,'y']],
-  //     "layoutTwo": [[],[],[],[],[]],
-  //     "layoutThree": [[],[],[],[],[]],
-  //     "layoutFour": [[],[],[],[],[]],
-  //     "layoutFive": [[],[],[],[],[]],
-  //     "layoutSix": [[],[],[],[],[]],
-  //     "layoutSeven": [[],[],[],[],[]],
-  //     "layoutEight": [[],[],[],[],[]],
-  //     "layoutNine": [[],[],[],[],[]],
-  //     "layoutTen": [[],[],[],[],[]],
-  //   }
-
-  // // Get a random compLayouts Key
-  // const keys = Object.keys(compLayouts)
-  // const pickRandom = Math.floor(Math.random() * 10); // returns integer
-  // console.log(pickRandom)
-
-
-  
-  // computer.gameboard.placeWich(computer.gameboard.submarine, compLayouts.layoutOne[0])
-  // computer.gameboard.placeWich(computer.gameboard.french, compLayouts.layoutOne[1])
-  // computer.gameboard.placeWich(computer.gameboard.reuben, compLayouts.layoutOne[2])
-  // computer.gameboard.placeWich(computer.gameboard.club, compLayouts.layoutOne[3])
-  // computer.gameboard.placeWich(computer.gameboard.hotDog, compLayouts.layoutOne[4])
-  

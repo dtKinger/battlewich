@@ -1,7 +1,7 @@
 import { Player } from "./Player";
 
 export const player1 = Player(`placeholder`, `player1`)
-export const computer = Player(`computer`, `player2`)
+export const computer = Player(`robotica`, `player2`)
 
 // Gameboard alias creations
 export const p1Gameboard = player1.gameboard; // alias for gameboard

@@ -8,7 +8,6 @@ import { welcomeScreen } from './welcomeScreen'
 import { buildHTMLBoards } from "./buildHTMLBoards"
 import { addListeners } from "./gameLoopEvents"
 
-
 /* Memory allocation */
 
 

@@ -189,7 +189,7 @@ a, a:visited, a:hover, a:active {
 }
 
 .game-status__animate {
-  animation: fadeInRefresh 1500ms;
+  animation: fadeInRefresh 600ms;
 }
 
 .game-status__reveal {
@@ -303,7 +303,7 @@ a, a:visited, a:hover, a:active {
 }
 
 
-.tester{
+.tester, select{
   padding: 4px 20px;
   font-family: 'videophreak';
   /* text-transform: uppercase; */
@@ -317,6 +317,11 @@ a, a:visited, a:hover, a:active {
   cursor: pointer;
   transition: transform 200ms ease;
   box-shadow: transparent;
+}
+
+.select {
+  font-size: 1em;
+  width: min-content;
 }
 
 .tester-background {
@@ -403,58 +408,6 @@ a, a:visited, a:hover, a:active {
   min-height: 140px;
 }
 
-/* 
-.wich-marker{
-  position: absolute;
-  height: 32px;
-  background-size:cover;
-  background-repeat: no-repeat;
-}
-
-.wich-marker__submarine{
-  width: calc(32px * 5);
-  background-image: url("../dist/sandwich_images/attributed_sub.png");
-
-}
-.wich-marker__french{
-  width: calc(32px * 4);
-  background-image: url("../dist/sandwich_images/attributed_sub.png");
-}
-.wich-marker__reuben{
-  width: calc(32px * 3);
-  background-image: url("../dist/sandwich_images/attributed_sub.png");
-}
-.wich-marker__club{
-  width: calc(32px * 3);
-  background-image: url("../dist/sandwich_images/attributed_sub.png");
-}
-.wich-marker__hot-dog{
-  width: calc(32px * 2);
-  background-image: url("../dist/sandwich_images/attributed_sub.png");
-}
-
-@media screen and (min-width: 901px) {
-
-  .wich-marker{
-    height: 40px;
-  }
-
-  .wich-marker__submarine{
-    width: calc(40px * 5);
-  }
-  .wich-marker__french{
-    width: calc(40px * 4);
-  }
-  .wich-marker__reuben{
-    width: calc(40px * 3);
-  }
-  .wich-marker__club{
-    width: calc(40px * 3);
-  }
-  .wich-marker__hot-dog{
-    width: calc(40px * 2);
-  }
-} */
 
 
 @keyframes fadeInText {

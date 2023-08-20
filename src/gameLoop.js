@@ -34,7 +34,7 @@ export function setUpGameLoop() {
 
 // Game Loop
 export async function gameLoop() {
-
+  
   const compDomBoard = document.querySelector('.gameboard-computer')
   // Base case 1
   if (p1Gameboard.everythingIsEaten || compBoard.everythingIsEaten) {
@@ -54,22 +54,45 @@ export async function gameLoop() {
       showPlayAgainModal();
       return;
     };
+    console.log(`something less unique`)
+    
   } else if (computer.active) {
     // Computer's turn
-    const computerCoordinates = computer.generateAtkCoords(p1Gameboard); 
-    p1Gameboard.receiveAttack(computerCoordinates);
+
+    console.log(`Computer's turn`)
+    let newTarget;
+
+    // If there are hits in the queue, use them for targeting
+    if (computer.nextHitQueue.length > 0) {
+      newTarget = computer.nextHitQueue[0].shift();
+
+      // If everything around the hit has been bitten
+      if (computer.nextHitQueue[0].length === 0) {
+        computer.nextHitQueue.shift();
+      }
+    } else {
+      // If queue is empty, generate random coordinates for the first attack
+      newTarget = computer.generateAtkCoords(p1Gameboard);
+    }
+
+    p1Gameboard.receiveAttack(newTarget);
     updatePlayerBoard();
     p1Gameboard.isEverythingConsumed();
-    if(checkWinner() === true){
+
+    if (checkWinner() === true) {
       showPlayAgainModal();
       return;
-    };
+    }
   }
+  
   // Flip the turn switch
   player1.active = !player1.active;
   computer.active = !computer.active;
   setTimeout(gameLoop, 1000); // Re-start the game loop
-}
+};
+    
+    
+
 
 function revealEatenWiches () {
   const compDomBoard = document.querySelector('.gameboard-computer')

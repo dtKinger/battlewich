@@ -6,7 +6,12 @@ export const Player = ((name, role) => {
     name,
     role,
     active: false,
+    nextHitOptions: [
+      [-1, 0], [0, 1], [1, 0], [0, -1]
+    ],
+    lastHit: null,
     
+
     async takeTurn(opponentBoard) {
       if (this.role === 'player2') {
         // NOT USED IN PLAYERS1 SETTING

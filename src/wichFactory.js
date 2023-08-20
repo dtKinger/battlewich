@@ -11,7 +11,7 @@ export const makeWich = (name, length, biteCount = 0, eatenStatus = false) => {
     bite() { // The action of getting hit
       if (this.biteCount < this.length){
         this.biteCount += 1
-        this.playSound();
+        this.playBite();
       }
       return this.biteCount
     },
@@ -25,7 +25,7 @@ export const makeWich = (name, length, biteCount = 0, eatenStatus = false) => {
       return this.eatenStatus;
     },
 
-    playSound() {
+    playBite() {
       const audio = document.querySelector('#sound-bite');
       if (!audio) return;
       audio.currentTime = 0;

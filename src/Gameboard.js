@@ -100,6 +100,7 @@ export const Gameboard = ( (name) => {
     },
     
     receiveAttack(coordinates) {
+      
       if (
         coordinates[0] < 0 ||
         coordinates[0] > 9 ||
@@ -111,7 +112,6 @@ export const Gameboard = ( (name) => {
       }
       
       if (this.bittenCoordinates.has(JSON.stringify(coordinates))) {
-        updateDomMessage(`Those coordinates have already been bitten.`);
         return; // Coordinates have been attacked before, return early
       }
     
@@ -124,6 +124,7 @@ export const Gameboard = ( (name) => {
       if (squareStatus === '') {
         // If it's a miss, mark the board with an x
         this.board[row][col] = 'x';
+        this.playMiss();
       } else if (squareStatus.match(sandwichRegex)) {
         this.board[row][col] += 'b'; // append a bite to the sandwich square.
     
@@ -165,6 +166,13 @@ export const Gameboard = ( (name) => {
           return true;
         }
       return false;  
+    },
+
+    playMiss(){
+      const audio = document.querySelector('#sound-miss');
+      if (!audio) return;
+      audio.currentTime = 0;
+      audio.play();
     }
   }
 })

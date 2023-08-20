@@ -107,7 +107,7 @@ function revealEatenWiches () {
   ]
 
   for (let i = 0; i < sandwichArr.length; i += 1){
-    if (sandwichArr[i].isEaten()){
+    if (sandwichArr[i].eatenStatus === true){
       for (let row = 0; row < 10; row += 1) {
         for (let col = 0; col < 10; col += 1) {
           if (compBoard[row][col] === `${sandwichArr[i].name.charAt(0)}b`){

@@ -173,6 +173,7 @@ export const Gameboard = ( (name) => {
       const audio = document.querySelector('#sound-miss');
       if (!audio) return;
       audio.currentTime = 0;
+      audio.volume = 0.6;
       audio.play();
     }
   }

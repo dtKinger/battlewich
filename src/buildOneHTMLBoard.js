@@ -14,6 +14,7 @@ const sandwichArr = [
 
 let currentAxis = player1.gameboard.axis;
 let lastKnownLoc = [0,0];
+let down = false;
 
 export const buildOneHTMLBoard = ( (contextName) => {
   
@@ -27,7 +28,7 @@ export const buildOneHTMLBoard = ( (contextName) => {
           <button class="tester axis-btn axis-btn-padding original-axis">Axis</button>
           <button class="tester axis-btn-padding alt-axis-btn">Orientation</button>
         </div>
-          <p class="subtext">Hold <kbd>alt</kbd> / <kbd>option</kbd></p>
+          <p class="subtext">Hold <kbd class="kbd">X</kbd></p>
           <p class="alt-subtext">Horizontal</p>
         </div>
       <div class="board-context">
@@ -92,13 +93,35 @@ export const buildOneHTMLBoard = ( (contextName) => {
     })
 
     // Combine keydown and keyup event listener
-    window.addEventListener('keydown', handleAltKey);
-    window.addEventListener('keyup', handleAltKey);
+    window.addEventListener('keydown', handleXKeyDown);
+    window.addEventListener('keyup', handleXKeyUp);
 
-    function handleAltKey (e) {
+    function handleXKeyDown (e) {
       let square = document.querySelector(`[data-id="[${lastKnownLoc[0]},${lastKnownLoc[1]}]"]`);
       
-      if (e.code === 'AltLeft' || e.code === 'AltRight') {
+      if (e.key === 'x') {
+        if (down) return
+        down = true;
+
+        toggleAxis();
+        subtext.classList.toggle('hide');
+        lowLight(); // un-highlight the hover-highlight for other axis.
+
+        if (!player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)) {
+          square.style.cursor = 'not-allowed';
+          square.classList.add('illegal-placement');
+        } else if (player1.gameboard.checkSpaces(sandwichArr[0], lastKnownLoc, currentAxis)) {
+          highlightChecked(sandwichArr[0], lastKnownLoc);
+        }
+      }
+    }
+
+    function handleXKeyUp (e) {
+      let square = document.querySelector(`[data-id="[${lastKnownLoc[0]},${lastKnownLoc[1]}]"]`);
+      
+      if (e.key === 'x') {
+        down = false;
+
         toggleAxis();
         subtext.classList.toggle('hide');
         lowLight(); // un-highlight the hover-highlight for other axis.
@@ -199,8 +222,8 @@ export const buildOneHTMLBoard = ( (contextName) => {
   });
   
   function turnOffAltKeys () {
-    window.removeEventListener('keydown', handleAltKey);
-    window.removeEventListener('keyup', handleAltKey);
+    window.removeEventListener('keydown', handleXKeyDown);
+    window.removeEventListener('keyup', handleXKeyUp);
   }
   
 });

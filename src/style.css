@@ -456,7 +456,7 @@ a, a:visited, a:hover, a:active {
   }
 }
 
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 939px) {
   
   .gameboard-container {
     flex-direction: column-reverse;

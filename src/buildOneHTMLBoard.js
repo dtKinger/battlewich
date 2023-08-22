@@ -211,7 +211,18 @@ export const buildOneHTMLBoard = ( (contextName) => {
         square.removeEventListener('click', handleSquareClick);
       });
       startButton.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
+      
+      // If holding the x key for hotDog placement
+      // Effectively release it.
+      if (down) {
+        toggleAxis();
+        document.querySelector('.original-axis').classList.add('disabled')
+        document.querySelector('.original-axis').setAttribute('disabled', "true")
+        down = false;
+      }
+    
+      // This should be done on the start button click but while moving it
+      // I noticed my code is too tightly coupled.
       turnOffAltKeys(); // disable the placeWich helper function
     }
   }

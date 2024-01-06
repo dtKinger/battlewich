@@ -3,6 +3,7 @@ It's like Battleship... only tastier!
 - [Assignment outline](https://www.theodinproject.com/lessons/node-path-javascript-battleship)
 
 ## Key Learnings
+- Using a FIFO queue (array) to plan the computer's attack plan.
 - First project built using TDD
 - *What* to unit test:
   - ![](./sandi-metz-what-to-test.png) 
@@ -17,6 +18,7 @@ It's like Battleship... only tastier!
 ![](./dist/updated-map.png)
 
 ## Reminders
+- JS Set object
 - Jest config
 - Babel config
 - Webpack config

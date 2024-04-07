@@ -1,5 +1,6 @@
 # Battle Sandwich
 It's like Battleship... only tastier!
+- [Play the game](https://dtkinger.github.io/battlewich/)
 - [Assignment outline](https://www.theodinproject.com/lessons/node-path-javascript-battleship)
 
 ## Key Learnings
